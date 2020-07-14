@@ -11,7 +11,7 @@ import Foundation
 
 protocol BingoGrid
 {
-    var type: PlayerType? { get set }
+    var type: PlayerType { get set }
     var value: Int { get set }
     var isSelected: Bool { get set }
     var isConnected: Bool { get set }

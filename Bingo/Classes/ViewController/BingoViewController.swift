@@ -18,7 +18,7 @@ class BingoViewController: UIViewController
         case end
     }
     
-
+    @IBOutlet private weak var recordLabel: UILabel!
     @IBOutlet private weak var versionLabel: UILabel!
     
     private var logic: BingoLogic?
@@ -34,10 +34,14 @@ class BingoViewController: UIViewController
         
         
         self.versionLabel.text = String(format: "v %@", AppProperties.getAppVersion())
+        self.updateRecordView()
     }
-    
-    @IBAction func onRefreshAction(_ sender: AnyObject)
+
+    private func updateRecordView()
     {
+        self.recordLabel.text = AppUtility.getString(
+                                "WIN_COUNT",
+                                parameters: self.recorder.winCount.toString(), self.recorder.lostCount.toString())
     }
     
     deinit

@@ -19,18 +19,27 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Gq-ns-4Tv">
-                                <rect key="frame" x="338" y="649.5" width="31" height="14.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="version" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Gq-ns-4Tv">
+                                <rect key="frame" x="331" y="649.5" width="41" height="14.5"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="record" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CZH-je-OuZ">
+                                <rect key="frame" x="8" y="8" width="359" height="21"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="0Gq-ns-4Tv" secondAttribute="trailing" constant="6" id="MFb-oy-Bej"/>
+                            <constraint firstItem="CZH-je-OuZ" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="8" id="4ex-1N-LRn"/>
+                            <constraint firstAttribute="trailing" secondItem="0Gq-ns-4Tv" secondAttribute="trailing" constant="3" id="MFb-oy-Bej"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="0Gq-ns-4Tv" secondAttribute="bottom" constant="3" id="UYQ-vu-lvZ"/>
+                            <constraint firstItem="CZH-je-OuZ" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="peC-kW-o5l"/>
                             <constraint firstItem="0Gq-ns-4Tv" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" symbolic="YES" id="zHO-Wf-m5K"/>
+                            <constraint firstAttribute="trailing" secondItem="CZH-je-OuZ" secondAttribute="trailing" constant="8" id="zOP-Uk-Tbq"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="gTM-Ue-kII">
@@ -42,6 +51,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="recordLabel" destination="CZH-je-OuZ" id="P2L-Bd-EZZ"/>
                         <outlet property="versionLabel" destination="0Gq-ns-4Tv" id="Lzz-x5-4R5"/>
                     </connections>
                 </viewController>
