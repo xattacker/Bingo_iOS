@@ -9,6 +9,7 @@
 import Foundation
 
 
+// 連線方向定義
 enum ConnectedDirection: Int
 {
     case null  = -1 // 無方向
@@ -30,7 +31,7 @@ enum ConnectedDirection: Int
         switch self
         {
             case .oblique_1:
-                x = 0
+                x = 1
                 y = -1
                 break
             

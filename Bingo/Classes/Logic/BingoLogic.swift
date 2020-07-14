@@ -13,11 +13,23 @@ enum PlayerType: Int
 {
     case computer = 0
     case player = 1
+    
+    func opposite() -> PlayerType
+    {
+        return self == .computer ? .player : .computer
+    }
 }
 
 
 class BingoLogic
 {
+    private class GridRecord
+    {
+        var connection: Int = 0 // 連棋數
+        var grids: [[BingoGrid]] = [[BingoGrid]]()
+    }
+    
+    
     var winner: PlayerType
     {
         return self.turn
@@ -28,12 +40,12 @@ class BingoLogic
     /* 下棋位置 */
     private var locX: Int = 0
     private var locY: Int = 0
-    private var connected: Int = 0 /* 連棋數 */
-    private var connects: [Int] = [0, 0] // 雙方連線數
+    private var connected: Int = 0 // 連棋數
     private var weight: [Int] = [0, 0, 0] // 權重
+    
     private var turn: PlayerType = PlayerType.player
     private var isGameOver: Bool = false
-    private var grids: [[[BingoGrid]]] = [[[BingoGrid]](), [[BingoGrid]]()]
+    private var grids: [GridRecord] = [GridRecord(), GridRecord()]
     
     init(delegate: BingoLogicDelegate)
     {
@@ -48,16 +60,16 @@ class BingoLogic
 
         for i in 0 ... self.grids.count
         {
-            let grids_layer_1 = self.grids[i]
-            self.connects[i] = 0
+            let record = self.grids[i]
+            record.connection = 0
 
-            for j in 0 ... grids_layer_1.count
+            for j in 0 ... record.grids.count
             {
-                let grids_layer_2 = grids_layer_1[j]
+                let grid_layer_2 = record.grids[j]
                 
-                for k in 0 ... grids_layer_2.count
+                for k in 0 ... grid_layer_2.count
                 {
-                    grids_layer_2[k].initial()
+                    grid_layer_2[k].initial()
                 }
             }
         }
@@ -65,13 +77,13 @@ class BingoLogic
     
     func addGrid(_ type: PlayerType, grid: BingoGrid, x: Int, y: Int)
     {
-        self.grids[type.rawValue][x][y] = grid
-        self.grids[type.rawValue][x][y].type = type
+        self.grids[type.rawValue].grids[x][y] = grid
+        self.grids[type.rawValue].grids[x][y].type = type
     }
     
     func getConnectionCount(_ type: PlayerType) -> Int
     {
-        return self.connects[type.rawValue]
+        return self.grids[type.rawValue].connection
     }
     
     func fillNumber(_ type: PlayerType = PlayerType.computer)
@@ -85,7 +97,7 @@ class BingoLogic
         {
             for j in 0 ... 4
             {
-                self.grids[tag][i][j].value = i * 5 + (j + 1)
+                self.grids[tag].grids[i][j].value = i * 5 + (j + 1)
             }
         }
 
@@ -93,13 +105,13 @@ class BingoLogic
         {
             for j in 0 ... 4
             {
-                temp_value = self.grids[tag][i][j].value
+                temp_value = self.grids[tag].grids[i][j].value
 
-                x = Int.random(in: 1...4)
-                y = Int.random(in: 1...4)
+                x = Int.random(in: 0...4)
+                y = Int.random(in: 0...4)
 
-                self.grids[tag][i][j].value = self.grids[tag][x][y].value
-                self.grids[tag][x][y].value = temp_value
+                self.grids[tag].grids[i][j].value = self.grids[tag].grids[x][y].value
+                self.grids[tag].grids[x][y].value = temp_value
             }
         }
     }
@@ -130,7 +142,7 @@ extension BingoLogic
 
             if !self.isGameOver && redo
             {
-                self.redo(self.grids[type.rawValue][x][y].value)
+                self.redo(self.grids[type.rawValue].grids[x][y].value)
 
                 if type == PlayerType.player && !self.isGameOver
                 {
@@ -154,7 +166,7 @@ extension BingoLogic
 
         self.connected = 1
 
-        while x >= 0 && x < 5 && y >= 0 && y < 5 && self.grids[self.turn.rawValue][x][y].isSelected == true
+        while x >= 0 && x < 5 && y >= 0 && y < 5 && self.grids[self.turn.rawValue].grids[x][y].isSelected == true
         {
             self.connected = self.connected + 1
             x = x + offset.x
@@ -164,7 +176,7 @@ extension BingoLogic
         x = self.locX - offset.x
         y = self.locY - offset.y
 
-        while x >= 0 && x < 5 && y >= 0 && y < 5 && self.grids[self.turn.rawValue][x][y].isSelected == true
+        while x >= 0 && x < 5 && y >= 0 && y < 5 && self.grids[self.turn.rawValue].grids[x][y].isSelected == true
         {
             self.connected = self.connected + 1
             x = x - offset.x
@@ -177,9 +189,9 @@ extension BingoLogic
             x = self.locX
             y = self.locY
 
-            while x >= 0 && x < 5 && y >= 0 && y < 5 && self.grids[self.turn.rawValue][x][y].isSelected == true
+            while x >= 0 && x < 5 && y >= 0 && y < 5 && self.grids[self.turn.rawValue].grids[x][y].isSelected == true
             {
-                self.grids[self.turn.rawValue][x][y].setConnectedLine(direction: direction, connected: true)
+                self.grids[self.turn.rawValue].grids[x][y].setConnectedLine(direction: direction, connected: true)
                 x = x + offset.x
                 y = y + offset.y
             }
@@ -187,18 +199,18 @@ extension BingoLogic
             x = self.locX - offset.x
             y = self.locY - offset.y
 
-            while x >= 0 && x < 5 && y >= 0 && y < 5 && self.grids[self.turn.rawValue][x][y].isSelected == true
+            while x >= 0 && x < 5 && y >= 0 && y < 5 && self.grids[self.turn.rawValue].grids[x][y].isSelected == true
             {
-                self.grids[self.turn.rawValue][x][y].setConnectedLine(direction: direction, connected: true)
+                self.grids[self.turn.rawValue].grids[x][y].setConnectedLine(direction: direction, connected: true)
                 x = x - offset.x
                 y = y - offset.y
             }
 
-            self.connects[self.turn.rawValue] = self.connects[self.turn.rawValue] + 1
+            self.grids[self.turn.rawValue].connection = self.grids[self.turn.rawValue].connection + 1
 
-            self.delegate?.onLineConnected(type: self.turn, count: self.connects[self.turn.rawValue])
+            self.delegate?.onLineConnected(type: self.turn, count: self.grids[self.turn.rawValue].connection)
 
-            if self.connects[self.turn.rawValue] >= 5 && !self.isGameOver
+            if self.grids[self.turn.rawValue].connection >= 5 && !self.isGameOver
             {
                 self.delegate?.onWon(winner: self.turn)
                 self.isGameOver = true
@@ -211,12 +223,98 @@ extension BingoLogic
         }
     }
     
+    // after the one side done, the other side do the same value
     private func redo(_ value: Int)
     {
+        self.turn = self.turn.opposite()
+
+        for i in 0 ... 4
+        {
+            for j in 0 ... 4
+            {
+                if self.grids[self.turn.rawValue].grids[i][j].value == value
+                {
+                    self.grids[self.turn.rawValue].grids[i][j].isSelected = true
+                    self.winCheck(self.turn, x: i, y: j, redo: false)
+
+                    break
+                }
+            }
+        }
     }
     
     private func runAI()
     {
+        self.turn = PlayerType.computer
+
+        for i in 0 ... 4
+        {
+            for j in 0 ... 4
+            {
+                if self.grids[self.turn.rawValue].grids[i][j].isSelected == false
+                {
+                    self.runAI2(i, y: j)
+                }
+            }
+        }
+
+        if self.weight[2] > 1
+        {
+            self.weight[2] = 0
+            self.grids[self.turn.rawValue].grids[self.weight[0]][self.weight[1]].isSelected = true
+            self.winCheck(self.turn, x: self.weight[0], y: self.weight[1], redo: true)
+        }
+        else
+        {
+            self.randomAI()
+        }
+    }
+    
+    private func runAI2(_ x: Int, y: Int)
+    {
+        self.locX = x
+        self.locY = y
+        var w = 0
+        var dir = ConnectedDirection.oblique_1
+
+        repeat
+        {
+            let offset = dir.offset
+            w = w + self.calculateWeight(offset.x, offsetY: offset.y)
+            dir = dir.next()
+
+        } while dir != ConnectedDirection.null
+
+        if w > self.weight[2]
+        {
+            self.weight[0] = self.locX
+            self.weight[1] = self.locY
+            self.weight[2] = w
+        }
+    }
+    
+    private func randomAI()
+    {
+        var x = 0
+        var y = 0
+
+        if self.grids[self.turn.rawValue].grids[2][2].isSelected == false // the first priority is center
+        {
+            y = 2
+            x = y
+        }
+        else
+        {
+            repeat
+            {
+                x = Int.random(in: 0...4)
+                y = Int.random(in: 0...4)
+
+            } while self.grids[self.turn.rawValue].grids[x][y].isSelected == true
+        }
+
+        self.grids[self.turn.rawValue].grids[x][y].isSelected = true
+        self.winCheck(self.turn, x: x, y: y, redo: true)
     }
     
     private func calculateWeight(_ offsetX: Int, offsetY: Int) -> Int
@@ -230,7 +328,7 @@ extension BingoLogic
 
         while x >= 0 && x < 5 && y >= 0 && y < 5
         {
-            if self.grids[tag][x][y].isSelected == true
+            if self.grids[tag].grids[x][y].isSelected == true
             {
                 w = w + 1
             }
@@ -245,7 +343,7 @@ extension BingoLogic
 
         while x >= 0 && x < 5 && y >= 0 && y < 5
         {
-            if self.grids[tag][x][y].isSelected == true
+            if self.grids[tag].grids[x][y].isSelected == true
             {
                 w = w + 1
             }
