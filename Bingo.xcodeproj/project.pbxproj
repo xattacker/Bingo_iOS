@@ -27,6 +27,10 @@
 		680DCD3624BD47D000525E17 /* FileUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 680DCD3324BD47D000525E17 /* FileUtility.swift */; };
 		680DCD3724BD47D000525E17 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 680DCD3424BD47D000525E17 /* UIColor.swift */; };
 		680DCD3824BD47D000525E17 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 680DCD3524BD47D000525E17 /* UIViewController.swift */; };
+		680DCD3D24BD570C00525E17 /* BingoGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 680DCD3C24BD570C00525E17 /* BingoGrid.swift */; };
+		680DCD3F24BD571C00525E17 /* BingoLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 680DCD3E24BD571C00525E17 /* BingoLogic.swift */; };
+		680DCD4124BD591B00525E17 /* BingoLogicDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 680DCD4024BD591B00525E17 /* BingoLogicDelegate.swift */; };
+		680DCD4324BD592F00525E17 /* ConnectedDirection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 680DCD4224BD592F00525E17 /* ConnectedDirection.swift */; };
 		68B1BCE9243ADD2E0046A728 /* NSObject+Custom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68B1BCE8243ADD2E0046A728 /* NSObject+Custom.swift */; };
 		68B1BCEB243ADDDC0046A728 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68B1BCEA243ADDDC0046A728 /* BaseViewController.swift */; };
 		68B36F44235D97D6005D0741 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 68B36F46235D97D6005D0741 /* Localizable.strings */; };
@@ -59,6 +63,10 @@
 		680DCD3324BD47D000525E17 /* FileUtility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileUtility.swift; sourceTree = "<group>"; };
 		680DCD3424BD47D000525E17 /* UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		680DCD3524BD47D000525E17 /* UIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
+		680DCD3C24BD570C00525E17 /* BingoGrid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BingoGrid.swift; sourceTree = "<group>"; };
+		680DCD3E24BD571C00525E17 /* BingoLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BingoLogic.swift; sourceTree = "<group>"; };
+		680DCD4024BD591B00525E17 /* BingoLogicDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BingoLogicDelegate.swift; sourceTree = "<group>"; };
+		680DCD4224BD592F00525E17 /* ConnectedDirection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectedDirection.swift; sourceTree = "<group>"; };
 		68B1BCE8243ADD2E0046A728 /* NSObject+Custom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObject+Custom.swift"; sourceTree = "<group>"; };
 		68B1BCEA243ADDDC0046A728 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		68B36F45235D97D6005D0741 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -191,6 +199,10 @@
 		680DCD3B24BD54C400525E17 /* Logic */ = {
 			isa = PBXGroup;
 			children = (
+				680DCD3C24BD570C00525E17 /* BingoGrid.swift */,
+				680DCD3E24BD571C00525E17 /* BingoLogic.swift */,
+				680DCD4024BD591B00525E17 /* BingoLogicDelegate.swift */,
+				680DCD4224BD592F00525E17 /* ConnectedDirection.swift */,
 			);
 			path = Logic;
 			sourceTree = "<group>";
@@ -284,20 +296,24 @@
 				680DCD2F24BD471D00525E17 /* UIApplication.swift in Sources */,
 				65FC25FA1E02EC1B00F9E38A /* MacroDefine.swift in Sources */,
 				680DCD2C24BD46DA00525E17 /* String.swift in Sources */,
+				680DCD4124BD591B00525E17 /* BingoLogicDelegate.swift in Sources */,
 				65FC25F41E02E86200F9E38A /* ConfigureSetting.swift in Sources */,
 				680DCD2A24BD46DA00525E17 /* AppUtility.swift in Sources */,
 				680DCD3724BD47D000525E17 /* UIColor.swift in Sources */,
 				65201C2C1DFEF69700921BB3 /* AppDelegate.swift in Sources */,
 				65D4D72D1E01A10B00F360B9 /* CustomUtility.swift in Sources */,
+				680DCD3F24BD571C00525E17 /* BingoLogic.swift in Sources */,
 				680DCD3824BD47D000525E17 /* UIViewController.swift in Sources */,
 				680DCD2624BD46A400525E17 /* AppProperties.swift in Sources */,
 				680DCD2324BD45EB00525E17 /* HomeMenuViewController.swift in Sources */,
 				680DCD3624BD47D000525E17 /* FileUtility.swift in Sources */,
 				680DCD2B24BD46DA00525E17 /* NSObject.swift in Sources */,
+				680DCD3D24BD570C00525E17 /* BingoGrid.swift in Sources */,
 				680DCD3224BD474300525E17 /* UIView.swift in Sources */,
 				68B1BCEB243ADDDC0046A728 /* BaseViewController.swift in Sources */,
 				68B1BCE9243ADD2E0046A728 /* NSObject+Custom.swift in Sources */,
 				680DCD3024BD471D00525E17 /* UIAlertController.swift in Sources */,
+				680DCD4324BD592F00525E17 /* ConnectedDirection.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
