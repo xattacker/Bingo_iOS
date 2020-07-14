@@ -22,9 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate
         
         // to skip iCound backup
         self.addSkipBackupAttributeToItemAtPath(AppProperties.getAppDocPath())
-        
-        ConfigureSetting.initial()
-        
+
         UINavigationBar.appearance().tintColor = UIColor.white
 
         return true
@@ -34,8 +32,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate
     {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
         // Saves changes in the application's managed object context before the application terminates.
-
-        ConfigureSetting.releaseInstance()
     }
     
     func applicationWillResignActive(_ application: UIApplication)

@@ -208,7 +208,7 @@ extension BingoLogic
 
             self.grids[self.turn.rawValue].connection = self.grids[self.turn.rawValue].connection + 1
 
-            self.delegate?.onLineConnected(type: self.turn, count: self.grids[self.turn.rawValue].connection)
+            self.delegate?.onLineConnected(turn: self.turn, count: self.grids[self.turn.rawValue].connection)
 
             if self.grids[self.turn.rawValue].connection >= 5 && !self.isGameOver
             {

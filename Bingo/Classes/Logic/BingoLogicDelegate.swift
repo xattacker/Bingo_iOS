@@ -11,6 +11,6 @@ import Foundation
 
 protocol BingoLogicDelegate: class
 {
-    func onLineConnected(type: PlayerType, count: Int)
+    func onLineConnected(turn: PlayerType, count: Int)
     func onWon(winner: PlayerType)
 }

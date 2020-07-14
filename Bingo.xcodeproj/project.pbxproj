@@ -14,7 +14,6 @@
 		65201C2C1DFEF69700921BB3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65201C271DFEF69700921BB3 /* AppDelegate.swift */; };
 		65A824DC1E01A61B00A94D77 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65A824DB1E01A61B00A94D77 /* CoreFoundation.framework */; };
 		65D4D72D1E01A10B00F360B9 /* CustomUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D4D72B1E01A10B00F360B9 /* CustomUtility.swift */; };
-		65FC25F41E02E86200F9E38A /* ConfigureSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65FC25F31E02E86200F9E38A /* ConfigureSetting.swift */; };
 		65FC25FA1E02EC1B00F9E38A /* MacroDefine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65FC25F91E02EC1B00F9E38A /* MacroDefine.swift */; };
 		680DCD2324BD45EB00525E17 /* BingoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 680DCD2224BD45EB00525E17 /* BingoViewController.swift */; };
 		680DCD2624BD46A400525E17 /* AppProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 680DCD2524BD46A400525E17 /* AppProperties.swift */; };
@@ -31,6 +30,9 @@
 		680DCD3F24BD571C00525E17 /* BingoLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 680DCD3E24BD571C00525E17 /* BingoLogic.swift */; };
 		680DCD4124BD591B00525E17 /* BingoLogicDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 680DCD4024BD591B00525E17 /* BingoLogicDelegate.swift */; };
 		680DCD4324BD592F00525E17 /* ConnectedDirection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 680DCD4224BD592F00525E17 /* ConnectedDirection.swift */; };
+		680DCD4524BD94A600525E17 /* GradeRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 680DCD4424BD94A600525E17 /* GradeRecorder.swift */; };
+		680DCD4724BD95A500525E17 /* UIGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 680DCD4624BD95A500525E17 /* UIGridView.swift */; };
+		680DCD4924BD95C300525E17 /* UICountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 680DCD4824BD95C300525E17 /* UICountView.swift */; };
 		68B36F44235D97D6005D0741 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 68B36F46235D97D6005D0741 /* Localizable.strings */; };
 		68B36F4F235D9D83005D0741 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 68B36F51235D9D83005D0741 /* InfoPlist.strings */; };
 /* End PBXBuildFile section */
@@ -48,7 +50,6 @@
 		65A824D91E01A61300A94D77 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		65A824DB1E01A61B00A94D77 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
 		65D4D72B1E01A10B00F360B9 /* CustomUtility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomUtility.swift; sourceTree = "<group>"; };
-		65FC25F31E02E86200F9E38A /* ConfigureSetting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigureSetting.swift; sourceTree = "<group>"; };
 		65FC25F91E02EC1B00F9E38A /* MacroDefine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MacroDefine.swift; sourceTree = "<group>"; };
 		680DCD2224BD45EB00525E17 /* BingoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BingoViewController.swift; sourceTree = "<group>"; };
 		680DCD2524BD46A400525E17 /* AppProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppProperties.swift; sourceTree = "<group>"; };
@@ -65,6 +66,9 @@
 		680DCD3E24BD571C00525E17 /* BingoLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BingoLogic.swift; sourceTree = "<group>"; };
 		680DCD4024BD591B00525E17 /* BingoLogicDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BingoLogicDelegate.swift; sourceTree = "<group>"; };
 		680DCD4224BD592F00525E17 /* ConnectedDirection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectedDirection.swift; sourceTree = "<group>"; };
+		680DCD4424BD94A600525E17 /* GradeRecorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradeRecorder.swift; sourceTree = "<group>"; };
+		680DCD4624BD95A500525E17 /* UIGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIGridView.swift; sourceTree = "<group>"; };
+		680DCD4824BD95C300525E17 /* UICountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICountView.swift; sourceTree = "<group>"; };
 		68B36F45235D97D6005D0741 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		68B36F47235D97F2005D0741 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		68B36F4B235D9CBD005D0741 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -126,7 +130,6 @@
 		65201C261DFEF69700921BB3 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				65201C281DFEF69700921BB3 /* Data */,
 				680DCD3B24BD54C400525E17 /* Logic */,
 				680DCD2424BD46A400525E17 /* Util */,
 				65D4D7291E01A10B00F360B9 /* ViewController */,
@@ -134,14 +137,6 @@
 				65FC25F91E02EC1B00F9E38A /* MacroDefine.swift */,
 			);
 			path = Classes;
-			sourceTree = "<group>";
-		};
-		65201C281DFEF69700921BB3 /* Data */ = {
-			isa = PBXGroup;
-			children = (
-				65FC25F31E02E86200F9E38A /* ConfigureSetting.swift */,
-			);
-			path = Data;
 			sourceTree = "<group>";
 		};
 		6532442B1E003E1C004786E9 /* Frameworks */ = {
@@ -159,8 +154,11 @@
 		65D4D7291E01A10B00F360B9 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				680DCD2224BD45EB00525E17 /* BingoViewController.swift */,
 				65D4D72A1E01A10B00F360B9 /* Custom */,
+				680DCD2224BD45EB00525E17 /* BingoViewController.swift */,
+				680DCD4624BD95A500525E17 /* UIGridView.swift */,
+				680DCD4824BD95C300525E17 /* UICountView.swift */,
+				680DCD4424BD94A600525E17 /* GradeRecorder.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -291,8 +289,8 @@
 				65FC25FA1E02EC1B00F9E38A /* MacroDefine.swift in Sources */,
 				680DCD2C24BD46DA00525E17 /* String.swift in Sources */,
 				680DCD4124BD591B00525E17 /* BingoLogicDelegate.swift in Sources */,
-				65FC25F41E02E86200F9E38A /* ConfigureSetting.swift in Sources */,
 				680DCD2A24BD46DA00525E17 /* AppUtility.swift in Sources */,
+				680DCD4524BD94A600525E17 /* GradeRecorder.swift in Sources */,
 				680DCD3724BD47D000525E17 /* UIColor.swift in Sources */,
 				65201C2C1DFEF69700921BB3 /* AppDelegate.swift in Sources */,
 				65D4D72D1E01A10B00F360B9 /* CustomUtility.swift in Sources */,
@@ -304,7 +302,9 @@
 				680DCD2B24BD46DA00525E17 /* NSObject.swift in Sources */,
 				680DCD3D24BD570C00525E17 /* BingoGrid.swift in Sources */,
 				680DCD3224BD474300525E17 /* UIView.swift in Sources */,
+				680DCD4924BD95C300525E17 /* UICountView.swift in Sources */,
 				680DCD3024BD471D00525E17 /* UIAlertController.swift in Sources */,
+				680DCD4724BD95A500525E17 /* UIGridView.swift in Sources */,
 				680DCD4324BD592F00525E17 /* ConnectedDirection.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
