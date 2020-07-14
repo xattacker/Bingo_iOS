@@ -19,7 +19,7 @@ class BingoViewController: UIViewController
     }
     
 
-    private weak var versionLabel: UILabel!
+    @IBOutlet private weak var versionLabel: UILabel!
     
     private var logic: BingoLogic?
     private var numberDoneCount = 0 // 佈子數, 當玩家把25個數字都佈完後 開始遊戲
@@ -31,6 +31,9 @@ class BingoViewController: UIViewController
         super.viewDidLoad()
         
         self.logic = BingoLogic(delegate: self)
+        
+        
+        self.versionLabel.text = String(format: "v %@", AppProperties.getAppVersion())
     }
     
     @IBAction func onRefreshAction(_ sender: AnyObject)

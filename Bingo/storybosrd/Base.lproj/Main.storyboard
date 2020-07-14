@@ -7,10 +7,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--HomeMenuViewController-->
+        <!--BingoViewController-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController title="TODAY_PROJECTION" id="BYZ-38-t0r" userLabel="HomeMenuViewController" customClass="BingoViewController" customModule="Bingo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="TODAY_PROJECTION" id="BYZ-38-t0r" userLabel="BingoViewController" customClass="BingoViewController" customModule="Bingo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -18,7 +18,20 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Gq-ns-4Tv">
+                                <rect key="frame" x="338" y="649.5" width="31" height="14.5"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="0Gq-ns-4Tv" secondAttribute="trailing" constant="6" id="MFb-oy-Bej"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="0Gq-ns-4Tv" secondAttribute="bottom" constant="3" id="UYQ-vu-lvZ"/>
+                            <constraint firstItem="0Gq-ns-4Tv" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" symbolic="YES" id="zHO-Wf-m5K"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="gTM-Ue-kII">
                         <barButtonItem key="backBarButtonItem" title=" " id="uiI-XF-tev"/>
@@ -28,6 +41,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="versionLabel" destination="0Gq-ns-4Tv" id="Lzz-x5-4R5"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
