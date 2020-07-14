@@ -65,11 +65,11 @@ class BingoLogic
 
             for j in 0 ... record.grids.count
             {
-                let grid_layer_2 = record.grids[j]
+                let grid_row = record.grids[j]
                 
-                for k in 0 ... grid_layer_2.count
+                for k in 0 ... grid_row.count
                 {
-                    grid_layer_2[k].initial()
+                    grid_row[k].initial()
                 }
             }
         }

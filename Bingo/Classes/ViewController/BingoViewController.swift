@@ -11,6 +11,8 @@ import UIKit
 
 class BingoViewController: UIViewController
 {
+    private weak var versionLabel: UILabel!
+    
     override func viewDidLoad()
     {
         super.viewDidLoad()
