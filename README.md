@@ -1,1 +1,1 @@
-# DynastyTheater_iOS
+# Bingo_iOS
