@@ -1,0 +1,55 @@
+/* 
+  Localizable.strings
+  HeChun
+
+  Created by xattacker on 2016/12/15.
+  Copyright © 2016年 xattacker. All rights reserved.
+*/
+
+"APP_NAME"="朝代時刻表";
+"TODAY_PROJECTION"="朝代時刻表     今日放映";
+"MARQUEE_TEXT"="版本: %@\t 本資訊僅供參考，詳細內容請以官方資料為準";
+"HALL"="%@ 廳";
+"LAST_UPDATED_TIME"="最近更新";
+"WEB_SITE"="官方網站";
+"DIRECTOR"="導演";
+"ACTOR"="演員";
+"LENGTH"="片長";
+"PUBLISHER"="發行";
+"TRAILER"="預告片";
+"INTRODUCTION"="劇情簡介";
+"RATING"="分級";
+"RATING_G"="普遍級";
+"RATING_PG6"="保護級";
+"RATING_PG12"="輔12級";
+"RATING_PG15"="輔15級";
+"RATING_R"="限制級";
+"SEARCHING"="查詢中...";
+"SHARE_INFO"="分享資訊";
+"SEND_SMS"="發送時刻表簡訊";
+"SEND_TO_LINE"="發送時刻表至LINE";
+
+"SEARCH_FAILED_NOTICE"="查詢失敗。";
+"SEARCH_EMPTY_NOTICE"="查無資料。";
+"PHONE_CALL_SUPPORT_NOTICE"="此裝置不支援通話功能或是沒有SIM卡。";
+"INTERNET_DISCONNECTION_NOTICE"="網路連線不通。";
+"INTERNET_DISCONNECTION_CAPABILITY_NOTICE"="網路連線不通，無法使用此功能。";
+"LINE_APP_NOT_INSTALLED_NOTICE"="此裝置上沒有安裝 LINE App。";
+
+"CONFIRM_REFRESH_DATA"="刷新資料?";
+"CONFIRM_UPDATE_VERSION"="有新版本提供，是否更新?";
+"CONFIRM_OPEN_TRAILER"="開啟預告片?";
+"CONFIRM_OPEN_WEB_SITE"="開啟網站?";
+
+"DATA_EMPTY"="無資料";
+"VERSION"="版本";
+"NOTIFICATION"="通知";
+"WARNING"="警告";
+"ERROR"="錯誤";
+"YES"="是";
+"NO"="否";
+"CONFIRM"="確認";
+"OK"="確定";
+"DONE"="完成";
+"CANCEL"="取消";
+"DRAG_DOWN_REFRESH"="下拉刷新";
