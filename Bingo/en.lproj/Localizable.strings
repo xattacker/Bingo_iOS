@@ -14,7 +14,7 @@
 "AUTO_FILL_NUM"="Auto Fill";
 "GAME_START"="Game Start";
 "GAME_RESTART"="Restart";
-"WIN_COUNT"="Total: win [0], lose [1]";
+"WIN_COUNT"="Records: win [0], lose [1]";
 "YOU_WIN"="You Win";
 "YOU_LOSE"="You Lose";
 "VERSION"="Version";

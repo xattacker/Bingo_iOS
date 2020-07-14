@@ -107,14 +107,6 @@ extension UIView
         return false
     }
     
-    public func addGradientBackground(_ colors: CGColor...)
-    {
-        let gradient = CAGradientLayer()
-        gradient.frame = self.bounds
-        gradient.colors = colors
-        self.layer.insertSublayer(gradient, at: 0)
-    }
-
     private func setupConstraints(_ from: Any, to: Any)
     {
         let leading_const = NSLayoutConstraint(

@@ -26,19 +26,60 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="record" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CZH-je-OuZ">
-                                <rect key="frame" x="8" y="8" width="359" height="21"/>
+                                <rect key="frame" x="8" y="8" width="359" height="16.5"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="ERm-LE-HAw" userLabel="Name Stack View">
+                                <rect key="frame" x="-32" y="109.5" width="86" height="480"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="OPPONENT" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wYg-0k-dXL">
+                                        <rect key="frame" x="0.0" y="0.0" width="86" height="240"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleCallout"/>
+                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PLAYER" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YH3-Zo-bO4">
+                                        <rect key="frame" x="0.0" y="240" width="86" height="240"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleCallout"/>
+                                        <color key="textColor" red="0.44488859149999999" green="0.7436609435" blue="0.93199876930000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="NLh-TH-DbW" userLabel="Grid Stack View">
+                                <rect key="frame" x="60" y="109.5" width="255" height="480"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="zV0-tW-zAi">
+                                        <rect key="frame" x="0.0" y="0.0" width="255" height="230"/>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="f2D-oM-I0w">
+                                        <rect key="frame" x="0.0" y="250" width="255" height="230"/>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="f2D-oM-I0w" firstAttribute="width" secondItem="zV0-tW-zAi" secondAttribute="width" id="An3-Pn-JhF"/>
+                                    <constraint firstItem="zV0-tW-zAi" firstAttribute="width" secondItem="NLh-TH-DbW" secondAttribute="width" id="VkX-mo-3Am"/>
+                                </constraints>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="CZH-je-OuZ" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="8" id="4ex-1N-LRn"/>
+                            <constraint firstItem="NLh-TH-DbW" firstAttribute="leading" secondItem="ERm-LE-HAw" secondAttribute="trailing" constant="6" id="5ma-Ph-K7w"/>
+                            <constraint firstItem="NLh-TH-DbW" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.68" id="G1s-ru-Cuk"/>
                             <constraint firstAttribute="trailing" secondItem="0Gq-ns-4Tv" secondAttribute="trailing" constant="3" id="MFb-oy-Bej"/>
+                            <constraint firstItem="ERm-LE-HAw" firstAttribute="top" secondItem="NLh-TH-DbW" secondAttribute="top" id="Pq0-Hs-wCh"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="0Gq-ns-4Tv" secondAttribute="bottom" constant="3" id="UYQ-vu-lvZ"/>
+                            <constraint firstItem="NLh-TH-DbW" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="WfI-hY-Zhg"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="NLh-TH-DbW" secondAttribute="trailing" constant="8" id="lrb-oA-YDq"/>
                             <constraint firstItem="CZH-je-OuZ" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="peC-kW-o5l"/>
+                            <constraint firstItem="ERm-LE-HAw" firstAttribute="bottom" secondItem="NLh-TH-DbW" secondAttribute="bottom" id="qoe-jD-N2D"/>
+                            <constraint firstItem="NLh-TH-DbW" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="16" id="rSU-jr-daj"/>
+                            <constraint firstItem="NLh-TH-DbW" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="8" id="yQq-3Q-fBG"/>
                             <constraint firstItem="0Gq-ns-4Tv" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" symbolic="YES" id="zHO-Wf-m5K"/>
+                            <constraint firstItem="NLh-TH-DbW" firstAttribute="top" secondItem="CZH-je-OuZ" secondAttribute="bottom" constant="85" placeholder="YES" id="zMR-1i-dQs"/>
                             <constraint firstAttribute="trailing" secondItem="CZH-je-OuZ" secondAttribute="trailing" constant="8" id="zOP-Uk-Tbq"/>
                         </constraints>
                     </view>
@@ -51,13 +92,15 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="comGridStackView" destination="zV0-tW-zAi" id="q25-pv-G6y"/>
+                        <outlet property="playerGridStackView" destination="f2D-oM-I0w" id="bc0-gP-uAk"/>
                         <outlet property="recordLabel" destination="CZH-je-OuZ" id="P2L-Bd-EZZ"/>
                         <outlet property="versionLabel" destination="0Gq-ns-4Tv" id="Lzz-x5-4R5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="9" y="9"/>
+            <point key="canvasLocation" x="8.8000000000000007" y="8.5457271364317844"/>
         </scene>
     </scenes>
 </document>
