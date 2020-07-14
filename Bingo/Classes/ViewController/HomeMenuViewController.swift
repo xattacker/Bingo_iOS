@@ -1,6 +1,6 @@
 //
-//  ViewController.swift
-//  DynastyTheater
+//  HomeMenuViewController.swift
+//  Bingo
 //
 //  Created by xattacker on 2016/12/12.
 //  Copyright © 2016年 xattacker. All rights reserved.

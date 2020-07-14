@@ -1,6 +1,6 @@
 //
 //  BaseViewController.swift
-//  DynastyTheater
+//  Bingo
 //
 //  Created by TCCI MACKBOOK PRO on 2020/4/6.
 //  Copyright © 2020 xattacker. All rights reserved.
