@@ -116,4 +116,9 @@ extension UIViewController
     {
         self.view.convertLocalizedString(true)
     }
+    
+    public func showToast(_ text: String, duration: ToastDuration = .normal)
+    {
+        UIToast.show(text, duration: duration)
+    }
 }

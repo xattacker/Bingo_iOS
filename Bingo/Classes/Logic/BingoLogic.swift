@@ -47,6 +47,11 @@ class BingoLogic
     private var isGameOver: Bool = false
     private var grids: [GridRecord] = [GridRecord(), GridRecord()]
     
+    private var gridLength: Int
+    {
+        return self.grids[0].grids.count
+    }
+    
     init(delegate: BingoLogicDelegate)
     {
         self.delegate = delegate
@@ -58,16 +63,17 @@ class BingoLogic
         self.weight[2] = 0
         self.isGameOver = false
 
-        for i in 0 ... self.grids.count
+        let grid_length = self.gridLength - 1
+        
+        for i in 0 ... self.grids.count - 1
         {
             let record = self.grids[i]
             record.connection = 0
 
-            for j in 0 ... record.grids.count
+            for j in 0 ... grid_length
             {
                 let grid_row = record.grids[j]
-                
-                for k in 0 ... grid_row.count
+                for k in 0 ... grid_length
                 {
                     grid_row[k].initial()
                 }
@@ -77,8 +83,19 @@ class BingoLogic
     
     func addGrid(_ type: PlayerType, grid: BingoGrid, x: Int, y: Int)
     {
-        self.grids[type.rawValue].grids[x][y] = grid
-        self.grids[type.rawValue].grids[x][y].type = type
+        if self.grids[type.rawValue].grids.count <= x
+        {
+            self.grids[type.rawValue].grids.append([BingoGrid]())
+        }
+        
+        if self.grids[type.rawValue].grids[x].count <= y
+        {
+            self.grids[type.rawValue].grids[x].append(grid)
+        }
+        else
+        {
+            self.grids[type.rawValue].grids[x][y] = grid
+        }
     }
     
     func getConnectionCount(_ type: PlayerType) -> Int
@@ -89,26 +106,27 @@ class BingoLogic
     func fillNumber(_ type: PlayerType = PlayerType.computer)
     {
         let tag = type.rawValue
+        let grid_length = self.gridLength - 1
         var temp_value = 0
         var x = 0
         var y = 0
 
-        for i in 0 ... 4
+        for i in 0 ... grid_length
         {
-            for j in 0 ... 4
+            for j in 0 ... grid_length
             {
                 self.grids[tag].grids[i][j].value = i * 5 + (j + 1)
             }
         }
 
-        for i in 0 ... 4
+        for i in 0 ... grid_length
         {
-            for j in 0 ... 4
+            for j in 0 ... grid_length
             {
                 temp_value = self.grids[tag].grids[i][j].value
 
-                x = Int.random(in: 0...4)
-                y = Int.random(in: 0...4)
+                x = Int.random(in: 0...grid_length)
+                y = Int.random(in: 0...grid_length)
 
                 self.grids[tag].grids[i][j].value = self.grids[tag].grids[x][y].value
                 self.grids[tag].grids[x][y].value = temp_value
@@ -228,9 +246,11 @@ extension BingoLogic
     {
         self.turn = self.turn.opposite()
 
-        for i in 0 ... 4
+        let grid_length = self.gridLength - 1
+        
+        for i in 0 ... grid_length
         {
-            for j in 0 ... 4
+            for j in 0 ... grid_length
             {
                 if self.grids[self.turn.rawValue].grids[i][j].value == value
                 {
@@ -246,10 +266,12 @@ extension BingoLogic
     private func runAI()
     {
         self.turn = PlayerType.computer
-
-        for i in 0 ... 4
+        
+        let grid_length = self.gridLength - 1
+          
+        for i in 0 ... grid_length
         {
-            for j in 0 ... 4
+            for j in 0 ... grid_length
             {
                 if self.grids[self.turn.rawValue].grids[i][j].isSelected == false
                 {
@@ -295,6 +317,7 @@ extension BingoLogic
     
     private func randomAI()
     {
+        let grid_length = self.gridLength - 1
         var x = 0
         var y = 0
 
@@ -307,8 +330,8 @@ extension BingoLogic
         {
             repeat
             {
-                x = Int.random(in: 0...4)
-                y = Int.random(in: 0...4)
+                x = Int.random(in: 0...grid_length)
+                y = Int.random(in: 0...grid_length)
 
             } while self.grids[self.turn.rawValue].grids[x][y].isSelected == true
         }
@@ -323,10 +346,11 @@ extension BingoLogic
         var x = self.locX
         var y = self.locY
         let tag = PlayerType.computer.rawValue
+        let grid_length = self.gridLength
         
         self.connected = 0
 
-        while x >= 0 && x < 5 && y >= 0 && y < 5
+        while x >= 0 && x < grid_length && y >= 0 && y < grid_length
         {
             if self.grids[tag].grids[x][y].isSelected == true
             {
@@ -341,7 +365,7 @@ extension BingoLogic
         x = self.locX - offsetX
         y = self.locY - offsetY
 
-        while x >= 0 && x < 5 && y >= 0 && y < 5
+        while x >= 0 && x < grid_length && y >= 0 && y < grid_length
         {
             if self.grids[tag].grids[x][y].isSelected == true
             {

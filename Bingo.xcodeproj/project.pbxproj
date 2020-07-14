@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		6509FADB1E12BDD100B703E7 /* MovieSectionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6509FAD91E12BDD100B703E7 /* MovieSectionView.xib */; };
+		650FBB1C24BE149A0062917E /* UIToast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 650FBB1B24BE14990062917E /* UIToast.swift */; };
 		65201C171DFEF62100921BB3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65201C151DFEF62100921BB3 /* Main.storyboard */; };
 		65201C1C1DFEF62100921BB3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 65201C1B1DFEF62100921BB3 /* Assets.xcassets */; };
 		65201C1F1DFEF62100921BB3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65201C1D1DFEF62100921BB3 /* LaunchScreen.storyboard */; };
@@ -23,7 +24,6 @@
 		680DCD2F24BD471D00525E17 /* UIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 680DCD2D24BD471D00525E17 /* UIApplication.swift */; };
 		680DCD3024BD471D00525E17 /* UIAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 680DCD2E24BD471D00525E17 /* UIAlertController.swift */; };
 		680DCD3224BD474300525E17 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 680DCD3124BD474300525E17 /* UIView.swift */; };
-		680DCD3624BD47D000525E17 /* FileUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 680DCD3324BD47D000525E17 /* FileUtility.swift */; };
 		680DCD3724BD47D000525E17 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 680DCD3424BD47D000525E17 /* UIColor.swift */; };
 		680DCD3824BD47D000525E17 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 680DCD3524BD47D000525E17 /* UIViewController.swift */; };
 		680DCD3D24BD570C00525E17 /* BingoGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 680DCD3C24BD570C00525E17 /* BingoGrid.swift */; };
@@ -39,6 +39,7 @@
 
 /* Begin PBXFileReference section */
 		6509FAD91E12BDD100B703E7 /* MovieSectionView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MovieSectionView.xib; sourceTree = "<group>"; };
+		650FBB1B24BE14990062917E /* UIToast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIToast.swift; sourceTree = "<group>"; };
 		65201C0E1DFEF62000921BB3 /* Bingo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bingo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		65201C161DFEF62100921BB3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		65201C1B1DFEF62100921BB3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -59,7 +60,6 @@
 		680DCD2D24BD471D00525E17 /* UIApplication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIApplication.swift; sourceTree = "<group>"; };
 		680DCD2E24BD471D00525E17 /* UIAlertController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIAlertController.swift; sourceTree = "<group>"; };
 		680DCD3124BD474300525E17 /* UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
-		680DCD3324BD47D000525E17 /* FileUtility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileUtility.swift; sourceTree = "<group>"; };
 		680DCD3424BD47D000525E17 /* UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		680DCD3524BD47D000525E17 /* UIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		680DCD3C24BD570C00525E17 /* BingoGrid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BingoGrid.swift; sourceTree = "<group>"; };
@@ -174,10 +174,10 @@
 		680DCD2424BD46A400525E17 /* Util */ = {
 			isa = PBXGroup;
 			children = (
-				680DCD3324BD47D000525E17 /* FileUtility.swift */,
 				680DCD3424BD47D000525E17 /* UIColor.swift */,
 				680DCD3524BD47D000525E17 /* UIViewController.swift */,
 				680DCD3124BD474300525E17 /* UIView.swift */,
+				650FBB1B24BE14990062917E /* UIToast.swift */,
 				680DCD2524BD46A400525E17 /* AppProperties.swift */,
 				680DCD2724BD46D900525E17 /* AppUtility.swift */,
 				680DCD2824BD46DA00525E17 /* NSObject.swift */,
@@ -298,7 +298,6 @@
 				680DCD3824BD47D000525E17 /* UIViewController.swift in Sources */,
 				680DCD2624BD46A400525E17 /* AppProperties.swift in Sources */,
 				680DCD2324BD45EB00525E17 /* BingoViewController.swift in Sources */,
-				680DCD3624BD47D000525E17 /* FileUtility.swift in Sources */,
 				680DCD2B24BD46DA00525E17 /* NSObject.swift in Sources */,
 				680DCD3D24BD570C00525E17 /* BingoGrid.swift in Sources */,
 				680DCD3224BD474300525E17 /* UIView.swift in Sources */,
@@ -306,6 +305,7 @@
 				680DCD3024BD471D00525E17 /* UIAlertController.swift in Sources */,
 				680DCD4724BD95A500525E17 /* UIGridView.swift in Sources */,
 				680DCD4324BD592F00525E17 /* ConnectedDirection.swift in Sources */,
+				650FBB1C24BE149A0062917E /* UIToast.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

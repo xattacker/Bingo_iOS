@@ -54,43 +54,10 @@ public final class AppProperties // Path related
                true
                )[0]
     }
-    
-    public class func getAppStoragePath() -> String
-    {
-        let path = self.getAppDocPath().stringByAppendingPathComponent("Storage") ?? ""
-        self.checkPath(path)
-        
-        return path
-    }
-    
-    public class func getAppTempPath() -> String
-    {
-        let path = self.getAppHomePath().stringByAppendingPathComponent("temp") ?? ""
-        self.checkPath(path)
-        
-        return path
-    }
-    
+
     public class func getTempPath() -> String
     {
         return NSTemporaryDirectory()
-    }
-    
-    private class func checkPath(_ path: String)
-    {
-        if !FileUtility.isDirExisted(path)
-        {
-            do
-            {
-                try FileManager.default.createDirectory(
-                    atPath: path,
-                    withIntermediateDirectories: true,
-                    attributes: nil)
-            }
-            catch
-            {
-            }
-        }
     }
 }
 

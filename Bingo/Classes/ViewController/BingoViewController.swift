@@ -21,11 +21,17 @@ class BingoViewController: UIViewController
     @IBOutlet private weak var comGridStackView: UIStackView!
     @IBOutlet private weak var playerGridStackView: UIStackView!
     
+    @IBOutlet private weak var comCountView: UICountView!
+    @IBOutlet private weak var playerCountView: UICountView!
+    
     @IBOutlet private weak var recordLabel: UILabel!
     @IBOutlet private weak var versionLabel: UILabel!
     
+    @IBOutlet private weak var autoFillButton: UIButton!
+    @IBOutlet private weak var restartButton: UIButton!
+    
     private var logic: BingoLogic?
-    private var numberDoneCount = 0 // 佈子數, 當玩家把25個數字都佈完後 開始遊戲
+    private var numDoneCount = 0 // 佈子數, 當玩家把25個數字都佈完後 開始遊戲
     private var status = GameStatus.prepare
     private var recorder = GradeRecorder()
     
@@ -37,19 +43,31 @@ class BingoViewController: UIViewController
         
         self.logic = BingoLogic(delegate: self)
         
-        self.setupGrid(self.comGridStackView, clickable: false)
-        self.setupGrid(self.playerGridStackView, clickable: true)
+        self.setupGrid(self.comGridStackView, type: .computer)
+        self.setupGrid(self.playerGridStackView, type: .player)
             
         self.versionLabel.text = String(format: "v %@", AppProperties.getAppVersion())
         self.updateRecordView()
+        
+        self.restart()
+    }
+    
+    override func viewDidAppear(_ animated: Bool)
+    {
+        super.viewDidAppear(animated)
+        
+        self.showToast(String.localizedString("FILL_NUMBER"))
     }
     
     @IBAction func onAutoFillNumAction(_ sender: AnyObject)
     {
+        self.logic?.fillNumber(PlayerType.player)
+        self.startPlaying()
     }
     
     @IBAction func onRestartAction(_ sender: AnyObject)
     {
+        self.restart()
     }
 
     deinit
@@ -73,7 +91,7 @@ extension BingoViewController: BingoLogicDelegate
 
 extension BingoViewController
 {
-    private func setupGrid(_ gridLayout: UIStackView, clickable: Bool)
+    private func setupGrid(_ gridLayout: UIStackView, type: PlayerType)
     {
         let width = self.view.shortWidthRatio(0.125)
         
@@ -93,7 +111,6 @@ extension BingoViewController
             for j in 0 ... 4
             {
                 let grid = UIGridView(frame: CGRect(x: 0, y: 0, width: width, height: width))
-                grid.backgroundColor = UIColor.yellow
                 grid.translatesAutoresizingMaskIntoConstraints = false // we should set it to false before add constraint
                 row_layout.addArrangedSubview(grid)
                 
@@ -106,10 +123,28 @@ extension BingoViewController
                                     multiplier: 1,
                                     constant: 0)
                 grid.addConstraint(width_const)
+                
+                grid.locX = i
+                grid.locY = j
+                grid.type = type
+                self.logic?.addGrid(type, grid: grid, x: i, y: j)
             }
             
             gridLayout.addArrangedSubview(row_layout)
         }
+    }
+    
+    private func restart()
+    {
+        self.status = GameStatus.prepare
+        self.numDoneCount = 0
+        self.updateButtonWithStatus()
+
+        self.logic?.restart()
+    }
+    
+    private func startPlaying()
+    {
     }
 
     private func updateRecordView()
@@ -117,5 +152,9 @@ extension BingoViewController
         self.recordLabel.text = AppUtility.getString(
                                 "WIN_COUNT",
                                 parameters: self.recorder.winCount.toString(), self.recorder.lostCount.toString())
+    }
+    
+    private func updateButtonWithStatus()
+    {
     }
 }
