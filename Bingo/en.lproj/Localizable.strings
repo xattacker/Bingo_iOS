@@ -1,47 +1,22 @@
 /* 
   Localizable.strings
-  HeChun
+  Bingo
 
   Created by xattacker on 2016/12/15.
   Copyright © 2016年 xattacker. All rights reserved.
 */
 
-"APP_NAME"="Dynasty Theater";
-"TODAY_PROJECTION"="Dynasty Theater Time\nToday Projection";
-"MARQUEE_TEXT"="Version: %@ \t The content is for reference only. For details, please refer to the official website";
-"HALL"="Hall %@";
-"LAST_UPDATED_TIME"="Last Updated";
-"WEB_SITE"="Web Site";
-"DIRECTOR"="Director";
-"ACTOR"="Actor";
-"LENGTH"="Length";
-"PUBLISHER"="Publisher";
-"TRAILER"="Trailer";
-"INTRODUCTION"="Introduction";
-"RATING"="Rating";
-"RATING_G"="G";
-"RATING_PG6"="PG6";
-"RATING_PG12"="PG12";
-"RATING_PG15"="PG15";
-"RATING_R"="R";
-"SEARCHING"="Searching...";
-"SHARE_INFO"="Share";
-"SEND_SMS"="Send Time Table  By SMS";
-"SEND_TO_LINE"="Send Time Table to LINE";
-
-"SEARCH_FAILED_NOTICE"="Search failed.";
-"SEARCH_EMPTY_NOTICE"="Search empty.";
-"PHONE_CALL_SUPPORT_NOTICE"="This device does not support the call feature or without a SIM card.";
-"INTERNET_DISCONNECTION_NOTICE"="The internet is disconnected.";
-"INTERNET_DISCONNECTION_CAPABILITY_NOTICE"="The capability could not be used when the internet is disconnected.";
-"LINE_APP_NOT_INSTALLED_NOTICE"="This device does not have LINE app installed.";
-
-"CONFIRM_REFRESH_DATA"="Refresh the data ?";
-"CONFIRM_UPDATE_VERSION"="A new version provides, whether to update ?";
-"CONFIRM_OPEN_TRAILER"="Play Trailer ?";
-"CONFIRM_OPEN_WEB_SITE"="Open Web Site ?";
-
-"DATA_EMPTY"="No data";
+"APP_NAME"="Bingo";
+"COPYRIGHT"="Copyright © 2013 Xattacker";
+"OPPONENT"="AI";
+"PLAYER"="Player";
+"FILL_NUMBER"="Please Fill Number";
+"AUTO_FILL_NUM"="Auto Fill";
+"GAME_START"="Game Start";
+"GAME_RESTART"="Restart";
+"WIN_COUNT"="Total: win [0], lose [1]";
+"YOU_WIN"="You Win";
+"YOU_LOSE"="You Lose";
 "VERSION"="Version";
 "NOTIFICATION"="Notification";
 "WARNING"="Warning";
@@ -52,4 +27,10 @@
 "OK"="OK";
 "DONE"="Done";
 "CANCEL"="Cancel";
-"DRAG_DOWN_REFRESH"="Drag Down Refresh";
+
+"CONFIRM_QUIT"="Determined to Quit？";
+"CONFIRM_EXIT"="Determined to Exit？";
+"CONFIRM_DELETE"="Determined to Delete？";
+"CONFIRM_DELETE_ITEM"="Determined to Delete [0]？";
+"CONFIRM_REMOVE"="Determined to Remove？";
+"CONFIRM_REMOVE_ITEM"="Determined to Remove [0]？";

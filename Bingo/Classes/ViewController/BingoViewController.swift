@@ -1,15 +1,15 @@
 //
-//  HomeMenuViewController.swift
+//  BingoViewController.swift
 //  Bingo
 //
-//  Created by xattacker on 2016/12/12.
-//  Copyright © 2016年 xattacker. All rights reserved.
+//  Created by xattacker on 2020/7/14.
+//  Copyright © 2020年 xattacker. All rights reserved.
 //
 
 import UIKit
 
 
-class HomeMenuViewController: BaseViewController
+class BingoViewController: UIViewController
 {
     override func viewDidLoad()
     {
