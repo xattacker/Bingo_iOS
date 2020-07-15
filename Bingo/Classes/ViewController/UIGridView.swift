@@ -35,6 +35,7 @@ class UIGridView: UILabel, BingoGrid
         didSet
         {
             self.updateBackgroundColor()
+            self.setNeedsDisplay()
         }
     }
     
@@ -61,6 +62,64 @@ class UIGridView: UILabel, BingoGrid
     public override func draw(_ rect: CGRect)
     {
         super.draw(rect)
+        
+        if !self.isConnected
+        {
+            return
+        }
+        
+        guard let context = UIGraphicsGetCurrentContext() else
+        {
+            return
+        }
+        
+        
+        context.setStrokeColor(UIColor(hexString: "#400000FF").cgColor)
+        context.setLineWidth(1.5)
+        
+        for (index, connected) in self.directions.enumerated()
+        {
+            if connected, let dir = ConnectedDirection(rawValue: index)
+            {
+                switch dir
+                {
+                    case .leftTop_rightBottom:
+                        context.beginPath()
+                        context.move(to: CGPoint(x: self.frame.size.width, y: 0))
+                        context.addLine(to: CGPoint(x: 0, y: self.frame.size.height))
+                        context.closePath()
+                        context.drawPath(using: CGPathDrawingMode.stroke)
+                        break
+                        
+                    case .rightTop_leftBottom:
+                        context.beginPath()
+                        context.move(to: CGPoint.zero)
+                        context.addLine(to: CGPoint(x: self.frame.size.width, y: self.frame.size.height))
+                        context.closePath()
+                        context.drawPath(using: CGPathDrawingMode.stroke)
+                        break
+                    
+                    case .horizontal:
+                        context.beginPath()
+                        context.move(to: CGPoint(x: self.frame.size.width/2, y: 0))
+                        context.addLine(to: CGPoint(x: self.frame.size.width/2, y: self.frame.size.height))
+                        context.closePath()
+                        context.drawPath(using: CGPathDrawingMode.stroke)
+                        break
+                    
+                    case .vertical:
+                        context.beginPath()
+                        context.move(to: CGPoint(x: 0, y: self.frame.size.height/2))
+                        context.addLine(to: CGPoint(x: self.frame.size.width, y: self.frame.size.height/2))
+                        context.closePath()
+                        context.drawPath(using: CGPathDrawingMode.stroke)
+                        break
+                        
+                    default:
+                        break
+                }
+            }
+        }
     }
     
     public override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?)
@@ -76,25 +135,36 @@ class UIGridView: UILabel, BingoGrid
     
     func initial()
     {
-        self.isConnected = false
-        self.isSelected = false
-
         for i in 0 ... self.directions.count - 1
         {
             self.directions[i] = false
         }
 
+        self.isConnected = false
+        self.isSelected = false
         self.value = self.type == .computer ? self.locX * 5 + (self.locY + 1) : 0
     }
     
     func isLineConnected(direction: ConnectedDirection) -> Bool
     {
-        return false
+        return self.directions[direction.rawValue]
     }
     
     func setConnectedLine(direction: ConnectedDirection, connected: Bool)
     {
-        
+        self.directions[direction.rawValue] = connected
+
+        if !connected
+        {
+            self.isConnected = self.directions.first(
+                                    where: { (existed: Bool) -> Bool in
+                                    return existed
+                                }) == true
+        }
+        else
+        {
+            self.isConnected = connected
+        }
     }
     
     deinit
@@ -112,6 +182,10 @@ extension UIGridView
         self.textColor = UIColor.black
         self.font = UIFont.preferredFont(forTextStyle: UIFont.TextStyle.callout)
         self.textAlignment = .center
+        
+        self.layerBorderColor = UIColor.darkGray
+        self.layerBorderWidth = 1
+        self.layerCornerRadius = 0
     }
     
     private func updateBackgroundColor()

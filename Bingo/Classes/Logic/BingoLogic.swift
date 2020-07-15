@@ -156,7 +156,7 @@ extension BingoLogic
             self.locX = x
             self.locY = y
 
-            self.winCheck(ConnectedDirection.oblique_1)
+            self.winCheck(ConnectedDirection.leftTop_rightBottom)
 
             if !self.isGameOver && redo
             {
@@ -297,7 +297,7 @@ extension BingoLogic
         self.locX = x
         self.locY = y
         var w = 0
-        var dir = ConnectedDirection.oblique_1
+        var dir = ConnectedDirection.leftTop_rightBottom
 
         repeat
         {

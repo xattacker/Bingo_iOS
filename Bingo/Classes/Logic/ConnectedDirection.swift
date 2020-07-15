@@ -14,8 +14,8 @@ enum ConnectedDirection: Int
 {
     case null  = -1 // 無方向
 
-    case oblique_1 = 0 // 左上向右下
-    case oblique_2 = 1 // 右上向左下
+    case leftTop_rightBottom = 0 // 左上向右下
+    case rightTop_leftBottom = 1 // 右上向左下
     case horizontal = 2 // 橫向
     case vertical = 3 // 直向
     
@@ -30,12 +30,12 @@ enum ConnectedDirection: Int
         
         switch self
         {
-            case .oblique_1:
+            case .leftTop_rightBottom:
                 x = 1
                 y = -1
                 break
             
-            case .oblique_2:
+            case .rightTop_leftBottom:
                 x = 1
                 y = 1
                 break
