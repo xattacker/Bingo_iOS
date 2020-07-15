@@ -26,13 +26,13 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="record" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CZH-je-OuZ">
-                                <rect key="frame" x="8" y="8" width="359" height="16.5"/>
+                                <rect key="frame" x="8" y="8" width="359" height="25.5"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="ERm-LE-HAw" userLabel="Name Stack View">
-                                <rect key="frame" x="0.0" y="109.5" width="54" height="480"/>
+                                <rect key="frame" x="0.0" y="93.5" width="54" height="480"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="OPPONENT" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wYg-0k-dXL">
                                         <rect key="frame" x="0.0" y="0.0" width="54" height="240"/>
@@ -49,7 +49,7 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="NLh-TH-DbW" userLabel="Grid Stack View">
-                                <rect key="frame" x="60" y="109.5" width="255" height="480"/>
+                                <rect key="frame" x="60" y="93.5" width="255" height="480"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="zV0-tW-zAi">
                                         <rect key="frame" x="0.0" y="0.0" width="255" height="230"/>
@@ -63,24 +63,78 @@
                                     <constraint firstItem="zV0-tW-zAi" firstAttribute="width" secondItem="NLh-TH-DbW" secondAttribute="width" id="VkX-mo-3Am"/>
                                 </constraints>
                             </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="p4Z-i4-5pX" userLabel="Button Stack View">
+                                <rect key="frame" x="48.5" y="589.5" width="278" height="33"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tgw-72-Ffe">
+                                        <rect key="frame" x="0.0" y="0.0" width="131" height="33"/>
+                                        <color key="backgroundColor" red="0.92550265789999997" green="0.92546778919999995" blue="0.92549145219999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                        <state key="normal" title="GAME_RESTART">
+                                            <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="layerBorderColor">
+                                                <color key="value" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layerBorderWidth">
+                                                <real key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layerCornerRadius">
+                                                <real key="value" value="12"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="onRestartAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5fV-qX-iqx"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="90M-9o-0XG">
+                                        <rect key="frame" x="147" y="0.0" width="131" height="33"/>
+                                        <color key="backgroundColor" red="0.92550265789999997" green="0.92546778919999995" blue="0.92549145219999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                        <state key="normal" title="AUTO_FILL_NUM">
+                                            <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="layerBorderColor">
+                                                <color key="value" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layerBorderWidth">
+                                                <real key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layerCornerRadius">
+                                                <real key="value" value="12"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="onAutoFillNumAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="aWt-kX-8tC"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="CZH-je-OuZ" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="8" id="4ex-1N-LRn"/>
                             <constraint firstItem="NLh-TH-DbW" firstAttribute="leading" secondItem="ERm-LE-HAw" secondAttribute="trailing" constant="6" id="5ma-Ph-K7w"/>
+                            <constraint firstItem="p4Z-i4-5pX" firstAttribute="width" relation="greaterThanOrEqual" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.38" id="8xr-7P-t4q"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="p4Z-i4-5pX" secondAttribute="trailing" constant="8" id="Dlb-IY-B77"/>
                             <constraint firstItem="NLh-TH-DbW" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.68" id="G1s-ru-Cuk"/>
                             <constraint firstItem="ERm-LE-HAw" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="IQ3-6j-OoA"/>
                             <constraint firstAttribute="trailing" secondItem="0Gq-ns-4Tv" secondAttribute="trailing" constant="3" id="MFb-oy-Bej"/>
                             <constraint firstItem="ERm-LE-HAw" firstAttribute="top" secondItem="NLh-TH-DbW" secondAttribute="top" id="Pq0-Hs-wCh"/>
+                            <constraint firstItem="p4Z-i4-5pX" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="8" id="QMd-Q4-tIf"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="0Gq-ns-4Tv" secondAttribute="bottom" constant="3" id="UYQ-vu-lvZ"/>
                             <constraint firstItem="NLh-TH-DbW" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="WfI-hY-Zhg"/>
                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="NLh-TH-DbW" secondAttribute="trailing" constant="8" id="lrb-oA-YDq"/>
                             <constraint firstItem="CZH-je-OuZ" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="peC-kW-o5l"/>
                             <constraint firstItem="ERm-LE-HAw" firstAttribute="bottom" secondItem="NLh-TH-DbW" secondAttribute="bottom" id="qoe-jD-N2D"/>
-                            <constraint firstItem="NLh-TH-DbW" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="16" id="rSU-jr-daj"/>
+                            <constraint firstItem="NLh-TH-DbW" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="rSU-jr-daj"/>
+                            <constraint firstItem="p4Z-i4-5pX" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="wF1-aJ-ZGV"/>
+                            <constraint firstItem="p4Z-i4-5pX" firstAttribute="top" secondItem="NLh-TH-DbW" secondAttribute="bottom" constant="16" id="wja-xx-MBs"/>
                             <constraint firstItem="NLh-TH-DbW" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="8" id="yQq-3Q-fBG"/>
                             <constraint firstItem="0Gq-ns-4Tv" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" symbolic="YES" id="zHO-Wf-m5K"/>
-                            <constraint firstItem="NLh-TH-DbW" firstAttribute="top" secondItem="CZH-je-OuZ" secondAttribute="bottom" constant="85" placeholder="YES" id="zMR-1i-dQs"/>
+                            <constraint firstItem="NLh-TH-DbW" firstAttribute="top" secondItem="CZH-je-OuZ" secondAttribute="bottom" constant="60" placeholder="YES" id="zMR-1i-dQs"/>
                             <constraint firstAttribute="trailing" secondItem="CZH-je-OuZ" secondAttribute="trailing" constant="8" id="zOP-Uk-Tbq"/>
                         </constraints>
                     </view>
@@ -93,9 +147,11 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="autoFillButton" destination="90M-9o-0XG" id="u4D-Nl-JH1"/>
                         <outlet property="comGridStackView" destination="zV0-tW-zAi" id="q25-pv-G6y"/>
                         <outlet property="playerGridStackView" destination="f2D-oM-I0w" id="bc0-gP-uAk"/>
                         <outlet property="recordLabel" destination="CZH-je-OuZ" id="P2L-Bd-EZZ"/>
+                        <outlet property="restartButton" destination="Tgw-72-Ffe" id="Cgy-ro-7Ji"/>
                         <outlet property="versionLabel" destination="0Gq-ns-4Tv" id="Lzz-x5-4R5"/>
                     </connections>
                 </viewController>

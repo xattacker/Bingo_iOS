@@ -107,9 +107,9 @@ extension BingoViewController: BingoLogicDelegate
             self.recorder.addWin()
             message = "YOU_WIN"
         }
-        
-        self.updateRecordView()
+
         self.showAlertController(AlertTitleType.notification, message: message.localizedString())
+        self.updateRecordView()
     }  
 }
 
@@ -228,12 +228,18 @@ extension BingoViewController
         switch self.status
         {
             case .prepare:
+                self.autoFillButton.isHidden = false
+                self.restartButton.isHidden = true
                 break
                 
             case .playing:
+                self.autoFillButton.isHidden = true
+                self.restartButton.isHidden = true
                 break
                 
             case .end:
+                self.autoFillButton.isHidden = true
+                self.restartButton.isHidden = false
                 break
         }
     }
