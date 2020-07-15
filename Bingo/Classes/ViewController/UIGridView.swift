@@ -40,6 +40,7 @@ class UIGridView: UILabel, BingoGrid
     
     var locX: Int = 0
     var locY: Int = 0
+    var clicked: ((_ grid: UIGridView) -> Void)? = nil
     
     private var directions: [Bool] = [false, false, false, false]
     
@@ -55,6 +56,22 @@ class UIGridView: UILabel, BingoGrid
         super.init(coder: coder)
         
         self.initView()
+    }
+    
+    public override func draw(_ rect: CGRect)
+    {
+        super.draw(rect)
+    }
+    
+    public override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?)
+    {
+        guard let _ = touches.first else
+        {
+            return
+        }
+        
+        
+        self.clicked?(self)
     }
     
     func initial()
@@ -79,6 +96,11 @@ class UIGridView: UILabel, BingoGrid
     {
         
     }
+    
+    deinit
+    {
+        self.clicked = nil
+    }
 }
 
 
@@ -86,6 +108,7 @@ extension UIGridView
 {
     private func initView()
     {
+        self.isUserInteractionEnabled = true
         self.textColor = UIColor.black
         self.font = UIFont.preferredFont(forTextStyle: UIFont.TextStyle.callout)
         self.textAlignment = .center

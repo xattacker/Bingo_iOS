@@ -11,5 +11,21 @@ import UIKit
 
 class UICountView: UIView
 {
-
+    var count: Int = 0
+    {
+        didSet
+        {
+            self.setNeedsDisplay()
+        }
+    }
+    
+    public override func draw(_ rect: CGRect)
+    {
+        super.draw(rect)
+        
+        guard let context = UIGraphicsGetCurrentContext() else
+        {
+            return
+        }
+    }
 }

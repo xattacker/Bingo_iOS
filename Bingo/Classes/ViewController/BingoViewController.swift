@@ -21,8 +21,8 @@ class BingoViewController: UIViewController
     @IBOutlet private weak var comGridStackView: UIStackView!
     @IBOutlet private weak var playerGridStackView: UIStackView!
     
-    @IBOutlet private weak var comCountView: UICountView!
-    @IBOutlet private weak var playerCountView: UICountView!
+    @IBOutlet private weak var comCountView: UICountView?
+    @IBOutlet private weak var playerCountView: UICountView?
     
     @IBOutlet private weak var recordLabel: UILabel!
     @IBOutlet private weak var versionLabel: UILabel!
@@ -43,13 +43,11 @@ class BingoViewController: UIViewController
         
         self.logic = BingoLogic(delegate: self)
         
-        self.setupGrid(self.comGridStackView, type: .computer)
-        self.setupGrid(self.playerGridStackView, type: .player)
+        self.setupGridLayout(self.comGridStackView, type: .computer)
+        self.setupGridLayout(self.playerGridStackView, type: .player)
             
         self.versionLabel.text = String(format: "v %@", AppProperties.getAppVersion())
         self.updateRecordView()
-        
-        self.restart()
     }
     
     override func viewDidAppear(_ animated: Bool)
@@ -57,6 +55,7 @@ class BingoViewController: UIViewController
         super.viewDidAppear(animated)
         
         self.showToast(String.localizedString("FILL_NUMBER"))
+        self.restart()
     }
     
     @IBAction func onAutoFillNumAction(_ sender: AnyObject)
@@ -81,17 +80,43 @@ extension BingoViewController: BingoLogicDelegate
 {
     func onLineConnected(turn: PlayerType, count: Int)
     {
+        if turn == .computer
+        {
+            self.comCountView?.count = count
+        }
+        else
+        {
+            self.playerCountView?.count = count
+        }
     }
     
     func onWon(winner: PlayerType)
     {
+        self.status = GameStatus.end
+        self.updateButtonWithStatus()
+        
+        var message = ""
+        
+        if winner == .computer
+        {
+            self.recorder.addLose()
+            message = "YOU_LOSE"
+        }
+        else // player won
+        {
+            self.recorder.addWin()
+            message = "YOU_WIN"
+        }
+        
+        self.updateRecordView()
+        self.showAlertController(AlertTitleType.notification, message: message.localizedString())
     }  
 }
 
 
 extension BingoViewController
 {
-    private func setupGrid(_ gridLayout: UIStackView, type: PlayerType)
+    private func setupGridLayout(_ gridLayout: UIStackView, type: PlayerType)
     {
         let width = self.view.shortWidthRatio(0.125)
         
@@ -128,6 +153,45 @@ extension BingoViewController
                 grid.locY = j
                 grid.type = type
                 self.logic?.addGrid(type, grid: grid, x: i, y: j)
+                
+                if type == .player
+                {
+                    grid.clicked = {
+                                        [weak self]
+                                        (grid: UIGridView) in
+                        
+                                        switch self?.status
+                                        {
+                                            case .prepare:
+                                                if grid.value <= 0
+                                                {
+                                                    self?.numDoneCount += 1
+                                                    grid.value = self?.numDoneCount ?? 0
+
+                                                    if grid.value >= 25
+                                                    {
+                                                        self?.startPlaying()
+                                                    }
+                                                }
+                                                break
+                                             
+                                            case .playing:
+                                                if !grid.isSelected
+                                                {
+                                                    grid.isSelected = true
+                                                    self?.logic?.winCheck(grid.locX, y: grid.locY)
+                                                }
+                                                break
+                                            
+                                            case .end:
+                                                self?.restart()
+                                                break
+                                            
+                                            default:
+                                                break
+                                        }
+                                    }
+                }
             }
             
             gridLayout.addArrangedSubview(row_layout)
@@ -145,6 +209,11 @@ extension BingoViewController
     
     private func startPlaying()
     {
+        self.logic?.fillNumber()
+        self.status = GameStatus.playing
+        self.updateButtonWithStatus()
+
+        self.showToast(String.localizedString("GAME_START"))
     }
 
     private func updateRecordView()
@@ -156,5 +225,16 @@ extension BingoViewController
     
     private func updateButtonWithStatus()
     {
+        switch self.status
+        {
+            case .prepare:
+                break
+                
+            case .playing:
+                break
+                
+            case .end:
+                break
+        }
     }
 }
