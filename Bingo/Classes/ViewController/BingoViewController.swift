@@ -203,7 +203,6 @@ extension BingoViewController
         self.status = GameStatus.prepare
         self.numDoneCount = 0
         self.updateButtonWithStatus()
-
         self.logic?.restart()
     }
     

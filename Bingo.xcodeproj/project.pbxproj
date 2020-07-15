@@ -14,7 +14,6 @@
 		65201C1F1DFEF62100921BB3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65201C1D1DFEF62100921BB3 /* LaunchScreen.storyboard */; };
 		65201C2C1DFEF69700921BB3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65201C271DFEF69700921BB3 /* AppDelegate.swift */; };
 		65A824DC1E01A61B00A94D77 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65A824DB1E01A61B00A94D77 /* CoreFoundation.framework */; };
-		65D4D72D1E01A10B00F360B9 /* CustomUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D4D72B1E01A10B00F360B9 /* CustomUtility.swift */; };
 		65FC25FA1E02EC1B00F9E38A /* MacroDefine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65FC25F91E02EC1B00F9E38A /* MacroDefine.swift */; };
 		680DCD2324BD45EB00525E17 /* BingoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 680DCD2224BD45EB00525E17 /* BingoViewController.swift */; };
 		680DCD2624BD46A400525E17 /* AppProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 680DCD2524BD46A400525E17 /* AppProperties.swift */; };
@@ -50,7 +49,6 @@
 		65A824D71E01A60C00A94D77 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		65A824D91E01A61300A94D77 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		65A824DB1E01A61B00A94D77 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
-		65D4D72B1E01A10B00F360B9 /* CustomUtility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomUtility.swift; sourceTree = "<group>"; };
 		65FC25F91E02EC1B00F9E38A /* MacroDefine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MacroDefine.swift; sourceTree = "<group>"; };
 		680DCD2224BD45EB00525E17 /* BingoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BingoViewController.swift; sourceTree = "<group>"; };
 		680DCD2524BD46A400525E17 /* AppProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppProperties.swift; sourceTree = "<group>"; };
@@ -154,21 +152,12 @@
 		65D4D7291E01A10B00F360B9 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				65D4D72A1E01A10B00F360B9 /* Custom */,
 				680DCD2224BD45EB00525E17 /* BingoViewController.swift */,
 				680DCD4624BD95A500525E17 /* UIGridView.swift */,
 				680DCD4824BD95C300525E17 /* UICountView.swift */,
 				680DCD4424BD94A600525E17 /* GradeRecorder.swift */,
 			);
 			path = ViewController;
-			sourceTree = "<group>";
-		};
-		65D4D72A1E01A10B00F360B9 /* Custom */ = {
-			isa = PBXGroup;
-			children = (
-				65D4D72B1E01A10B00F360B9 /* CustomUtility.swift */,
-			);
-			path = Custom;
 			sourceTree = "<group>";
 		};
 		680DCD2424BD46A400525E17 /* Util */ = {
@@ -293,7 +282,6 @@
 				680DCD4524BD94A600525E17 /* GradeRecorder.swift in Sources */,
 				680DCD3724BD47D000525E17 /* UIColor.swift in Sources */,
 				65201C2C1DFEF69700921BB3 /* AppDelegate.swift in Sources */,
-				65D4D72D1E01A10B00F360B9 /* CustomUtility.swift in Sources */,
 				680DCD3F24BD571C00525E17 /* BingoLogic.swift in Sources */,
 				680DCD3824BD47D000525E17 /* UIViewController.swift in Sources */,
 				680DCD2624BD46A400525E17 /* AppProperties.swift in Sources */,
