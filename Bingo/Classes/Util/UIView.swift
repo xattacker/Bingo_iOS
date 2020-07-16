@@ -11,11 +11,6 @@ import UIKit
 
 extension UIView
 {
-    public var isDarkStyle: Bool
-    {
-        return AppProperties.userInterfaceStyle == .dark
-    }
-    
     public func setupSubView(_ subView: UIView, safeArea: Bool = false)
     {
         subView.translatesAutoresizingMaskIntoConstraints = false // we should set it to false before add constraint
@@ -85,28 +80,7 @@ extension UIView
     {
         self.convertLocalizedString(recursive, view: self)
     }
-    
-    public var isScrolling: Bool
-    {
-        if let scrollView = self as? UIScrollView
-        {
-            if scrollView.isDragging || scrollView.isDecelerating
-            {
-                return true
-            }
-        }
-        
-        for sub in self.subviews
-        {
-            if sub.isScrolling
-            {
-                return true
-            }
-        }
-        
-        return false
-    }
-    
+
     private func setupConstraints(_ from: Any, to: Any)
     {
         let leading_const = NSLayoutConstraint(
@@ -244,85 +218,6 @@ extension UIView // border related
         {
             self.layer.cornerRadius = newValue
             self.layer.masksToBounds = newValue > 0 //屬性若被設置為true，會將超過邊筐外的sublayers裁切掉
-        }
-    }
-
-    public func enableCircleRound()
-    {
-        self.layer.cornerRadius = self.frame.size.width/2
-        self.layer.masksToBounds = true //屬性若被設置為true，會將超過邊筐外的sublayers裁切掉
-    }
-    
-    public func setLayerCorner(
-    topLeft: Bool = true,
-    topRight: Bool = true,
-    bottomLeft: Bool = true,
-    bottomRight: Bool = true)
-    {
-        if #available(iOS 11.0, *)
-        {
-            var corners: CACornerMask = []
-            
-            if topLeft
-            {
-                corners.insert(.layerMinXMinYCorner)
-            }
-            
-            if topRight
-            {
-                corners.insert(.layerMaxXMinYCorner)
-            }
-            
-            if bottomLeft
-            {
-                corners.insert(.layerMinXMaxYCorner)
-            }
-            
-            if bottomRight
-            {
-                corners.insert(.layerMaxXMaxYCorner)
-            }
-            
-            self.layer.maskedCorners = corners
-        }
-        else
-        {
-            var corners: UIRectCorner = []
-            
-            if topLeft
-            {
-                corners.insert(.topLeft)
-            }
-            
-            if topRight
-            {
-                corners.insert(.topRight)
-            }
-            
-            if bottomLeft
-            {
-                corners.insert(.bottomLeft)
-            }
-            
-            if bottomRight
-            {
-                corners.insert(.bottomRight)
-            }
-            
-            let radius = self.layerCornerRadius
-            self.layerCornerRadius = 0
-            
-            let path = UIBezierPath(
-                        roundedRect: self.bounds,
-                        byRoundingCorners: corners,
-                        cornerRadii: CGSize(width: radius, height: radius))
-            
-            let maskLayer = CAShapeLayer()
-            maskLayer.strokeColor = self.layerBorderColor?.cgColor
-            maskLayer.lineWidth = self.layerBorderWidth
-            maskLayer.frame = self.bounds
-            maskLayer.path = path.cgPath
-            self.layer.mask = maskLayer
         }
     }
 }

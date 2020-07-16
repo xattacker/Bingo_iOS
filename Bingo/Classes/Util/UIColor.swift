@@ -110,34 +110,6 @@ extension UIColor
                    Int(rgb.blue*255))
         }
     }
-    
-    /// Lighten a color
-    /// - Parameter percentage: Percentage by which to lighten the color
-    /// - Returns: A lightened color
-    public func lighten(_ percentage: CGFloat = 0.2) -> UIColor
-    {
-        // https://stackoverflow.com/questions/38435308/swift-get-lighter-and-darker-color-variations-for-a-given-uicolor
-        let rgb = self.rgb
-        
-        return UIColor(red: min(rgb.red + percentage, 1.0),
-                       green: min(rgb.green + percentage, 1.0),
-                       blue: min(rgb.blue + percentage, 1.0),
-                       alpha: rgb.alpha)
-    }
-    
-    /// Darken a color
-    /// - Parameter percentage: Percentage by which to darken the color
-    /// - Returns: A darkened color
-    public func darken(_ percentage: CGFloat = 0.2) -> UIColor
-    {
-        // https://stackoverflow.com/questions/38435308/swift-get-lighter-and-darker-color-variations-for-a-given-uicolor
-        let rgb = self.rgb
-        
-        return UIColor(red: max(rgb.red - percentage, 0),
-                       green: max(rgb.green - percentage, 0),
-                       blue: max(rgb.blue - percentage, 0),
-                       alpha: rgb.alpha)
-    }
 }
 
 

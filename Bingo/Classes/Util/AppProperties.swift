@@ -7,19 +7,7 @@
 //
 
 import UIKit
-import LocalAuthentication
 
-
-public enum ResolutionSize: Int
-{
-   case inch_3_5      = 0
-   case inch_4        = 1
-   case inch_4_7      = 2
-   case inch_5_5      = 3 // iPhone plus
-   case inch_5_8      = 4 // iPhone X
-    
-   case unknown       = 99
-}
 
 public enum UserInterfaceStyle
 {
@@ -183,45 +171,6 @@ extension AppProperties // UI related
         return UIScreen.main.bounds
     }
 
-    public class func getScreenResolution() -> ResolutionSize
-    {
-        var size = ResolutionSize.unknown
-        
-        if self.isPhone
-        {
-            let height = UIScreen.main.bounds.size.height
-
-            switch height
-            {
-                case 480:
-                    size = .inch_3_5
-                    break
-                
-                case 568:
-                    size = .inch_4
-                    break
-                
-                case 667:
-                    size = .inch_4_7
-                    break
-                
-                case 736:
-                    size = .inch_5_5
-                    break
-                
-                case 812:
-                    size = .inch_5_8
-                    break
-                
-                default:
-                    size = .unknown
-                    break
-            }
-        }
-    
-        return size
-    }
-    
     public class var hasFaceDetector: Bool
     {
         if #available(iOS 11.0, *)

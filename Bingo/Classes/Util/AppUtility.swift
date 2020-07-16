@@ -85,17 +85,6 @@ public final class AppUtility
         return isReachable && !needsConnection
     }
    
-    public class func hasCellularCoverage() -> Bool
-    {
-        let networkInfo = CTTelephonyNetworkInfo()
-        guard let info = networkInfo.subscriberCellularProvider else
-        {
-            return false
-        }
-        
-        return info.isoCountryCode != nil ? true : false
-    }
-    
     @discardableResult
     public class func openUrl(_ url: String, force: Bool = false) -> Bool
     {
@@ -122,42 +111,7 @@ public final class AppUtility
         
         return result
     }
-    
-    public class func openSystemSetting()
-    {
-        self.openUrl(UIApplication.openSettingsURLString, force: true)
-    }
 
-    public class func suspend()
-    {
-        // call private api
-        let selector = #selector(URLSessionTask.suspend)
-        if UIApplication.shared.responds(to: selector)
-        {
-            UIApplication.shared.perform(selector)
-        }
-    }
-    
-    public class func vibrate()
-    {
-        // it will not work on iPad
-        AudioServicesPlaySystemSound(kSystemSoundID_Vibrate)
-        AudioServicesPlayAlertSound(kSystemSoundID_Vibrate)
-    }
-
-    public class func phoneCall(_ phone: String) -> Bool
-    {
-        var result = false
-        
-        if phone.length > 0
-        {
-            let url = String(format: "tel://%@", phone.formatPhoneNumber())
-            result = self.openUrl(url, force: true)
-        }
-        
-        return result
-    }
-    
     @inline(__always) public class func log(_ content: Any?)
     {
 #if DEBUG
