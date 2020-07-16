@@ -19,6 +19,14 @@ class UICountView: UIView
         }
     }
     
+    @IBInspectable var lineColor: UIColor = UIColor.blue
+    {
+        didSet
+        {
+            self.setNeedsDisplay()
+        }
+    }
+    
     public override func draw(_ rect: CGRect)
     {
         super.draw(rect)
@@ -31,7 +39,7 @@ class UICountView: UIView
         
         let offset = rect.size.width / 10
         
-        context.setStrokeColor(UIColor.blue.cgColor)
+        context.setStrokeColor(self.lineColor.cgColor)
         context.setLineWidth(offset)
         context.setLineJoin(CGLineJoin.round)
         

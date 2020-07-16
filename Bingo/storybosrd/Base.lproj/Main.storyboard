@@ -55,6 +55,11 @@
                                                 <constraints>
                                                     <constraint firstAttribute="height" secondItem="2QI-Zi-jIY" secondAttribute="width" multiplier="1:1" id="Uhe-gU-Zfc"/>
                                                 </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="lineColor">
+                                                        <color key="value" red="0.44488859149999999" green="0.7436609435" blue="0.93199876930000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
                                             </view>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -76,7 +81,7 @@
                                                     <constraint firstAttribute="height" secondItem="FoA-cc-dgW" secondAttribute="width" multiplier="1:1" id="Nhi-nf-PUA"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleCallout"/>
-                                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="textColor" red="0.016804177310000001" green="0.19835099580000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="i5q-7a-DFs" customClass="UICountView" customModule="Bingo" customModuleProvider="target">
@@ -85,6 +90,11 @@
                                                 <constraints>
                                                     <constraint firstAttribute="height" secondItem="i5q-7a-DFs" secondAttribute="width" multiplier="1:1" id="qbq-UP-4hn"/>
                                                 </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="lineColor">
+                                                        <color key="value" red="0.44488859149999999" green="0.7436609435" blue="0.93199876930000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
                                             </view>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
