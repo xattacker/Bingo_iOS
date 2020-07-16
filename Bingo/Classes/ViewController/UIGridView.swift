@@ -85,32 +85,32 @@ class UIGridView: UILabel, BingoGrid
                 {
                     case .leftTop_rightBottom:
                         context.beginPath()
-                        context.move(to: CGPoint(x: self.frame.size.width, y: 0))
-                        context.addLine(to: CGPoint(x: 0, y: self.frame.size.height))
+                        context.move(to: CGPoint.zero)
+                        context.addLine(to: CGPoint(x: self.frame.size.width, y: self.frame.size.height))
                         context.closePath()
                         context.drawPath(using: CGPathDrawingMode.stroke)
                         break
                         
                     case .rightTop_leftBottom:
                         context.beginPath()
-                        context.move(to: CGPoint.zero)
-                        context.addLine(to: CGPoint(x: self.frame.size.width, y: self.frame.size.height))
+                        context.move(to: CGPoint(x: self.frame.size.width, y: 0))
+                        context.addLine(to: CGPoint(x: 0, y: self.frame.size.height))
                         context.closePath()
                         context.drawPath(using: CGPathDrawingMode.stroke)
                         break
                     
                     case .horizontal:
                         context.beginPath()
-                        context.move(to: CGPoint(x: self.frame.size.width/2, y: 0))
-                        context.addLine(to: CGPoint(x: self.frame.size.width/2, y: self.frame.size.height))
+                        context.move(to: CGPoint(x: 0, y: self.frame.size.height/2))
+                        context.addLine(to: CGPoint(x: self.frame.size.width, y: self.frame.size.height/2))
                         context.closePath()
                         context.drawPath(using: CGPathDrawingMode.stroke)
                         break
                     
                     case .vertical:
                         context.beginPath()
-                        context.move(to: CGPoint(x: 0, y: self.frame.size.height/2))
-                        context.addLine(to: CGPoint(x: self.frame.size.width, y: self.frame.size.height/2))
+                        context.move(to: CGPoint(x: self.frame.size.width/2, y: 0))
+                        context.addLine(to: CGPoint(x: self.frame.size.width/2, y: self.frame.size.height))
                         context.closePath()
                         context.drawPath(using: CGPathDrawingMode.stroke)
                         break

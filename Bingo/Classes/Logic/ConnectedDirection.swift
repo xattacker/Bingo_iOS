@@ -32,22 +32,22 @@ enum ConnectedDirection: Int
         {
             case .leftTop_rightBottom:
                 x = 1
-                y = -1
+                y = 1
                 break
             
             case .rightTop_leftBottom:
                 x = 1
-                y = 1
+                y = -1
                 break
             
             case .horizontal:
-                x = 1
-                y = 0
+                x = 0
+                y = 1
                 break
             
             case .vertical:
-                x = 0
-                y = 1
+                x = 1
+                y = 0
                 break
             
             default:
