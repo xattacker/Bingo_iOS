@@ -19,7 +19,7 @@ class BingoViewController: UIViewController
     }
     
     @IBOutlet private weak var comGridStackView: UIStackView!
-    @IBOutlet private weak var playerGridStackView: UIStackView!
+    @IBOutlet private weak var playerGridStackView: UIExtendedStackView!
     
     @IBOutlet private weak var comCountView: UICountView?
     @IBOutlet private weak var playerCountView: UICountView?
@@ -55,6 +55,8 @@ class BingoViewController: UIViewController
         super.viewDidAppear(animated)
         
         self.showToast(String.localizedString("FILL_NUMBER"))
+        self.showHintAnimation()
+        
         self.restart()
     }
     
@@ -116,6 +118,31 @@ extension BingoViewController: BingoLogicDelegate
 
 extension BingoViewController
 {
+    private func showHintAnimation()
+    {
+        self.playerGridStackView.backgroundColor = UIColor.red
+        
+        UIView.animate(
+            withDuration: 0.5,
+            delay: 0,
+            options: [.allowUserInteraction, .autoreverse, .repeat],
+            animations:
+            {
+                [weak self] in
+                
+                UIView.setAnimationRepeatCount(2)
+                self?.playerGridStackView.validBackgroundView?.alpha = 0
+            },
+            completion:
+            {
+                [weak self]
+                (finished: Bool) in
+                
+                self?.playerGridStackView.backgroundColor = UIColor.clear
+                self?.playerGridStackView.validBackgroundView?.alpha = 1
+            })
+    }
+    
     private func setupGridLayout(_ gridLayout: UIStackView, type: PlayerType)
     {
         let width = self.view.shortWidthRatio(0.125)

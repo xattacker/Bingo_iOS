@@ -115,7 +115,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="zV0-tW-zAi">
                                         <rect key="frame" x="0.0" y="0.0" width="255" height="231.5"/>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="f2D-oM-I0w">
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="f2D-oM-I0w" customClass="UIExtendedStackView" customModule="Bingo" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="251.5" width="255" height="231.5"/>
                                     </stackView>
                                 </subviews>

@@ -73,7 +73,7 @@ class UICountView: UIView
         if self.count >= 4
         {
             context.beginPath()
-            context.move(to: CGPoint(x: rect.width/4, y: (rect.height/2) - offset))
+            context.move(to: CGPoint(x: rect.width/4, y: (rect.height/2) - (offset/2)))
             context.addLine(to: CGPoint(x: rect.width/4, y: rect.height - offset))
             context.closePath()
             context.drawPath(using: CGPathDrawingMode.stroke)
