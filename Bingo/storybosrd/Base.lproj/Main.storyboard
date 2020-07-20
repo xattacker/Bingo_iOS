@@ -56,7 +56,7 @@
                                                     <constraint firstAttribute="height" secondItem="2QI-Zi-jIY" secondAttribute="width" multiplier="1:1" id="Uhe-gU-Zfc"/>
                                                 </constraints>
                                                 <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="color" keyPath="lineColor">
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="countColor">
                                                         <color key="value" red="0.44488859149999999" green="0.7436609435" blue="0.93199876930000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
@@ -91,7 +91,7 @@
                                                     <constraint firstAttribute="height" secondItem="i5q-7a-DFs" secondAttribute="width" multiplier="1:1" id="qbq-UP-4hn"/>
                                                 </constraints>
                                                 <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="color" keyPath="lineColor">
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="countColor">
                                                         <color key="value" red="0.44488859149999999" green="0.7436609435" blue="0.93199876930000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>

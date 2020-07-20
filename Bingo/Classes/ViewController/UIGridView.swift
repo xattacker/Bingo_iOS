@@ -142,7 +142,7 @@ class UIGridView: UILabel, BingoGrid
 
         self.isConnected = false
         self.isSelected = false
-        self.value = self.type == .computer ? self.locX * 5 + (self.locY + 1) : 0
+        self.value = 0
     }
     
     func isLineConnected(direction: ConnectedDirection) -> Bool

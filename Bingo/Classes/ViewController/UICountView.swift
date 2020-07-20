@@ -19,7 +19,7 @@ class UICountView: UIView
         }
     }
     
-    @IBInspectable var lineColor: UIColor = UIColor.blue
+    @IBInspectable var countColor: UIColor = UIColor.blue
     {
         didSet
         {
@@ -39,7 +39,7 @@ class UICountView: UIView
         
         let offset = rect.size.width / 10
         
-        context.setStrokeColor(self.lineColor.cgColor)
+        context.setStrokeColor(self.countColor.cgColor)
         context.setLineWidth(offset)
         context.setLineJoin(CGLineJoin.round)
         
