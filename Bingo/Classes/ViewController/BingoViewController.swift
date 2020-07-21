@@ -18,6 +18,8 @@ class BingoViewController: UIViewController
         case end
     }
     
+    private let GRID_DIMENSION: Int = 5
+
     @IBOutlet private weak var comGridStackView: UIStackView!
     @IBOutlet private weak var playerGridStackView: UIExtendedStackView!
     
@@ -41,7 +43,7 @@ class BingoViewController: UIViewController
         
         self.convertLocalizedString()
         
-        self.logic = BingoLogic(delegate: self)
+        self.logic = BingoLogic(delegate: self, dimension: GRID_DIMENSION)
         
         self.setupGridLayout(self.comGridStackView, type: .computer)
         self.setupGridLayout(self.playerGridStackView, type: .player)
@@ -152,7 +154,7 @@ extension BingoViewController
             sub.removeFromSuperview()
         }
         
-        for i in 0 ... 4
+        for i in 0 ... GRID_DIMENSION - 1
         {
             let row_layout = UIStackView()
             row_layout.translatesAutoresizingMaskIntoConstraints = false // we should set it to false before add constraint
@@ -160,7 +162,7 @@ extension BingoViewController
             row_layout.spacing = gridLayout.spacing
             row_layout.distribution = .fillEqually
 
-            for j in 0 ... 4
+            for j in 0 ... GRID_DIMENSION - 1
             {
                 let grid = UIGridView(frame: CGRect(x: 0, y: 0, width: width, height: width))
                 grid.translatesAutoresizingMaskIntoConstraints = false // we should set it to false before add constraint
@@ -195,7 +197,7 @@ extension BingoViewController
                                                     self?.numDoneCount += 1
                                                     grid.value = self?.numDoneCount ?? 0
 
-                                                    if grid.value >= 25
+                                                    if grid.value >= Int(pow(Double(self?.GRID_DIMENSION ?? 0), 2))
                                                     {
                                                         self?.startPlaying()
                                                     }
