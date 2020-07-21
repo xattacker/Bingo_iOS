@@ -316,13 +316,14 @@ extension BingoLogic
     private func randomAI()
     {
         let grid_length = self.dimension - 1
+        let center = self.dimension / 2
         var x = 0
         var y = 0
 
-        if self.grids[self.turn.rawValue].grids[2][2].isSelected == false // the first priority is center
+        if self.grids[self.turn.rawValue].grids[center][center].isSelected == false // the first priority is center
         {
-            y = 2
-            x = y
+            x = center
+            y = center
         }
         else
         {
