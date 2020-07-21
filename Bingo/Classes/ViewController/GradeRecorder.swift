@@ -12,7 +12,7 @@ import Foundation
 class GradeRecorder
 {
     private (set) var winCount: Int = 0
-    private (set) var lostCount: Int = 0
+    private (set) var loseCount: Int = 0
     
     func addWin()
     {
@@ -21,12 +21,12 @@ class GradeRecorder
 
     func addLose()
     {
-        self.lostCount += 1
+        self.loseCount += 1
     }
     
     func reset()
     {
         self.winCount = 0
-        self.lostCount = 0
+        self.loseCount = 0
     }
 }

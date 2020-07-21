@@ -246,7 +246,7 @@ extension BingoViewController
 
     private func updateRecordView()
     {
-        self.recordLabel.text = String.localizedString("WIN_COUNT", self.recorder.winCount, self.recorder.lostCount)
+        self.recordLabel.text = String.localizedString("WIN_COUNT", self.recorder.winCount, self.recorder.loseCount)
     }
     
     private func updateButtonWithStatus()
