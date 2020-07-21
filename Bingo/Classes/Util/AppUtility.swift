@@ -29,32 +29,6 @@ public final class AppUtility
         UIApplication.shared.registerForRemoteNotifications()
     }
 
-    public class func getString(_ key: String, parameters: String...) -> String
-    {
-        var value = String.localizedString(key)
-        
-        if parameters.count > 0
-        {
-            var count = 0
-            var temp = String(describing: value)
-            
-            for para in parameters
-            {
-                let replace = String(format: "[%d]", count)
-                if let index = temp.range(of: replace)
-                {
-                    temp.replaceSubrange(index, with: para)
-                }
-                
-                count += 1
-            }
-            
-            value = temp
-        }
-        
-        return value
-    }
-
     public class func checkNetworkConnection() -> Bool
     {
         var zeroAddress = sockaddr_in()

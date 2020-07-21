@@ -514,32 +514,6 @@ extension String /// Localized related
     {
         self = NSLocalizedString(localizedKey, comment: "")
     }
-    
-    public func localizedString(_ parameters: String...) -> String
-    {
-        var value = String.localizedString(self)
-        
-        if parameters.count > 0
-        {
-            var count = 0
-            var temp = String(value)
-            
-            for para in parameters
-            {
-                let replace = String(format: "[%d]", count)
-                if let index = temp.range(of: replace)
-                {
-                    temp.replaceSubrange(index, with: para)
-                }
-                
-                count += 1
-            }
-            
-            value = temp
-        }
-        
-        return value
-    }
 }
 
 

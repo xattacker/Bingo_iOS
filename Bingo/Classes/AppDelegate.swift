@@ -23,8 +23,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate
         // to skip iCound backup
         self.addSkipBackupAttributeToItemAtPath(AppProperties.getAppDocPath())
 
-        UINavigationBar.appearance().tintColor = UIColor.white
-
         return true
     }
     

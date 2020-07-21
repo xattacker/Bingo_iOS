@@ -14,7 +14,7 @@
 "AUTO_FILL_NUM"="自動填數";
 "GAME_START"="遊戲開始";
 "GAME_RESTART"="重新開始";
-"WIN_COUNT"="累計: [0]勝 [1]負";
+"WIN_COUNT"="累計: %d勝 %d負";
 "YOU_WIN"="你贏了";
 "YOU_LOSE"="你輸了";
 
@@ -31,6 +31,6 @@
 "CONFIRM_QUIT"="確認退出?";
 "CONFIRM_EXIT"="確認離開?";
 "CONFIRM_DELETE"="確認刪除?";
-"CONFIRM_DELETE_ITEM"="確認刪除[0]?";
+"CONFIRM_DELETE_ITEM"="確認刪除%s?";
 "CONFIRM_REMOVE"="確認移除?";
-"CONFIRM_REMOVE_ITEM"="確認移除[0]?";
+"CONFIRM_REMOVE_ITEM"="確認移除%s?";

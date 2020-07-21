@@ -14,7 +14,7 @@
 "AUTO_FILL_NUM"="Auto Fill";
 "GAME_START"="Game Start";
 "GAME_RESTART"="Restart";
-"WIN_COUNT"="Records: win [0], lose [1]";
+"WIN_COUNT"="Records: win %d, lose %d";
 "YOU_WIN"="You Win";
 "YOU_LOSE"="You Lose";
 "VERSION"="Version";
@@ -31,6 +31,6 @@
 "CONFIRM_QUIT"="Determined to Quit？";
 "CONFIRM_EXIT"="Determined to Exit？";
 "CONFIRM_DELETE"="Determined to Delete？";
-"CONFIRM_DELETE_ITEM"="Determined to Delete [0]？";
+"CONFIRM_DELETE_ITEM"="Determined to Delete %s？";
 "CONFIRM_REMOVE"="Determined to Remove？";
-"CONFIRM_REMOVE_ITEM"="Determined to Remove [0]？";
+"CONFIRM_REMOVE_ITEM"="Determined to Remove %s？";

@@ -23,4 +23,10 @@ class GradeRecorder
     {
         self.lostCount += 1
     }
+    
+    func reset()
+    {
+        self.winCount = 0
+        self.lostCount = 0
+    }
 }

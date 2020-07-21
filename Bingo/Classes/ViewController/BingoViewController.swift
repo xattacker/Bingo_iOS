@@ -33,7 +33,7 @@ class BingoViewController: UIViewController
     private var logic: BingoLogic?
     private var numDoneCount = 0 // 佈子數, 當玩家把25個數字都佈完後 開始遊戲
     private var status = GameStatus.prepare
-    private var recorder = GradeRecorder()
+    private let recorder = GradeRecorder()
     
     override func viewDidLoad()
     {
@@ -110,7 +110,7 @@ extension BingoViewController: BingoLogicDelegate
             message = "YOU_WIN"
         }
 
-        self.showAlertController(AlertTitleType.notification, message: message.localizedString())
+        self.showAlertController(AlertTitleType.notification, message: String.localizedString(message))
         self.updateRecordView()
     }  
 }
@@ -244,9 +244,7 @@ extension BingoViewController
 
     private func updateRecordView()
     {
-        self.recordLabel.text = AppUtility.getString(
-                                "WIN_COUNT",
-                                parameters: self.recorder.winCount.toString(), self.recorder.lostCount.toString())
+        self.recordLabel.text = String.localizedString("WIN_COUNT", self.recorder.winCount, self.recorder.lostCount)
     }
     
     private func updateButtonWithStatus()
