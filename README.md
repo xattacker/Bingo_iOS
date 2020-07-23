@@ -1,4 +1,4 @@
-# a Bingo iOS game app project. 
+# Bingo iOS game app project. 
 
 android version project: 
 <https://github.com/xattacker/Bingo_Android>
