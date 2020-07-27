@@ -35,6 +35,11 @@ class BingoLogic
         return self.turn
     }
     
+    var maxGridValue: Int
+    {
+        return Int(pow(Double(self.dimension), 2))
+    }
+    
     private weak var delegate: BingoLogicDelegate?
     
     /* 下棋位置 */
@@ -46,7 +51,6 @@ class BingoLogic
     private var turn: PlayerType = PlayerType.player
     private var isGameOver: Bool = false
     private var grids: [GridRecord] = [GridRecord(), GridRecord()]
-    
     private var dimension: Int = 0
     
     init(delegate: BingoLogicDelegate, dimension: Int)
@@ -139,6 +143,7 @@ class BingoLogic
     
     deinit
     {
+        self.grids.removeAll()
         self.delegate = nil
     }
 }

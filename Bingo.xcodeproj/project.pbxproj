@@ -32,6 +32,7 @@
 		680DCD4524BD94A600525E17 /* GradeRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 680DCD4424BD94A600525E17 /* GradeRecorder.swift */; };
 		680DCD4724BD95A500525E17 /* UIGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 680DCD4624BD95A500525E17 /* UIGridView.swift */; };
 		680DCD4924BD95C300525E17 /* UICountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 680DCD4824BD95C300525E17 /* UICountView.swift */; };
+		684855EA24CEC3C500B630FE /* BingoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 684855E924CEC3C500B630FE /* BingoViewModel.swift */; };
 		689E1ABC24C1A85700694094 /* UIExtendedStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 689E1ABB24C1A85700694094 /* UIExtendedStackView.swift */; };
 		68B36F44235D97D6005D0741 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 68B36F46235D97D6005D0741 /* Localizable.strings */; };
 		68B36F4F235D9D83005D0741 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 68B36F51235D9D83005D0741 /* InfoPlist.strings */; };
@@ -68,6 +69,7 @@
 		680DCD4424BD94A600525E17 /* GradeRecorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradeRecorder.swift; sourceTree = "<group>"; };
 		680DCD4624BD95A500525E17 /* UIGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIGridView.swift; sourceTree = "<group>"; };
 		680DCD4824BD95C300525E17 /* UICountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICountView.swift; sourceTree = "<group>"; };
+		684855E924CEC3C500B630FE /* BingoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BingoViewModel.swift; sourceTree = "<group>"; };
 		689E1ABB24C1A85700694094 /* UIExtendedStackView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIExtendedStackView.swift; sourceTree = "<group>"; };
 		68B36F45235D97D6005D0741 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		68B36F47235D97F2005D0741 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Localizable.strings"; sourceTree = "<group>"; };
@@ -155,6 +157,7 @@
 			isa = PBXGroup;
 			children = (
 				680DCD2224BD45EB00525E17 /* BingoViewController.swift */,
+				684855E924CEC3C500B630FE /* BingoViewModel.swift */,
 				680DCD4624BD95A500525E17 /* UIGridView.swift */,
 				680DCD4824BD95C300525E17 /* UICountView.swift */,
 				680DCD4424BD94A600525E17 /* GradeRecorder.swift */,
@@ -285,6 +288,7 @@
 				680DCD4524BD94A600525E17 /* GradeRecorder.swift in Sources */,
 				680DCD3724BD47D000525E17 /* UIColor.swift in Sources */,
 				65201C2C1DFEF69700921BB3 /* AppDelegate.swift in Sources */,
+				684855EA24CEC3C500B630FE /* BingoViewModel.swift in Sources */,
 				680DCD3F24BD571C00525E17 /* BingoLogic.swift in Sources */,
 				680DCD3824BD47D000525E17 /* UIViewController.swift in Sources */,
 				680DCD2624BD46A400525E17 /* AppProperties.swift in Sources */,
