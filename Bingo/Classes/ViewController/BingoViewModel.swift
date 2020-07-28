@@ -19,7 +19,7 @@ enum GameStatus
 
 class BingoViewModel
 {
-    let recorder = GradeRecorder()
+    private(set) var recorder = GradeRecorder()
     
     var onStatusChanged: ((_ status: GameStatus) -> Void)? = nil
     

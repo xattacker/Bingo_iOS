@@ -9,22 +9,26 @@
 import Foundation
 
 
-class GradeRecorder
+struct GradeRecorder
 {
     private (set) var winCount: Int = 0
     private (set) var loseCount: Int = 0
     
-    func addWin()
+    init()
+    {
+    }
+    
+    mutating func addWin()
     {
         self.winCount += 1
     }
 
-    func addLose()
+    mutating func addLose()
     {
         self.loseCount += 1
     }
     
-    func reset()
+    mutating func reset()
     {
         self.winCount = 0
         self.loseCount = 0
