@@ -19,9 +19,12 @@ enum GameStatus
 
 class BingoViewModel
 {
-    var record: GradeRecord
+    var onRecordChanged: ((_ record: GradeRecord) -> Void)? = nil
     {
-        return self.recorder
+        didSet
+        {
+            self.onRecordChanged?(self.recorder)
+        }
     }
     
     var onStatusChanged: ((_ status: GameStatus) -> Void)? = nil
@@ -101,7 +104,9 @@ class BingoViewModel
     
     deinit
     {
+        self.onRecordChanged = nil
         self.onStatusChanged = nil
+        
         self.logic = nil
         self.logicDelegate = nil
     }
@@ -126,6 +131,8 @@ extension BingoViewModel: BingoLogicDelegate
         {
             self.recorder.addWin()
         }
+        
+        self.onRecordChanged?(self.recorder)
         
         self.status = GameStatus.end
         

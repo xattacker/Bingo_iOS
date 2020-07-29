@@ -34,11 +34,11 @@ class BingoViewController: UIViewController
         self.convertLocalizedString()
 
         self.initViewModel()
+        
         self.setupGridLayout(self.comGridStackView, type: .computer)
         self.setupGridLayout(self.playerGridStackView, type: .player)
             
         self.versionLabel.text = String(format: "v %@", AppProperties.getAppVersion())
-        self.updateRecordView()
     }
     
     override func viewDidAppear(_ animated: Bool)
@@ -87,8 +87,6 @@ extension BingoViewController: BingoLogicDelegate
     {
         let message = winner == .computer ? "YOU_LOSE" : "YOU_WIN"
         self.showAlertController(AlertTitleType.notification, message: String.localizedString(message))
-        
-        self.updateRecordView()
     }  
 }
 
@@ -98,6 +96,14 @@ extension BingoViewController
     private func initViewModel()
     {
         self.viewModel = BingoViewModel(delegate: self, dimension: GRID_DIMENSION)
+        
+        // data binding
+        self.viewModel?.onRecordChanged = {
+                                              [weak self]
+                                              (record: GradeRecord) in
+                                            
+                                              self?.updateRecordView(record)
+                                          }
         
         self.viewModel?.onStatusChanged = {
                                              [weak self]
@@ -206,12 +212,12 @@ extension BingoViewController
         self.playerCountView?.count = 0
     }
 
-    private func updateRecordView()
+    private func updateRecordView(_ record: GradeRecord)
     {
         self.recordLabel.text = String.localizedString(
                                 "WIN_COUNT",
-                                self.viewModel?.record.winCount ?? 0,
-                                self.viewModel?.record.loseCount ?? 0)
+                                record.winCount,
+                                record.loseCount)
     }
     
     private func updateButtonWithStatus(_ status: GameStatus)
