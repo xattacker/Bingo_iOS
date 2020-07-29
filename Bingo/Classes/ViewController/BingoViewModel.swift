@@ -25,12 +25,19 @@ class BingoViewModel
     }
     
     var onStatusChanged: ((_ status: GameStatus) -> Void)? = nil
-    
-    private var logic: BingoLogic!
-    private var numDoneCount = 0 // 佈子數, 當玩家把25個數字都佈完後 開始遊戲
+
     private var status = GameStatus.prepare
+    {
+        didSet
+        {
+            self.onStatusChanged?(self.status)
+        }
+    }
+       
+    private var logic: BingoLogic!
     private weak var logicDelegate: BingoLogicDelegate?
     private var recorder = GradeRecorder()
+    private var numDoneCount = 0 // 佈子數, 當玩家把25個數字都佈完後 開始遊戲
   
     init(delegate: BingoLogicDelegate, dimension: Int)
     {
@@ -84,14 +91,12 @@ class BingoViewModel
         self.status = GameStatus.prepare
         self.numDoneCount = 0
         self.logic.restart()
-        self.onStatusChanged?(self.status)
     }
     
     func startPlaying()
     {
         self.logic?.fillNumber()
         self.status = GameStatus.playing
-        self.onStatusChanged?(self.status)
     }
     
     deinit
@@ -123,7 +128,6 @@ extension BingoViewModel: BingoLogicDelegate
         }
         
         self.status = GameStatus.end
-        self.onStatusChanged?(self.status)
         
         // bypass to another delegate
         self.logicDelegate?.onWon(winner: winner)
