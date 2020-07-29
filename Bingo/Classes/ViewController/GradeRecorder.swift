@@ -9,7 +9,14 @@
 import Foundation
 
 
-struct GradeRecorder
+protocol GradeRecord
+{
+    var winCount: Int { get }
+    var loseCount: Int { get }
+}
+
+
+struct GradeRecorder : GradeRecord
 {
     private (set) var winCount: Int = 0
     private (set) var loseCount: Int = 0

@@ -19,7 +19,10 @@ enum GameStatus
 
 class BingoViewModel
 {
-    private(set) var recorder = GradeRecorder()
+    var record: GradeRecord
+    {
+        return self.recorder
+    }
     
     var onStatusChanged: ((_ status: GameStatus) -> Void)? = nil
     
@@ -27,7 +30,8 @@ class BingoViewModel
     private var numDoneCount = 0 // 佈子數, 當玩家把25個數字都佈完後 開始遊戲
     private var status = GameStatus.prepare
     private weak var logicDelegate: BingoLogicDelegate?
- 
+    private var recorder = GradeRecorder()
+  
     init(delegate: BingoLogicDelegate, dimension: Int)
     {
         self.logic = BingoLogic(delegate: self, dimension: dimension)

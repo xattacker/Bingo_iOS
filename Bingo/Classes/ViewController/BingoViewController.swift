@@ -210,8 +210,8 @@ extension BingoViewController
     {
         self.recordLabel.text = String.localizedString(
                                 "WIN_COUNT",
-                                self.viewModel?.recorder.winCount ?? 0,
-                                self.viewModel?.recorder.loseCount ?? 0)
+                                self.viewModel?.record.winCount ?? 0,
+                                self.viewModel?.record.loseCount ?? 0)
     }
     
     private func updateButtonWithStatus(_ status: GameStatus)
