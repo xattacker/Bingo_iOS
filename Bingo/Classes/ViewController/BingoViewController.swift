@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RxSwift
 
 
 class BingoViewController: UIViewController
@@ -26,6 +27,7 @@ class BingoViewController: UIViewController
     @IBOutlet private weak var restartButton: UIButton!
     
     private var viewModel: BingoViewModel?
+    private let disposeBag = DisposeBag()
     
     override func viewDidLoad()
     {
@@ -98,33 +100,37 @@ extension BingoViewController
         self.viewModel = BingoViewModel(delegate: self, dimension: GRID_DIMENSION)
         
         // data binding
-        self.viewModel?.onRecordChanged = {
-                                              [weak self]
-                                              (record: GradeRecord) in
-                                            
-                                              self?.updateRecordView(record)
-                                          }
+        self.viewModel?.recordBinding
+            .observeOn(MainScheduler.instance)
+            .subscribe(onNext: {
+                  [weak self]
+                  (record: GradeRecord?) in
+                
+                  self?.updateRecordView(record)
+              }).disposed(by: self.disposeBag)
         
-        self.viewModel?.onStatusChanged = {
-                                             [weak self]
-                                             (status: GameStatus) in
-                                              
-                                              self?.updateButtonWithStatus(status)
-            
-                                              switch status
-                                              {
-                                                   case .prepare:
-                                                        self?.resetLineCountView()
-                                                        break
-                                                     
-                                                   case .playing:
-                                                        self?.showToast(String.localizedString("GAME_START"))
-                                                        break
-                                                    
-                                                   case .end:
-                                                        break
-                                              }
-                                          }
+        self.viewModel?.statusBinding
+             .observeOn(MainScheduler.instance)
+             .subscribe(onNext: {
+                         [weak self]
+                         (status: GameStatus) in
+                          
+                          self?.updateButtonWithStatus(status)
+
+                          switch status
+                          {
+                               case .prepare:
+                                    self?.resetLineCountView()
+                                    break
+                                 
+                               case .playing:
+                                    self?.showToast(String.localizedString("GAME_START"))
+                                    break
+                                
+                               case .end:
+                                    break
+                          }
+                      }).disposed(by: self.disposeBag)
     }
     
     private func showHintAnimation()
@@ -212,12 +218,12 @@ extension BingoViewController
         self.playerCountView?.count = 0
     }
 
-    private func updateRecordView(_ record: GradeRecord)
+    private func updateRecordView(_ record: GradeRecord?)
     {
         self.recordLabel.text = String.localizedString(
                                 "WIN_COUNT",
-                                record.winCount,
-                                record.loseCount)
+                                record?.winCount ?? 0,
+                                record?.loseCount ?? 0)
     }
     
     private func updateButtonWithStatus(_ status: GameStatus)

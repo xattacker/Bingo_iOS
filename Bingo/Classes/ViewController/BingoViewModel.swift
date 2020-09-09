@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import RxSwift
 
 
 enum GameStatus
@@ -19,21 +20,14 @@ enum GameStatus
 
 class BingoViewModel
 {
-    var onRecordChanged: ((_ record: GradeRecord) -> Void)? = nil
-    {
-        didSet
-        {
-            self.onRecordChanged?(self.recorder)
-        }
-    }
-    
-    var onStatusChanged: ((_ status: GameStatus) -> Void)? = nil
+    let recordBinding: BehaviorSubject<GradeRecord?> = BehaviorSubject(value: nil)
+    let statusBinding: BehaviorSubject<GameStatus> = BehaviorSubject(value: GameStatus.prepare)
 
     private var status = GameStatus.prepare
     {
         didSet
         {
-            self.onStatusChanged?(self.status)
+            self.statusBinding.onNext(self.status)
         }
     }
        
@@ -104,9 +98,6 @@ class BingoViewModel
     
     deinit
     {
-        self.onRecordChanged = nil
-        self.onStatusChanged = nil
-        
         self.logic = nil
         self.logicDelegate = nil
     }
@@ -131,9 +122,8 @@ extension BingoViewModel: BingoLogicDelegate
         {
             self.recorder.addWin()
         }
-        
-        self.onRecordChanged?(self.recorder)
-        
+
+        self.recordBinding.onNext(self.recorder)
         self.status = GameStatus.end
         
         // bypass to another delegate

@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -33,6 +33,8 @@
 		680DCD4724BD95A500525E17 /* UIGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 680DCD4624BD95A500525E17 /* UIGridView.swift */; };
 		680DCD4924BD95C300525E17 /* UICountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 680DCD4824BD95C300525E17 /* UICountView.swift */; };
 		684855EA24CEC3C500B630FE /* BingoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 684855E924CEC3C500B630FE /* BingoViewModel.swift */; };
+		688049EA2508CE310095BD72 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 688049E92508CE310095BD72 /* RxSwift */; };
+		688049EC2508CE310095BD72 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 688049EB2508CE310095BD72 /* RxCocoa */; };
 		689E1ABC24C1A85700694094 /* UIExtendedStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 689E1ABB24C1A85700694094 /* UIExtendedStackView.swift */; };
 		68B36F44235D97D6005D0741 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 68B36F46235D97D6005D0741 /* Localizable.strings */; };
 		68B36F4F235D9D83005D0741 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 68B36F51235D9D83005D0741 /* InfoPlist.strings */; };
@@ -83,6 +85,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				688049EC2508CE310095BD72 /* RxCocoa in Frameworks */,
+				688049EA2508CE310095BD72 /* RxSwift in Frameworks */,
 				65A824DC1E01A61B00A94D77 /* CoreFoundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -219,6 +223,10 @@
 			dependencies = (
 			);
 			name = Bingo;
+			packageProductDependencies = (
+				688049E92508CE310095BD72 /* RxSwift */,
+				688049EB2508CE310095BD72 /* RxCocoa */,
+			);
 			productName = HeChun;
 			productReference = 65201C0E1DFEF62000921BB3 /* Bingo.app */;
 			productType = "com.apple.product-type.application";
@@ -250,6 +258,9 @@
 				"zh-Hant",
 			);
 			mainGroup = 65201C051DFEF62000921BB3;
+			packageReferences = (
+				688049E82508CE310095BD72 /* XCRemoteSwiftPackageReference "RxSwift" */,
+			);
 			productRefGroup = 65201C0F1DFEF62000921BB3 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -452,7 +463,8 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				SWIFT_VERSION = 5.0;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -466,7 +478,10 @@
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "$(SRCROOT)/Bingo/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.xattacker.Bingo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -485,7 +500,10 @@
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "$(SRCROOT)/Bingo/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.xattacker.Bingo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -517,6 +535,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		688049E82508CE310095BD72 /* XCRemoteSwiftPackageReference "RxSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ReactiveX/RxSwift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.1.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		688049E92508CE310095BD72 /* RxSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 688049E82508CE310095BD72 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxSwift;
+		};
+		688049EB2508CE310095BD72 /* RxCocoa */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 688049E82508CE310095BD72 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxCocoa;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 65201C061DFEF62000921BB3 /* Project object */;
 }
