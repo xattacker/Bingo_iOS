@@ -45,7 +45,7 @@ extension NSObject
 
 extension NSObject
 {
-    public func delayCall<T: NSObject>(_ delay: Double, call: @escaping(_ weakSelf: T?) -> Void)
+    public func delay<T: NSObject>(_ delay: Double, call: @escaping(_ weakSelf: T?) -> Void)
     {
         DispatchQueue.main.asyncAfter(deadline: .now() + delay)
         {
@@ -54,7 +54,7 @@ extension NSObject
         }
     }
     
-    public func asyncCall<T: NSObject>(_ call: @escaping(_ weakSelf: T?) -> Void)
+    public func async<T: NSObject>(_ call: @escaping(_ weakSelf: T?) -> Void)
     {
         DispatchQueue.global(qos: DispatchQoS.QoSClass.userInitiated).async
         {
@@ -63,7 +63,7 @@ extension NSObject
         }
     }
     
-    public func mainCall<T: NSObject>(_ call: @escaping(_ weakSelf: T?) -> Void)
+    public func main<T: NSObject>(_ call: @escaping(_ weakSelf: T?) -> Void)
     {
         if Thread.isMainThread
         {
