@@ -20,17 +20,9 @@ enum GameStatus
 
 class BingoViewModel
 {
-    let recordBinding: BehaviorSubject<GradeRecord?> = BehaviorSubject(value: nil)
-    let statusBinding: BehaviorSubject<GameStatus> = BehaviorSubject(value: GameStatus.prepare)
+    let record: BehaviorSubject<GradeRecord?> = BehaviorSubject(value: nil)
+    let status: BehaviorSubject<GameStatus> = BehaviorSubject(value: GameStatus.prepare)
 
-    private var status = GameStatus.prepare
-    {
-        didSet
-        {
-            self.statusBinding.onNext(self.status)
-        }
-    }
-       
     private var logic: BingoLogic!
     private weak var logicDelegate: BingoLogicDelegate?
     private var recorder = GradeRecorder()
@@ -54,7 +46,7 @@ class BingoViewModel
     
     func handleGridClick(_ grid: inout BingoGrid, x: Int, y: Int)
     {
-        switch self.status
+        switch try? self.status.value()
         {
             case .prepare:
                 if grid.value <= 0
@@ -80,12 +72,15 @@ class BingoViewModel
             case .end:
                 self.restart()
                 break
+                
+            default:
+                break
         }
     }
     
     func restart()
     {
-        self.status = GameStatus.prepare
+        self.status.onNext(GameStatus.prepare)
         self.numDoneCount = 0
         self.logic.restart()
     }
@@ -93,7 +88,7 @@ class BingoViewModel
     func startPlaying()
     {
         self.logic?.fillNumber()
-        self.status = GameStatus.playing
+        self.status.onNext(GameStatus.playing)
     }
     
     deinit
@@ -123,8 +118,8 @@ extension BingoViewModel: BingoLogicDelegate
             self.recorder.addWin()
         }
 
-        self.recordBinding.onNext(self.recorder)
-        self.status = GameStatus.end
+        self.record.onNext(self.recorder)
+        self.status.onNext(GameStatus.end)
         
         // bypass to another delegate
         self.logicDelegate?.onWon(winner: winner)

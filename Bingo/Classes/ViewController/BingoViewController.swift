@@ -100,7 +100,7 @@ extension BingoViewController
         self.viewModel = BingoViewModel(delegate: self, dimension: GRID_DIMENSION)
         
         // data binding
-        self.viewModel?.recordBinding
+        self.viewModel?.record
             .observeOn(MainScheduler.instance)
             .subscribe(onNext: {
                   [weak self]
@@ -109,7 +109,7 @@ extension BingoViewController
                   self?.updateRecordView(record)
               }).disposed(by: self.disposeBag)
         
-        self.viewModel?.statusBinding
+        self.viewModel?.status
              .observeOn(MainScheduler.instance)
              .subscribe(onNext: {
                          [weak self]
