@@ -7,9 +7,10 @@
 //
 
 import UIKit
+import RxSwift
 
 
-class UIGridView: UILabel, BingoGridViewProtocol
+class UIGridView: UILabel, BingoGridView
 {
     var type: PlayerType = PlayerType.computer
     
@@ -41,8 +42,16 @@ class UIGridView: UILabel, BingoGridViewProtocol
     
     var locX: Int = 0
     var locY: Int = 0
-    var clicked: ((_ grid: BingoGrid, _ x: Int, _ y: Int) -> Void)? = nil
     
+    var clicked: Observable<BingoGridView?>
+    {
+        get
+        {
+            return self.clickedSubject.asObservable()
+        }
+    }
+    
+    private var clickedSubject: BehaviorSubject<BingoGridView?> = BehaviorSubject(value: nil)
     private var directions: [Bool] = [false, false, false, false]
     
     override init(frame: CGRect)
@@ -129,8 +138,7 @@ class UIGridView: UILabel, BingoGridViewProtocol
             return
         }
         
-        
-        self.clicked?(self, self.locX, self.locY)
+        self.clickedSubject.onNext(self)
     }
     
     func initial()
@@ -165,11 +173,6 @@ class UIGridView: UILabel, BingoGridViewProtocol
         {
             self.isConnected = connected
         }
-    }
-    
-    deinit
-    {
-        self.clicked = nil
     }
 }
 

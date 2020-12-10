@@ -1,5 +1,5 @@
 //
-//  BingoGridViewProtocol.swift
+//  BingoGridView.swift
 //  Bingo
 //
 //  Created by xattacker on 2020/12/10.
@@ -7,11 +7,13 @@
 //
 
 import Foundation
+import RxSwift
 
 
-protocol BingoGridViewProtocol: BingoGrid
+protocol BingoGridView: BingoGrid
 {
     var locX: Int { get set }
     var locY: Int { get set }
-    var clicked: ((_ grid: BingoGrid, _ x: Int, _ y: Int) -> Void)? { get set }
+    
+    var clicked: Observable<BingoGridView?> { get }
 }

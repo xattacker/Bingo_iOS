@@ -9,7 +9,7 @@
 import UIKit
 
 
-class UIAnimatedCountView: UIView, CountViewProtocol
+class UIAnimatedCountView: UIView, CountView
 {
     private var lineLayers = [CAShapeLayer]()
     

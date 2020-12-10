@@ -1,5 +1,5 @@
 //
-//  CountViewProtocol.swift
+//  CountView.swift
 //  Bingo
 //
 //  Created by xattacker on 2020/12/10.
@@ -9,14 +9,14 @@
 import UIKit
 
 
-protocol CountViewProtocol
+protocol CountView
 {
     var count: Int { get set }
     var countColor: UIColor { get set }
 }
 
 
-extension CountViewProtocol
+extension CountView
 {
     var maxCount: Int
     {

@@ -27,24 +27,54 @@ class BingoViewModel
     private weak var logicDelegate: BingoLogicDelegate?
     private var recorder = GradeRecorder()
     private var numDoneCount = 0 // 佈子數, 當玩家把25個數字都佈完後 開始遊戲
-  
+    private let disposeBag = DisposeBag()
+    
     init(delegate: BingoLogicDelegate, dimension: Int)
     {
         self.logic = BingoLogic(delegate: self, dimension: dimension)
         self.logicDelegate = delegate
     }
     
-    func addGrid(_ type: PlayerType, grid: BingoGrid, x: Int, y: Int)
+    func addGrid(_ grid: BingoGridView)
     {
-        self.logic.addGrid(type, grid: grid, x: x, y: y)
+        self.logic.addGrid(grid.type, grid: grid, x: grid.locX, y: grid.locY)
+        
+        if grid.type == PlayerType.player
+        {
+            grid.clicked
+                .observeOn(MainScheduler.instance)
+                .subscribe(onNext: {
+                      [weak self]
+                      (grid: BingoGridView?) in
+                    
+                        if let grid = grid
+                        {
+                            var temp = grid
+                            self?.handleGridClick(&temp)
+                        }
+                      }).disposed(by: self.disposeBag)
+        }
     }
     
     func fillNumber(_ type: PlayerType)
     {
         self.logic.fillNumber(type)
     }
+
+    func restart()
+    {
+        self.status.onNext(GameStatus.prepare)
+        self.numDoneCount = 0
+        self.logic.restart()
+    }
     
-    func handleGridClick(_ grid: inout BingoGrid, x: Int, y: Int)
+    func startPlaying()
+    {
+        self.logic?.fillNumber()
+        self.status.onNext(GameStatus.playing)
+    }
+    
+    private func handleGridClick(_ grid: inout BingoGridView)
     {
         switch try? self.status.value()
         {
@@ -65,7 +95,7 @@ class BingoViewModel
                 if !grid.isSelected
                 {
                     grid.isSelected = true
-                    self.logic.winCheck(x, y: y)
+                    self.logic.winCheck(grid.locX, y: grid.locY)
                 }
                 break
             
@@ -76,19 +106,6 @@ class BingoViewModel
             default:
                 break
         }
-    }
-    
-    func restart()
-    {
-        self.status.onNext(GameStatus.prepare)
-        self.numDoneCount = 0
-        self.logic.restart()
-    }
-    
-    func startPlaying()
-    {
-        self.logic?.fillNumber()
-        self.status.onNext(GameStatus.playing)
     }
     
     deinit

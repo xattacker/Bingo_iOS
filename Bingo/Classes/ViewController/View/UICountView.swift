@@ -9,7 +9,7 @@
 import UIKit
 
 
-class UICountView: UIView, CountViewProtocol
+class UICountView: UIView, CountView
 {
     var count: Int = 0
     {

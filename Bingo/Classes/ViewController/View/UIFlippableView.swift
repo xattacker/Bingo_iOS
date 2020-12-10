@@ -133,7 +133,7 @@ public class UIFlippableView: UIView
         self.layer.beginTime = 0.0
         //用现在的时间减去时间差,就是之前暂停的时间,从之前暂停的时间开始动画
         let offset = self.layer.convertTime(CACurrentMediaTime(), from: nil) - pausedTime
-        layer.beginTime = offset
+        self.layer.beginTime = offset
     }
 
     deinit

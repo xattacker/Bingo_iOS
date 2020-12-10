@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RxSwift
 
 
 class UIFlippableGridView: UIFlippableView
@@ -39,7 +40,7 @@ class UIFlippableGridView: UIFlippableView
 }
 
 
-extension UIFlippableGridView: BingoGridViewProtocol
+extension UIFlippableGridView: BingoGridView
 {
     var type: PlayerType
     {
@@ -102,8 +103,6 @@ extension UIFlippableGridView: BingoGridViewProtocol
         {
             self.flip(false)
         }
-        
-        //print("x: \(self.locX), y:\(self.locY) isFlipped \(self.isFlipped)")
     }
     
     func isLineConnected(direction: ConnectedDirection) -> Bool
@@ -140,15 +139,11 @@ extension UIFlippableGridView: BingoGridViewProtocol
         }
     }
     
-    var clicked: ((BingoGrid, Int, Int) -> Void)?
+    var clicked: Observable<BingoGridView?>
     {
         get
         {
             return self.gridView.clicked
-        }
-        set
-        {
-            self.gridView.clicked = newValue
         }
     }
 }

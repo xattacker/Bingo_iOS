@@ -8,7 +8,7 @@
 
 import UIKit
 import RxSwift
-
+import RxCocoa
 
 class BingoViewController: UIViewController
 {
@@ -87,8 +87,9 @@ extension BingoViewController: BingoLogicDelegate
     
     func onWon(winner: PlayerType)
     {
-        self.delay(0.5) {
+        self.delay(0.4) {
             (mySelf: BingoViewController?) in
+            
             let message = winner == .computer ? "YOU_LOSE" : "YOU_WIN"
             mySelf?.showAlertController(AlertTitleType.notification, message: String.localizedString(message))
         }
@@ -196,24 +197,13 @@ extension BingoViewController
                                     constant: 0)
                 grid.addConstraint(width_const)
                 
-                if let p = grid as? BingoGridViewProtocol
+                if let g2 = grid as? BingoGridView
                 {
-                    var temp = p
+                    var temp = g2
                     temp.locX = i
                     temp.locY = j
                     temp.type = type
-                    
-                    if type == .player
-                    {
-                        temp.clicked = {
-                                         [weak self]
-                                         (grid: BingoGrid, x: Int, y: Int) in
-                                         var temp = grid
-                                         self?.viewModel?.handleGridClick(&temp, x: x, y: y)
-                                       }
-                    }
-
-                    self.viewModel?.addGrid(type, grid: p, x: i, y: j)
+                    self.viewModel?.addGrid(g2)
                 }
             }
             

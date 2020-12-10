@@ -34,9 +34,9 @@
 		680DCD4924BD95C300525E17 /* UICountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 680DCD4824BD95C300525E17 /* UICountView.swift */; };
 		6839330F2581E76400A53C0C /* UIFlippableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6839330E2581E76400A53C0C /* UIFlippableView.swift */; };
 		683933132581E7CE00A53C0C /* UIFlippableGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 683933122581E7CE00A53C0C /* UIFlippableGridView.swift */; };
-		683933172581EEC100A53C0C /* BingoGridViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 683933162581EEC100A53C0C /* BingoGridViewProtocol.swift */; };
+		683933172581EEC100A53C0C /* BingoGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 683933162581EEC100A53C0C /* BingoGridView.swift */; };
 		68393321258200E800A53C0C /* UIAnimatedCountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68393320258200E800A53C0C /* UIAnimatedCountView.swift */; };
-		6839332425820F6F00A53C0C /* CountViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6839332325820F6F00A53C0C /* CountViewProtocol.swift */; };
+		6839332425820F6F00A53C0C /* CountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6839332325820F6F00A53C0C /* CountView.swift */; };
 		684855EA24CEC3C500B630FE /* BingoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 684855E924CEC3C500B630FE /* BingoViewModel.swift */; };
 		688049EA2508CE310095BD72 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 688049E92508CE310095BD72 /* RxSwift */; };
 		688049EC2508CE310095BD72 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 688049EB2508CE310095BD72 /* RxCocoa */; };
@@ -78,9 +78,9 @@
 		680DCD4824BD95C300525E17 /* UICountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICountView.swift; sourceTree = "<group>"; };
 		6839330E2581E76400A53C0C /* UIFlippableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIFlippableView.swift; sourceTree = "<group>"; };
 		683933122581E7CE00A53C0C /* UIFlippableGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFlippableGridView.swift; sourceTree = "<group>"; };
-		683933162581EEC100A53C0C /* BingoGridViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BingoGridViewProtocol.swift; sourceTree = "<group>"; };
+		683933162581EEC100A53C0C /* BingoGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BingoGridView.swift; sourceTree = "<group>"; };
 		68393320258200E800A53C0C /* UIAnimatedCountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIAnimatedCountView.swift; sourceTree = "<group>"; };
-		6839332325820F6F00A53C0C /* CountViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountViewProtocol.swift; sourceTree = "<group>"; };
+		6839332325820F6F00A53C0C /* CountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountView.swift; sourceTree = "<group>"; };
 		684855E924CEC3C500B630FE /* BingoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BingoViewModel.swift; sourceTree = "<group>"; };
 		689E1ABB24C1A85700694094 /* UIExtendedStackView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIExtendedStackView.swift; sourceTree = "<group>"; };
 		68B36F45235D97D6005D0741 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -210,11 +210,11 @@
 		6839330D2581E75300A53C0C /* View */ = {
 			isa = PBXGroup;
 			children = (
-				683933162581EEC100A53C0C /* BingoGridViewProtocol.swift */,
+				683933162581EEC100A53C0C /* BingoGridView.swift */,
 				680DCD4624BD95A500525E17 /* UIGridView.swift */,
 				6839330E2581E76400A53C0C /* UIFlippableView.swift */,
 				683933122581E7CE00A53C0C /* UIFlippableGridView.swift */,
-				6839332325820F6F00A53C0C /* CountViewProtocol.swift */,
+				6839332325820F6F00A53C0C /* CountView.swift */,
 				680DCD4824BD95C300525E17 /* UICountView.swift */,
 				68393320258200E800A53C0C /* UIAnimatedCountView.swift */,
 			);
@@ -316,7 +316,7 @@
 			files = (
 				680DCD2F24BD471D00525E17 /* UIApplication.swift in Sources */,
 				65FC25FA1E02EC1B00F9E38A /* MacroDefine.swift in Sources */,
-				683933172581EEC100A53C0C /* BingoGridViewProtocol.swift in Sources */,
+				683933172581EEC100A53C0C /* BingoGridView.swift in Sources */,
 				680DCD2C24BD46DA00525E17 /* String.swift in Sources */,
 				680DCD4124BD591B00525E17 /* BingoLogicDelegate.swift in Sources */,
 				680DCD2A24BD46DA00525E17 /* AppUtility.swift in Sources */,
@@ -339,7 +339,7 @@
 				680DCD3024BD471D00525E17 /* UIAlertController.swift in Sources */,
 				680DCD4724BD95A500525E17 /* UIGridView.swift in Sources */,
 				680DCD4324BD592F00525E17 /* ConnectedDirection.swift in Sources */,
-				6839332425820F6F00A53C0C /* CountViewProtocol.swift in Sources */,
+				6839332425820F6F00A53C0C /* CountView.swift in Sources */,
 				650FBB1C24BE149A0062917E /* UIToast.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
