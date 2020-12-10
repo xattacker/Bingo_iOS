@@ -24,11 +24,18 @@ class UIAnimatedCountView: UIView, CountViewProtocol
             
             if (self.count == 0)
             {
+                self.isHidden = true
+                
                 for line in self.lineLayers
                 {
-                    line.removeFromSuperlayer()
+                    //line.removeFromSuperlayer()
                     line.animateStrokeEnd(0, to: 0)
-                    self.layer.addSublayer(line)
+                   // self.layer.addSublayer(line)
+                }
+                
+                self.delay(0.5) {
+                    (mySelf: UIAnimatedCountView?) in
+                    mySelf?.isHidden = false
                 }
             }
             else

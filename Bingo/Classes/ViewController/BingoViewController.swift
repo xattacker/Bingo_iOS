@@ -87,7 +87,7 @@ extension BingoViewController: BingoLogicDelegate
     
     func onWon(winner: PlayerType)
     {
-        delay(0.5) {
+        self.delay(0.5) {
             (mySelf: BingoViewController?) in
             let message = winner == .computer ? "YOU_LOSE" : "YOU_WIN"
             mySelf?.showAlertController(AlertTitleType.notification, message: String.localizedString(message))
