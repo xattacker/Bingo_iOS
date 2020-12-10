@@ -9,12 +9,17 @@
 import UIKit
 
 
-class UICountView: UIView
+class UICountView: UIView, CountViewProtocol
 {
     var count: Int = 0
     {
         didSet
         {
+            if self.count > self.maxCount
+            {
+                return
+            }
+            
             self.setNeedsDisplay()
         }
     }
@@ -26,7 +31,7 @@ class UICountView: UIView
             self.setNeedsDisplay()
         }
     }
-    
+
     public override func draw(_ rect: CGRect)
     {
         super.draw(rect)

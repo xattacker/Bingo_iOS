@@ -17,8 +17,8 @@ class BingoViewController: UIViewController
     @IBOutlet private weak var comGridStackView: UIStackView!
     @IBOutlet private weak var playerGridStackView: UIExtendedStackView!
     
-    @IBOutlet private weak var comCountView: UICountView?
-    @IBOutlet private weak var playerCountView: UICountView?
+    @IBOutlet private weak var comCountView: UIAnimatedCountView?
+    @IBOutlet private weak var playerCountView: UIAnimatedCountView?
     
     @IBOutlet private weak var recordLabel: UILabel!
     @IBOutlet private weak var versionLabel: UILabel!
@@ -87,8 +87,11 @@ extension BingoViewController: BingoLogicDelegate
     
     func onWon(winner: PlayerType)
     {
-        let message = winner == .computer ? "YOU_LOSE" : "YOU_WIN"
-        self.showAlertController(AlertTitleType.notification, message: String.localizedString(message))
+        delay(0.5) {
+            (mySelf: BingoViewController?) in
+            let message = winner == .computer ? "YOU_LOSE" : "YOU_WIN"
+            mySelf?.showAlertController(AlertTitleType.notification, message: String.localizedString(message))
+        }
     }  
 }
 
@@ -135,6 +138,7 @@ extension BingoViewController
     
     private func showHintAnimation()
     {
+        self.playerGridStackView.isUserInteractionEnabled = false
         self.playerGridStackView.backgroundColor = UIColor.red
         
         UIView.animate(
@@ -153,6 +157,7 @@ extension BingoViewController
                 [weak self]
                 (finished: Bool) in
                 
+                self?.playerGridStackView.isUserInteractionEnabled = true
                 self?.playerGridStackView.backgroundColor = UIColor.clear
                 self?.playerGridStackView.validBackgroundView?.alpha = 1
             })
@@ -237,8 +242,8 @@ extension BingoViewController
     
     private func resetLineCountView()
     {
-        self.comCountView?.count = 0
-        self.playerCountView?.count = 0
+        self.comCountView?.reset()
+        self.playerCountView?.reset()
     }
 
     private func updateRecordView(_ record: GradeRecord?)

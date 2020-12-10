@@ -75,7 +75,7 @@ extension UIFlippableGridView: BingoGridViewProtocol
         {
             if self.gridView.isSelected != newValue && newValue == true
             {
-                self.flip()
+                self.flip(duration: 0.35)
             }
             
             self.gridView.isSelected = newValue

@@ -58,13 +58,13 @@ public class UIFlippableView: UIView
         self.layoutSubviews()
     }
     
-    public func flip(_ animated: Bool = true, _ duration: Double = 1)
+    public func flip(_ animated: Bool = true, duration: Double = 0.8)
     {
         if animated
         {
             self.duration = duration
             self.repeatCount = 1
-            self.startAnimation()
+            self.startAnimation(duration)
         }
         else
         {
@@ -73,7 +73,7 @@ public class UIFlippableView: UIView
     }
     
     ///开始动画
-    public func startAnimation(_ duration: Double = 1)
+    public func startAnimation(_ duration: Double = 0.8)
     {
         if !self.isStop
         {
