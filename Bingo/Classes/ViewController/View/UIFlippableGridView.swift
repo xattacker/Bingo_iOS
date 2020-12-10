@@ -103,7 +103,7 @@ extension UIFlippableGridView: BingoGridViewProtocol
             self.flip(false)
         }
         
-        print("x: \(self.locX), y:\(self.locY) isFlipped \(self.isFlipped)")
+        //print("x: \(self.locX), y:\(self.locY) isFlipped \(self.isFlipped)")
     }
     
     func isLineConnected(direction: ConnectedDirection) -> Bool
