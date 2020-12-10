@@ -177,7 +177,7 @@ extension BingoViewController
 
             for j in 0 ... GRID_DIMENSION - 1
             {
-                let grid = UIGridView(frame: CGRect(x: 0, y: 0, width: width, height: width))
+                let grid = self.createGridView(CGRect(x: 0, y: 0, width: width, height: width), type: type)
                 grid.translatesAutoresizingMaskIntoConstraints = false // we should set it to false before add constraint
                 row_layout.addArrangedSubview(grid)
                 
@@ -191,25 +191,48 @@ extension BingoViewController
                                     constant: 0)
                 grid.addConstraint(width_const)
                 
-                grid.locX = i
-                grid.locY = j
-                grid.type = type
-                self.viewModel?.addGrid(type, grid: grid, x: i, y: j)
-                
-                if type == .player
+                if let p = grid as? BingoGridViewProtocol
                 {
-                    grid.clicked = {
-                                        [weak self]
-                                        (grid: UIGridView) in
-                                        
-                                        var temp = grid as BingoGrid
-                                        self?.viewModel?.handleGridClick(&temp, x: grid.locX, y: grid.locY)
-                                    }
+                    var temp = p
+                    temp.locX = i
+                    temp.locY = j
+                    temp.type = type
+                    
+                    if type == .player
+                    {
+                        temp.clicked = {
+                                         [weak self]
+                                         (grid: BingoGrid, x: Int, y: Int) in
+                                         var temp = grid
+                                         self?.viewModel?.handleGridClick(&temp, x: x, y: y)
+                                       }
+                    }
+
+                    self.viewModel?.addGrid(type, grid: p, x: i, y: j)
                 }
             }
             
             gridLayout.addArrangedSubview(row_layout)
         }
+    }
+    
+    //private func createGridView<T: UIView>(_ frame: CGRect, type: PlayerType) -> T where T : BingoGridViewProtocol
+    private func createGridView(_ frame: CGRect, type: PlayerType) -> UIView
+    {
+        var grid: UIView
+        
+        if type == PlayerType.player
+        {
+            grid = UIGridView(frame: frame)
+        }
+        else
+        {
+            let flip = UIFlippableGridView(frame: frame)
+            flip.delegate = self
+            grid = flip
+        }
+        
+        return grid
     }
     
     private func resetLineCountView()
@@ -245,5 +268,19 @@ extension BingoViewController
                 self.restartButton.isHidden = false
                 break
         }
+    }
+}
+
+
+extension BingoViewController: UIFlippableViewDelegate
+{
+    func onFlipStarted(flipped: UIFlippableView)
+    {
+        self.playerGridStackView.isUserInteractionEnabled = false
+    }
+    
+    func onFlipEnded(flipped: UIFlippableView)
+    {
+        self.playerGridStackView.isUserInteractionEnabled = true
     }
 }

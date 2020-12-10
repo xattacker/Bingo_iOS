@@ -32,6 +32,9 @@
 		680DCD4524BD94A600525E17 /* GradeRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 680DCD4424BD94A600525E17 /* GradeRecorder.swift */; };
 		680DCD4724BD95A500525E17 /* UIGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 680DCD4624BD95A500525E17 /* UIGridView.swift */; };
 		680DCD4924BD95C300525E17 /* UICountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 680DCD4824BD95C300525E17 /* UICountView.swift */; };
+		6839330F2581E76400A53C0C /* UIFlippableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6839330E2581E76400A53C0C /* UIFlippableView.swift */; };
+		683933132581E7CE00A53C0C /* UIFlippableGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 683933122581E7CE00A53C0C /* UIFlippableGridView.swift */; };
+		683933172581EEC100A53C0C /* BingoGridViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 683933162581EEC100A53C0C /* BingoGridViewProtocol.swift */; };
 		684855EA24CEC3C500B630FE /* BingoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 684855E924CEC3C500B630FE /* BingoViewModel.swift */; };
 		688049EA2508CE310095BD72 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 688049E92508CE310095BD72 /* RxSwift */; };
 		688049EC2508CE310095BD72 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 688049EB2508CE310095BD72 /* RxCocoa */; };
@@ -71,6 +74,9 @@
 		680DCD4424BD94A600525E17 /* GradeRecorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradeRecorder.swift; sourceTree = "<group>"; };
 		680DCD4624BD95A500525E17 /* UIGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIGridView.swift; sourceTree = "<group>"; };
 		680DCD4824BD95C300525E17 /* UICountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICountView.swift; sourceTree = "<group>"; };
+		6839330E2581E76400A53C0C /* UIFlippableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIFlippableView.swift; sourceTree = "<group>"; };
+		683933122581E7CE00A53C0C /* UIFlippableGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFlippableGridView.swift; sourceTree = "<group>"; };
+		683933162581EEC100A53C0C /* BingoGridViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BingoGridViewProtocol.swift; sourceTree = "<group>"; };
 		684855E924CEC3C500B630FE /* BingoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BingoViewModel.swift; sourceTree = "<group>"; };
 		689E1ABB24C1A85700694094 /* UIExtendedStackView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIExtendedStackView.swift; sourceTree = "<group>"; };
 		68B36F45235D97D6005D0741 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -160,10 +166,9 @@
 		65D4D7291E01A10B00F360B9 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				6839330D2581E75300A53C0C /* View */,
 				680DCD2224BD45EB00525E17 /* BingoViewController.swift */,
 				684855E924CEC3C500B630FE /* BingoViewModel.swift */,
-				680DCD4624BD95A500525E17 /* UIGridView.swift */,
-				680DCD4824BD95C300525E17 /* UICountView.swift */,
 				680DCD4424BD94A600525E17 /* GradeRecorder.swift */,
 			);
 			path = ViewController;
@@ -196,6 +201,18 @@
 				680DCD4224BD592F00525E17 /* ConnectedDirection.swift */,
 			);
 			path = Logic;
+			sourceTree = "<group>";
+		};
+		6839330D2581E75300A53C0C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				683933162581EEC100A53C0C /* BingoGridViewProtocol.swift */,
+				680DCD4624BD95A500525E17 /* UIGridView.swift */,
+				6839330E2581E76400A53C0C /* UIFlippableView.swift */,
+				683933122581E7CE00A53C0C /* UIFlippableGridView.swift */,
+				680DCD4824BD95C300525E17 /* UICountView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		68E684D22317D68A00097340 /* storybosrd */ = {
@@ -293,6 +310,7 @@
 			files = (
 				680DCD2F24BD471D00525E17 /* UIApplication.swift in Sources */,
 				65FC25FA1E02EC1B00F9E38A /* MacroDefine.swift in Sources */,
+				683933172581EEC100A53C0C /* BingoGridViewProtocol.swift in Sources */,
 				680DCD2C24BD46DA00525E17 /* String.swift in Sources */,
 				680DCD4124BD591B00525E17 /* BingoLogicDelegate.swift in Sources */,
 				680DCD2A24BD46DA00525E17 /* AppUtility.swift in Sources */,
@@ -301,12 +319,14 @@
 				65201C2C1DFEF69700921BB3 /* AppDelegate.swift in Sources */,
 				684855EA24CEC3C500B630FE /* BingoViewModel.swift in Sources */,
 				680DCD3F24BD571C00525E17 /* BingoLogic.swift in Sources */,
+				683933132581E7CE00A53C0C /* UIFlippableGridView.swift in Sources */,
 				680DCD3824BD47D000525E17 /* UIViewController.swift in Sources */,
 				680DCD2624BD46A400525E17 /* AppProperties.swift in Sources */,
 				680DCD2324BD45EB00525E17 /* BingoViewController.swift in Sources */,
 				680DCD2B24BD46DA00525E17 /* NSObject.swift in Sources */,
 				680DCD3D24BD570C00525E17 /* BingoGrid.swift in Sources */,
 				680DCD3224BD474300525E17 /* UIView.swift in Sources */,
+				6839330F2581E76400A53C0C /* UIFlippableView.swift in Sources */,
 				689E1ABC24C1A85700694094 /* UIExtendedStackView.swift in Sources */,
 				680DCD4924BD95C300525E17 /* UICountView.swift in Sources */,
 				680DCD3024BD471D00525E17 /* UIAlertController.swift in Sources */,

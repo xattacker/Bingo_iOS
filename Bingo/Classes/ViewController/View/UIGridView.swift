@@ -9,7 +9,7 @@
 import UIKit
 
 
-class UIGridView: UILabel, BingoGrid
+class UIGridView: UILabel, BingoGridViewProtocol
 {
     var type: PlayerType = PlayerType.computer
     
@@ -41,7 +41,7 @@ class UIGridView: UILabel, BingoGrid
     
     var locX: Int = 0
     var locY: Int = 0
-    var clicked: ((_ grid: UIGridView) -> Void)? = nil
+    var clicked: ((_ grid: BingoGrid, _ x: Int, _ y: Int) -> Void)? = nil
     
     private var directions: [Bool] = [false, false, false, false]
     
@@ -130,7 +130,7 @@ class UIGridView: UILabel, BingoGrid
         }
         
         
-        self.clicked?(self)
+        self.clicked?(self, self.locX, self.locY)
     }
     
     func initial()
