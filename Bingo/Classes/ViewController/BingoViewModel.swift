@@ -79,9 +79,10 @@ class BingoViewModel
         }
     }
     
-    func fillNumber(_ type: PlayerType)
+    func fillNumber()
     {
-        self.logic.fillNumber(type)
+        self.logic.fillNumber(PlayerType.player)
+        self.startPlaying()
     }
 
     func restart()
@@ -91,7 +92,7 @@ class BingoViewModel
         self.logic.restart()
     }
     
-    func startPlaying()
+    private func startPlaying()
     {
         self.logic?.fillNumber()
         self.statusSubject.onNext(GameStatus.playing)

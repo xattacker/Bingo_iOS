@@ -55,8 +55,7 @@ class BingoViewController: UIViewController
     
     @IBAction func onAutoFillNumAction(_ sender: AnyObject)
     {
-        self.viewModel?.fillNumber(.player)
-        self.viewModel?.startPlaying()
+        self.viewModel?.fillNumber()
     }
     
     @IBAction func onRestartAction(_ sender: AnyObject)
