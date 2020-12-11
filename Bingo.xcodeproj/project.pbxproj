@@ -34,7 +34,6 @@
 		680DCD4924BD95C300525E17 /* UICountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 680DCD4824BD95C300525E17 /* UICountView.swift */; };
 		6839330F2581E76400A53C0C /* UIFlippableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6839330E2581E76400A53C0C /* UIFlippableView.swift */; };
 		683933132581E7CE00A53C0C /* UIFlippableGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 683933122581E7CE00A53C0C /* UIFlippableGridView.swift */; };
-		683933172581EEC100A53C0C /* BingoGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 683933162581EEC100A53C0C /* BingoGridView.swift */; };
 		68393321258200E800A53C0C /* UIAnimatedCountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68393320258200E800A53C0C /* UIAnimatedCountView.swift */; };
 		6839332425820F6F00A53C0C /* CountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6839332325820F6F00A53C0C /* CountView.swift */; };
 		684855EA24CEC3C500B630FE /* BingoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 684855E924CEC3C500B630FE /* BingoViewModel.swift */; };
@@ -78,7 +77,6 @@
 		680DCD4824BD95C300525E17 /* UICountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICountView.swift; sourceTree = "<group>"; };
 		6839330E2581E76400A53C0C /* UIFlippableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIFlippableView.swift; sourceTree = "<group>"; };
 		683933122581E7CE00A53C0C /* UIFlippableGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFlippableGridView.swift; sourceTree = "<group>"; };
-		683933162581EEC100A53C0C /* BingoGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BingoGridView.swift; sourceTree = "<group>"; };
 		68393320258200E800A53C0C /* UIAnimatedCountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIAnimatedCountView.swift; sourceTree = "<group>"; };
 		6839332325820F6F00A53C0C /* CountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountView.swift; sourceTree = "<group>"; };
 		684855E924CEC3C500B630FE /* BingoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BingoViewModel.swift; sourceTree = "<group>"; };
@@ -210,7 +208,6 @@
 		6839330D2581E75300A53C0C /* View */ = {
 			isa = PBXGroup;
 			children = (
-				683933162581EEC100A53C0C /* BingoGridView.swift */,
 				680DCD4624BD95A500525E17 /* UIGridView.swift */,
 				6839330E2581E76400A53C0C /* UIFlippableView.swift */,
 				683933122581E7CE00A53C0C /* UIFlippableGridView.swift */,
@@ -316,7 +313,6 @@
 			files = (
 				680DCD2F24BD471D00525E17 /* UIApplication.swift in Sources */,
 				65FC25FA1E02EC1B00F9E38A /* MacroDefine.swift in Sources */,
-				683933172581EEC100A53C0C /* BingoGridView.swift in Sources */,
 				680DCD2C24BD46DA00525E17 /* String.swift in Sources */,
 				680DCD4124BD591B00525E17 /* BingoLogicDelegate.swift in Sources */,
 				680DCD2A24BD46DA00525E17 /* AppUtility.swift in Sources */,

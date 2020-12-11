@@ -18,6 +18,15 @@ enum GameStatus
 }
 
 
+protocol BingoGridView: BingoGrid
+{
+    var locX: Int { get set }
+    var locY: Int { get set }
+    
+    var clicked: Observable<BingoGridView> { get }
+}
+
+
 class BingoViewModel
 {
     var record: Observable<GradeRecord?>
