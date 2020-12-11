@@ -139,7 +139,7 @@ extension UIFlippableGridView: BingoGridView
         }
     }
     
-    var clicked: Observable<BingoGridView?>
+    var clicked: Observable<BingoGridView>
     {
         get
         {

@@ -43,7 +43,7 @@ class UIGridView: UILabel, BingoGridView
     var locX: Int = 0
     var locY: Int = 0
     
-    var clicked: Observable<BingoGridView?>
+    var clicked: Observable<BingoGridView>
     {
         get
         {
@@ -51,7 +51,7 @@ class UIGridView: UILabel, BingoGridView
         }
     }
     
-    private var clickedSubject: BehaviorSubject<BingoGridView?> = BehaviorSubject(value: nil)
+    private var clickedSubject: PublishSubject<BingoGridView> = PublishSubject()
     private var directions: [Bool] = [false, false, false, false]
     
     override init(frame: CGRect)

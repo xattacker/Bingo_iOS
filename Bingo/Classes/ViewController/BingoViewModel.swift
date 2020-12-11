@@ -20,9 +20,25 @@ enum GameStatus
 
 class BingoViewModel
 {
-    let record: BehaviorSubject<GradeRecord?> = BehaviorSubject(value: nil)
-    let status: BehaviorSubject<GameStatus> = BehaviorSubject(value: GameStatus.prepare)
+    var record: Observable<GradeRecord?>
+    {
+        get
+        {
+            return self.recordSubject.asObservable()
+        }
+    }
+    
+    var status: Observable<GameStatus>
+    {
+        get
+        {
+            return self.statusSubject.asObservable()
+        }
+    }
 
+    private let recordSubject: BehaviorSubject<GradeRecord?> = BehaviorSubject(value: nil)
+    private let statusSubject: BehaviorSubject<GameStatus> = BehaviorSubject(value: GameStatus.prepare)
+    
     private var logic: BingoLogic!
     private weak var logicDelegate: BingoLogicDelegate?
     private var recorder = GradeRecorder()
@@ -45,13 +61,11 @@ class BingoViewModel
                 .observeOn(MainScheduler.instance)
                 .subscribe(onNext: {
                       [weak self]
-                      (grid: BingoGridView?) in
+                      (grid: BingoGridView) in
+
+                        var temp = grid
+                        self?.handleGridClick(&temp)
                     
-                        if let grid = grid
-                        {
-                            var temp = grid
-                            self?.handleGridClick(&temp)
-                        }
                       }).disposed(by: self.disposeBag)
         }
     }
@@ -63,7 +77,7 @@ class BingoViewModel
 
     func restart()
     {
-        self.status.onNext(GameStatus.prepare)
+        self.statusSubject.onNext(GameStatus.prepare)
         self.numDoneCount = 0
         self.logic.restart()
     }
@@ -71,12 +85,12 @@ class BingoViewModel
     func startPlaying()
     {
         self.logic?.fillNumber()
-        self.status.onNext(GameStatus.playing)
+        self.statusSubject.onNext(GameStatus.playing)
     }
     
     private func handleGridClick(_ grid: inout BingoGridView)
     {
-        switch try? self.status.value()
+        switch try? self.statusSubject.value()
         {
             case .prepare:
                 if grid.value <= 0
@@ -135,8 +149,8 @@ extension BingoViewModel: BingoLogicDelegate
             self.recorder.addWin()
         }
 
-        self.record.onNext(self.recorder)
-        self.status.onNext(GameStatus.end)
+        self.recordSubject.onNext(self.recorder)
+        self.statusSubject.onNext(GameStatus.end)
         
         // bypass to another delegate
         self.logicDelegate?.onWon(winner: winner)
