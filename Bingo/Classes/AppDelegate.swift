@@ -8,6 +8,10 @@
 
 import UIKit
 
+#if DEBUG
+import Gedatsu
+#endif
+
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate
@@ -22,7 +26,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate
         
         // to skip iCound backup
         self.addSkipBackupAttributeToItemAtPath(AppProperties.getAppDocPath())
-
+        
+        #if DEBUG
+        Gedatsu.open()
+        #endif
+        
         return true
     }
     

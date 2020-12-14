@@ -24,19 +24,7 @@ class UIAnimatedCountView: UIView, CountView
             
             if (self.count == 0)
             {
-                self.isHidden = true
-                
-                for line in self.lineLayers
-                {
-                    //line.removeFromSuperlayer()
-                    line.animateStrokeEnd(0, to: 0)
-                   // self.layer.addSublayer(line)
-                }
-                
-                self.delay(0.5) {
-                    (mySelf: UIAnimatedCountView?) in
-                    mySelf?.isHidden = false
-                }
+                self.resetAnimated()
             }
             else
             {
@@ -78,6 +66,42 @@ class UIAnimatedCountView: UIView, CountView
         super.init(coder: coder)
         
         self.initView()
+    }
+    
+    private func resetAnimated()
+    {
+        self.alpha = 1
+        
+        UIView.animate(
+            withDuration: 0.5,
+            delay: 0,
+            options: [],
+            animations:
+            {
+                [weak self] in
+
+                self?.alpha = 0
+            },
+            completion:
+            {
+                [weak self]
+                (finished: Bool) in
+
+                if let layers = self?.lineLayers
+                {
+                    for line in layers
+                    {
+                        //line.removeFromSuperlayer()
+                        line.animateStrokeEnd(0, to: 0)
+                       // self.layer.addSublayer(line)
+                    }
+                    
+                    self?.delay(0.5) {
+                        (mySelf: UIAnimatedCountView?) in
+                        mySelf?.alpha = 1
+                    }
+                }
+            })
     }
     
     private func initView()
