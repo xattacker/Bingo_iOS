@@ -8,6 +8,7 @@
 
 import Foundation
 import RxSwift
+import RxCocoa
 
 
 enum GameStatus
@@ -29,19 +30,19 @@ protocol BingoGridView: BingoGrid
 
 class BingoViewModel
 {
-    var record: Observable<GradeRecord?>
+    var record: Driver<GradeRecord?>
     {
         get
         {
-            return self.recordSubject.asObservable()
+            return self.recordSubject.asDriver(onErrorJustReturn: nil)
         }
     }
     
-    var status: Observable<GameStatus>
+    var status: Driver<GameStatus>
     {
         get
         {
-            return self.statusSubject.asObservable()
+            return self.statusSubject.asDriver(onErrorJustReturn: .prepare)
         }
     }
 

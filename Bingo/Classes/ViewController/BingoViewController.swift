@@ -103,18 +103,17 @@ extension BingoViewController
         self.viewModel = BingoViewModel(delegate: self, dimension: GRID_DIMENSION)
         
         // data binding
-        self.viewModel?.record
-            .observeOn(MainScheduler.instance)
-            .subscribe(onNext: {
-                  [weak self]
-                  (record: GradeRecord?) in
-                
-                  self?.updateRecordView(record)
-              }).disposed(by: self.disposeBag)
+        self.viewModel?.record.map({
+            (record: GradeRecord?) -> String in
+                return String.localizedString("WIN_COUNT",
+                                           record?.winCount ?? 0,
+                                           record?.loseCount ?? 0)
+            })
+            .drive(self.recordLabel.rx.text)
+            .disposed(by: self.disposeBag)
         
         self.viewModel?.status
-             .observeOn(MainScheduler.instance)
-             .subscribe(onNext: {
+             .drive(onNext: {
                          [weak self]
                          (status: GameStatus) in
                           
