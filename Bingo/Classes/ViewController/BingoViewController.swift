@@ -234,14 +234,6 @@ extension BingoViewController
         self.playerCountView?.reset()
     }
 
-    private func updateRecordView(_ record: GradeRecord?)
-    {
-        self.recordLabel.text = String.localizedString(
-                                "WIN_COUNT",
-                                record?.winCount ?? 0,
-                                record?.loseCount ?? 0)
-    }
-    
     private func updateButtonWithStatus(_ status: GameStatus)
     {
         switch status
