@@ -38,23 +38,23 @@ public class UIFlippableView: UIView
     ///是否暂停
     private var isPause: Bool = false
     
-    private var positiveView: UIView?
-    private var negativeView: UIView?
+    private var frontView: UIView?
+    private var backView: UIView?
     
     public override func layoutSubviews()
     {
         super.layoutSubviews()
         
-        self.positiveView?.frame = self.bounds
-        self.negativeView?.frame = self.bounds
+        self.frontView?.frame = self.bounds
+        self.backView?.frame = self.bounds
     }
 
-    public func setupFlipView(_ positive: UIView, opposite: UIView)
+    public func setupFlipView(_ front: UIView, back: UIView)
     {
-        self.positiveView = positive
-        self.negativeView = opposite
+        self.frontView = front
+        self.backView = back
         
-        self.addSubview(positive)
+        self.addSubview(front)
         self.layoutSubviews()
     }
     
@@ -138,8 +138,8 @@ public class UIFlippableView: UIView
 
     deinit
     {
-        self.positiveView = nil
-        self.negativeView = nil
+        self.frontView = nil
+        self.backView = nil
         
         self.delegate = nil
     }
@@ -197,21 +197,21 @@ extension UIFlippableView: CAAnimationDelegate
         
         if self.isFlipped
         {
-            if let view = self.negativeView
+            if let view = self.backView
             {
                 self.addSubview(view)
             }
             
-            self.positiveView?.removeFromSuperview()
+            self.frontView?.removeFromSuperview()
         }
         else
         {
-            if let view = self.positiveView
+            if let view = self.frontView
             {
                 self.addSubview(view)
             }
             
-            self.negativeView?.removeFromSuperview()
+            self.backView?.removeFromSuperview()
         }
     }
 }

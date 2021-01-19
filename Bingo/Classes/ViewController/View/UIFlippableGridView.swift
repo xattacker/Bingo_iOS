@@ -33,7 +33,7 @@ class UIFlippableGridView: UIFlippableView
         let back_frame = UIView()
         back_frame.backgroundColor = UIColor.gray
         
-        self.setupFlipView(back_frame, opposite: self.gridView)
+        self.setupFlipView(back_frame, back: self.gridView)
         
         self.backgroundColor = .gray
     }
