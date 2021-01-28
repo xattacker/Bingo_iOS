@@ -32,18 +32,12 @@ class BingoViewModel
 {
     var record: Driver<GradeRecord?>
     {
-        get
-        {
-            return self.recordSubject.asDriver(onErrorJustReturn: nil)
-        }
+        return self.recordSubject.asDriver(onErrorJustReturn: nil)
     }
     
     var status: Driver<GameStatus>
     {
-        get
-        {
-            return self.statusSubject.asDriver(onErrorJustReturn: .prepare)
-        }
+        return self.statusSubject.asDriver(onErrorJustReturn: .prepare)
     }
 
     private let recordSubject: BehaviorSubject<GradeRecord?> = BehaviorSubject(value: nil)
