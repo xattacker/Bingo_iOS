@@ -20,10 +20,7 @@ extension CountView
 {
     var maxCount: Int
     {
-        get
-        {
-            return 5
-        }
+        return 5
     }
     
     mutating func reset()
