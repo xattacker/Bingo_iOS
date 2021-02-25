@@ -120,17 +120,14 @@ extension BingoViewController
                 self?.playerCountView?.count = connected.count
             }
         }).disposed(by: self.disposeBag)
-        
-        self.viewModel?.onWon.drive(onNext: {
+
+        self.viewModel?.onWon.delay(.milliseconds(400)).drive(onNext: {
             [weak self]
             (winner: PlayerType) in
             
-            self?.delay(0.4) {
-                (mySelf: BingoViewController?) in
-                
-                let message = winner == .computer ? "YOU_LOSE" : "YOU_WIN"
-                mySelf?.showAlertController(AlertTitleType.notification, message: String.localizedString(message))
-            }
+            let message = winner == .computer ? "YOU_LOSE" : "YOU_WIN"
+            self?.showAlertController(AlertTitleType.notification, message: String.localizedString(message))
+            
         }).disposed(by: self.disposeBag)
     }
     
