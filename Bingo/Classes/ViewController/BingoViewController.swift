@@ -70,37 +70,11 @@ class BingoViewController: UIViewController
 }
 
 
-extension BingoViewController: BingoLogicDelegate
-{
-    func onLineConnected(turn: PlayerType, count: Int)
-    {
-        if turn == .computer
-        {
-            self.comCountView?.count = count
-        }
-        else
-        {
-            self.playerCountView?.count = count
-        }
-    }
-    
-    func onWon(winner: PlayerType)
-    {
-        self.delay(0.4) {
-            (mySelf: BingoViewController?) in
-            
-            let message = winner == .computer ? "YOU_LOSE" : "YOU_WIN"
-            mySelf?.showAlertController(AlertTitleType.notification, message: String.localizedString(message))
-        }
-    }  
-}
-
-
 extension BingoViewController
 {
     private func initViewModel()
     {
-        self.viewModel = BingoViewModel(delegate: self, dimension: GRID_DIMENSION)
+        self.viewModel = BingoViewModel(dimension: GRID_DIMENSION)
         
         // data binding
         self.viewModel?.record.map({
@@ -133,6 +107,31 @@ extension BingoViewController
                                     break
                           }
                       }).disposed(by: self.disposeBag)
+        
+        self.viewModel?.lineConnected.drive(onNext: {
+            [weak self]
+            (connected: (trun: PlayerType, count: Int)) in
+            if connected.trun == .computer
+            {
+                self?.comCountView?.count = connected.count
+            }
+            else
+            {
+                self?.playerCountView?.count = connected.count
+            }
+        }).disposed(by: self.disposeBag)
+        
+        self.viewModel?.onWon.drive(onNext: {
+            [weak self]
+            (winner: PlayerType) in
+            
+            self?.delay(0.4) {
+                (mySelf: BingoViewController?) in
+                
+                let message = winner == .computer ? "YOU_LOSE" : "YOU_WIN"
+                mySelf?.showAlertController(AlertTitleType.notification, message: String.localizedString(message))
+            }
+        }).disposed(by: self.disposeBag)
     }
     
     private func showHintAnimation()
