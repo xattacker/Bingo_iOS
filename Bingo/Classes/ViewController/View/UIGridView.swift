@@ -45,10 +45,7 @@ class UIGridView: UILabel, BingoGridView
     
     var clicked: Observable<BingoGridView>
     {
-        get
-        {
-            return self.clickedSubject.asObservable()
-        }
+        return self.clickedSubject.asObservable()
     }
     
     private var clickedSubject: PublishSubject<BingoGridView> = PublishSubject()
