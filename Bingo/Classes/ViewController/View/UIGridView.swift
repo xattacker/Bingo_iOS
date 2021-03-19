@@ -143,7 +143,7 @@ class UIGridView: UILabel, BingoGridView
     
     func initial()
     {
-        for i in 0 ... self.directions.count - 1
+        for i in 0 ..< self.directions.count
         {
             self.directions[i] = false
         }
