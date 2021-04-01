@@ -74,9 +74,9 @@ class BingoViewModel
             grid.clicked
                 .observeOn(MainScheduler.instance)
                 .subscribe(onNext: {
-                      [weak self]
-                      (grid: BingoGridView) in
-
+                       [weak self]
+                       (grid: BingoGridView) in
+ 
                         var temp = grid
                         self?.handleGridClick(&temp)
                     

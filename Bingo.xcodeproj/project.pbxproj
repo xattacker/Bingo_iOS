@@ -33,6 +33,7 @@
 		680DCD4724BD95A500525E17 /* UIGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 680DCD4624BD95A500525E17 /* UIGridView.swift */; };
 		680DCD4924BD95C300525E17 /* UICountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 680DCD4824BD95C300525E17 /* UICountView.swift */; };
 		681E029B2586F52500BDEF0F /* Gedatsu in Frameworks */ = {isa = PBXBuildFile; productRef = 681E029A2586F52500BDEF0F /* Gedatsu */; };
+		683869D62615BF37000F080E /* BingoUnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 683869D52615BF37000F080E /* BingoUnitTests.swift */; };
 		6839330F2581E76400A53C0C /* UIFlippableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6839330E2581E76400A53C0C /* UIFlippableView.swift */; };
 		683933132581E7CE00A53C0C /* UIFlippableGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 683933122581E7CE00A53C0C /* UIFlippableGridView.swift */; };
 		68393321258200E800A53C0C /* UIAnimatedCountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68393320258200E800A53C0C /* UIAnimatedCountView.swift */; };
@@ -44,6 +45,16 @@
 		68B36F44235D97D6005D0741 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 68B36F46235D97D6005D0741 /* Localizable.strings */; };
 		68B36F4F235D9D83005D0741 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 68B36F51235D9D83005D0741 /* InfoPlist.strings */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		683869D82615BF37000F080E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 65201C061DFEF62000921BB3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 65201C0D1DFEF62000921BB3;
+			remoteInfo = Bingo;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		6509FAD91E12BDD100B703E7 /* MovieSectionView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MovieSectionView.xib; sourceTree = "<group>"; };
@@ -76,6 +87,9 @@
 		680DCD4424BD94A600525E17 /* GradeRecorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradeRecorder.swift; sourceTree = "<group>"; };
 		680DCD4624BD95A500525E17 /* UIGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIGridView.swift; sourceTree = "<group>"; };
 		680DCD4824BD95C300525E17 /* UICountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICountView.swift; sourceTree = "<group>"; };
+		683869D32615BF37000F080E /* BingoUnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BingoUnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		683869D52615BF37000F080E /* BingoUnitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BingoUnitTests.swift; sourceTree = "<group>"; };
+		683869D72615BF37000F080E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6839330E2581E76400A53C0C /* UIFlippableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIFlippableView.swift; sourceTree = "<group>"; };
 		683933122581E7CE00A53C0C /* UIFlippableGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFlippableGridView.swift; sourceTree = "<group>"; };
 		68393320258200E800A53C0C /* UIAnimatedCountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIAnimatedCountView.swift; sourceTree = "<group>"; };
@@ -101,6 +115,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		683869D02615BF37000F080E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -116,6 +137,7 @@
 			isa = PBXGroup;
 			children = (
 				65201C101DFEF62000921BB3 /* Bingo */,
+				683869D42615BF37000F080E /* BingoUnitTests */,
 				65201C0F1DFEF62000921BB3 /* Products */,
 				6532442B1E003E1C004786E9 /* Frameworks */,
 			);
@@ -125,6 +147,7 @@
 			isa = PBXGroup;
 			children = (
 				65201C0E1DFEF62000921BB3 /* Bingo.app */,
+				683869D32615BF37000F080E /* BingoUnitTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -207,6 +230,15 @@
 			path = Logic;
 			sourceTree = "<group>";
 		};
+		683869D42615BF37000F080E /* BingoUnitTests */ = {
+			isa = PBXGroup;
+			children = (
+				683869D52615BF37000F080E /* BingoUnitTests.swift */,
+				683869D72615BF37000F080E /* Info.plist */,
+			);
+			path = BingoUnitTests;
+			sourceTree = "<group>";
+		};
 		6839330D2581E75300A53C0C /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -254,13 +286,31 @@
 			productReference = 65201C0E1DFEF62000921BB3 /* Bingo.app */;
 			productType = "com.apple.product-type.application";
 		};
+		683869D22615BF37000F080E /* BingoUnitTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 683869DC2615BF37000F080E /* Build configuration list for PBXNativeTarget "BingoUnitTests" */;
+			buildPhases = (
+				683869CF2615BF37000F080E /* Sources */,
+				683869D02615BF37000F080E /* Frameworks */,
+				683869D12615BF37000F080E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				683869D92615BF37000F080E /* PBXTargetDependency */,
+			);
+			name = BingoUnitTests;
+			productName = BingoUnitTests;
+			productReference = 683869D32615BF37000F080E /* BingoUnitTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		65201C061DFEF62000921BB3 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0810;
+				LastSwiftUpdateCheck = 1240;
 				LastUpgradeCheck = 1020;
 				ORGANIZATIONNAME = xattacker;
 				TargetAttributes = {
@@ -268,6 +318,10 @@
 						CreatedOnToolsVersion = 8.1;
 						LastSwiftMigration = 1020;
 						ProvisioningStyle = Manual;
+					};
+					683869D22615BF37000F080E = {
+						CreatedOnToolsVersion = 12.4;
+						TestTargetID = 65201C0D1DFEF62000921BB3;
 					};
 				};
 			};
@@ -290,6 +344,7 @@
 			projectRoot = "";
 			targets = (
 				65201C0D1DFEF62000921BB3 /* Bingo */,
+				683869D22615BF37000F080E /* BingoUnitTests */,
 			);
 		};
 /* End PBXProject section */
@@ -305,6 +360,13 @@
 				6509FADB1E12BDD100B703E7 /* MovieSectionView.xib in Resources */,
 				65201C1C1DFEF62100921BB3 /* Assets.xcassets in Resources */,
 				65201C171DFEF62100921BB3 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		683869D12615BF37000F080E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -344,7 +406,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		683869CF2615BF37000F080E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				683869D62615BF37000F080E /* BingoUnitTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		683869D92615BF37000F080E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 65201C0D1DFEF62000921BB3 /* Bingo */;
+			targetProxy = 683869D82615BF37000F080E /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		65201C151DFEF62100921BB3 /* Main.storyboard */ = {
@@ -541,6 +619,61 @@
 			};
 			name = Release;
 		};
+		683869DA2615BF37000F080E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = BingoUnitTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = xattacker.BingoUnitTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Bingo.app/Bingo";
+			};
+			name = Debug;
+		};
+		683869DB2615BF37000F080E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = BingoUnitTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = xattacker.BingoUnitTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Bingo.app/Bingo";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -558,6 +691,15 @@
 			buildConfigurations = (
 				65201C241DFEF62100921BB3 /* Debug */,
 				65201C251DFEF62100921BB3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		683869DC2615BF37000F080E /* Build configuration list for PBXNativeTarget "BingoUnitTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				683869DA2615BF37000F080E /* Debug */,
+				683869DB2615BF37000F080E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

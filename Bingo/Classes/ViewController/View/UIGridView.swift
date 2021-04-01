@@ -12,7 +12,7 @@ import RxSwift
 
 class UIGridView: UILabel, BingoGridView
 {
-    var type: PlayerType = PlayerType.computer
+    var type: PlayerType = PlayerType.none
     
     var value: Int = -1
     {

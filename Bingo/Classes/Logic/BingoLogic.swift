@@ -12,6 +12,7 @@ import Foundation
 enum PlayerType: Int
 {
     case none = -1
+    
     case computer = 0
     case player = 1
     
