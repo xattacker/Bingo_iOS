@@ -107,7 +107,7 @@ class BingoLogic
         return self.grids[type.rawValue].connection
     }
     
-    func fillNumber(_ type: PlayerType = PlayerType.computer)
+    func fillNumber(_ type: PlayerType)
     {
         let tag = type.rawValue
         let grid_length = self.dimension - 1

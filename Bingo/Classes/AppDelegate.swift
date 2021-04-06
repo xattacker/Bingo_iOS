@@ -27,9 +27,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate
         // to skip iCound backup
         self.addSkipBackupAttributeToItemAtPath(AppProperties.getAppDocPath())
         
-        #if DEBUG
+#if DEBUG
         Gedatsu.open()
-        #endif
+#endif
         
         return true
     }

@@ -99,7 +99,7 @@ class BingoViewModel
     
     private func startPlaying()
     {
-        self.logic?.fillNumber()
+        self.logic?.fillNumber(PlayerType.computer)
         self.statusSubject.onNext(GameStatus.playing)
     }
     
