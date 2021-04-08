@@ -15,8 +15,8 @@ protocol BingoGrid
     var value: Int { get set }
     var isSelected: Bool { get set }
     var isConnected: Bool { get set }
+  
+    subscript(direction: ConnectedDirection) -> Bool { get set }
     
     func initial()
-    func isLineConnected(direction: ConnectedDirection) -> Bool
-    func setConnectedLine(direction: ConnectedDirection, connected: Bool)
 }

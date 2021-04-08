@@ -94,25 +94,17 @@ extension UIFlippableGridView: BingoGridView
             self.gridView.isConnected = newValue
         }
     }
-    
-    func initial()
+
+    subscript(direction: ConnectedDirection) -> Bool
     {
-        self.gridView.initial()
-        
-        if self.isFlipped
+        get
         {
-            self.flip(false)
+            return self.gridView[direction]
         }
-    }
-    
-    func isLineConnected(direction: ConnectedDirection) -> Bool
-    {
-        self.gridView.isLineConnected(direction: direction)
-    }
-    
-    func setConnectedLine(direction: ConnectedDirection, connected: Bool)
-    {
-        self.gridView.setConnectedLine(direction: direction, connected: connected)
+        set
+        {
+            self.gridView[direction] = newValue
+        }
     }
 
     var locX: Int
@@ -141,9 +133,16 @@ extension UIFlippableGridView: BingoGridView
     
     var clicked: Observable<BingoGridView>
     {
-        get
+        return self.gridView.clicked
+    }
+    
+    func initial()
+    {
+        self.gridView.initial()
+        
+        if self.isFlipped
         {
-            return self.gridView.clicked
+            self.flip(false)
         }
     }
 }

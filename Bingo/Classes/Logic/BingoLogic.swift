@@ -214,7 +214,7 @@ extension BingoLogic
 
             while x >= 0 && x < self.dimension && y >= 0 && y < self.dimension && self.grids[self.turn.rawValue].grids[x][y].isSelected == true
             {
-                self.grids[self.turn.rawValue].grids[x][y].setConnectedLine(direction: direction, connected: true)
+                self.grids[self.turn.rawValue].grids[x][y][direction] = true
                 x = x + offset.x
                 y = y + offset.y
             }
@@ -224,7 +224,7 @@ extension BingoLogic
 
             while x >= 0 && x < self.dimension && y >= 0 && y < self.dimension && self.grids[self.turn.rawValue].grids[x][y].isSelected == true
             {
-                self.grids[self.turn.rawValue].grids[x][y].setConnectedLine(direction: direction, connected: true)
+                self.grids[self.turn.rawValue].grids[x][y][direction] = true
                 x = x - offset.x
                 y = y - offset.y
             }

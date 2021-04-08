@@ -138,6 +138,30 @@ class UIGridView: UILabel, BingoGridView
         self.clickedSubject.onNext(self)
     }
     
+    subscript(direction: ConnectedDirection) -> Bool
+    {
+        get
+        {
+            return self.directions[direction.rawValue]
+        }
+        set
+        {
+            self.directions[direction.rawValue] = newValue
+
+            if !newValue
+            {
+                self.isConnected = self.directions.first(
+                                        where: { (existed: Bool) -> Bool in
+                                        return existed
+                                    }) == true
+            }
+            else
+            {
+                self.isConnected = newValue
+            }
+        }
+    }
+    
     func initial()
     {
         for i in 0 ..< self.directions.count
@@ -148,28 +172,6 @@ class UIGridView: UILabel, BingoGridView
         self.isConnected = false
         self.isSelected = false
         self.value = 0
-    }
-    
-    func isLineConnected(direction: ConnectedDirection) -> Bool
-    {
-        return self.directions[direction.rawValue]
-    }
-    
-    func setConnectedLine(direction: ConnectedDirection, connected: Bool)
-    {
-        self.directions[direction.rawValue] = connected
-
-        if !connected
-        {
-            self.isConnected = self.directions.first(
-                                    where: { (existed: Bool) -> Bool in
-                                    return existed
-                                }) == true
-        }
-        else
-        {
-            self.isConnected = connected
-        }
     }
 }
 

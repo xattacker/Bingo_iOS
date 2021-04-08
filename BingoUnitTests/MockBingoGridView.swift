@@ -18,6 +18,46 @@ internal class MockBingoGridView: BingoGridView
     var value: Int = -1
     var isSelected: Bool = false
     var isConnected: Bool = false
+
+    var locX: Int = 0
+    var locY: Int = 0
+    
+    var clicked: Observable<BingoGridView>
+    {
+        return self.clickedSubject.asObservable()
+    }
+    
+    private var directions: [Bool] = [false, false, false, false]
+    private var clickedSubject: PublishSubject<BingoGridView> = PublishSubject()
+
+    subscript(direction: ConnectedDirection) -> Bool
+    {
+        get
+        {
+            return self.directions[direction.rawValue]
+        }
+        set
+        {
+            self.directions[direction.rawValue] = newValue
+
+            if !newValue
+            {
+                self.isConnected = self.directions.first(
+                                        where: { (existed: Bool) -> Bool in
+                                        return existed
+                                    }) == true
+            }
+            else
+            {
+                self.isConnected = newValue
+            }
+        }
+    }
+    
+    func click()
+    {
+        self.clickedSubject.onNext(self)
+    }
     
     func initial()
     {
@@ -30,42 +70,4 @@ internal class MockBingoGridView: BingoGridView
         self.isSelected = false
         self.value = 0
     }
-    
-    func isLineConnected(direction: ConnectedDirection) -> Bool
-    {
-        return self.directions[direction.rawValue]
-    }
-    
-    func setConnectedLine(direction: ConnectedDirection, connected: Bool)
-    {
-        self.directions[direction.rawValue] = connected
-
-        if !connected
-        {
-            self.isConnected = self.directions.first(
-                                    where: { (existed: Bool) -> Bool in
-                                    return existed
-                                }) == true
-        }
-        else
-        {
-            self.isConnected = connected
-        }
-    }
-    
-    var locX: Int = 0
-    var locY: Int = 0
-    
-    var clicked: Observable<BingoGridView>
-    {
-        return self.clickedSubject.asObservable()
-    }
-    
-    func click()
-    {
-        self.clickedSubject.onNext(self)
-    }
-    
-    private var directions: [Bool] = [false, false, false, false]
-    private var clickedSubject: PublishSubject<BingoGridView> = PublishSubject()
 }
