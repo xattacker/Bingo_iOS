@@ -72,7 +72,7 @@ class BingoViewModel
         if grid.type == PlayerType.player
         {
             grid.clicked
-                .observeOn(MainScheduler.instance)
+                .observe(on: MainScheduler.instance)
                 .subscribe(onNext: {
                        [weak self]
                        (grid: BingoGridView) in
