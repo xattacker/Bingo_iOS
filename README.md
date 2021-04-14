@@ -6,3 +6,4 @@ android version project:
 
 screen cut:<br>
 <img src="/rm_res/screen_cut.png" alt="screen cut" width="50%" height="50%" align="bottom" />
+dfgdgdg
