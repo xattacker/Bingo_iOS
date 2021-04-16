@@ -417,17 +417,17 @@ extension String /// File related
         return url
     }
 
-    public var pathExtension: String?
+    public var pathExtension: String
     {
         return URL(fileURLWithPath: self).pathExtension
     }
     
-    public var lastPathComponent: String?
+    public var lastPathComponent: String
     {
         return URL(fileURLWithPath: self).lastPathComponent
     }
     
-    public func stringByAppendingPathComponent(_ pathComponent: String) -> String?
+    public func stringByAppendingPathComponent(_ pathComponent: String) -> String
     {
         return URL(fileURLWithPath: self).appendingPathComponent(pathComponent).path
     }
