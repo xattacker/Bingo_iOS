@@ -42,9 +42,10 @@
 		6861D74E261C0DCA007E1165 /* MockBingoGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6861D74D261C0DCA007E1165 /* MockBingoGridView.swift */; };
 		688049EA2508CE310095BD72 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 688049E92508CE310095BD72 /* RxSwift */; };
 		688049EC2508CE310095BD72 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 688049EB2508CE310095BD72 /* RxCocoa */; };
+		689C401A2629723100A9B78E /* RxBlocking in Frameworks */ = {isa = PBXBuildFile; productRef = 689C40192629723100A9B78E /* RxBlocking */; };
+		689C401C2629723500A9B78E /* RxTest in Frameworks */ = {isa = PBXBuildFile; productRef = 689C401B2629723500A9B78E /* RxTest */; };
+		689C401D2629723B00A9B78E /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 68A394AB261C246500B93E3F /* XCTest.framework */; };
 		689E1ABC24C1A85700694094 /* UIExtendedStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 689E1ABB24C1A85700694094 /* UIExtendedStackView.swift */; };
-		68A394A6261C240200B93E3F /* RxTest in Frameworks */ = {isa = PBXBuildFile; productRef = 68A394A5261C240200B93E3F /* RxTest */; };
-		68A394AC261C246500B93E3F /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 68A394AB261C246500B93E3F /* XCTest.framework */; };
 		68B36F44235D97D6005D0741 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 68B36F46235D97D6005D0741 /* Localizable.strings */; };
 		68B36F4F235D9D83005D0741 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 68B36F51235D9D83005D0741 /* InfoPlist.strings */; };
 		68E3ABD8261C364D0098EF1E /* BingoLogicUnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68E3ABD7261C364D0098EF1E /* BingoLogicUnitTests.swift */; };
@@ -115,8 +116,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				68A394AC261C246500B93E3F /* XCTest.framework in Frameworks */,
-				68A394A6261C240200B93E3F /* RxTest in Frameworks */,
 				681E029B2586F52500BDEF0F /* Gedatsu in Frameworks */,
 				688049EC2508CE310095BD72 /* RxCocoa in Frameworks */,
 				688049EA2508CE310095BD72 /* RxSwift in Frameworks */,
@@ -128,6 +127,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				689C401D2629723B00A9B78E /* XCTest.framework in Frameworks */,
+				689C401C2629723500A9B78E /* RxTest in Frameworks */,
+				689C401A2629723100A9B78E /* RxBlocking in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -293,7 +295,6 @@
 				688049E92508CE310095BD72 /* RxSwift */,
 				688049EB2508CE310095BD72 /* RxCocoa */,
 				681E029A2586F52500BDEF0F /* Gedatsu */,
-				68A394A5261C240200B93E3F /* RxTest */,
 			);
 			productName = HeChun;
 			productReference = 65201C0E1DFEF62000921BB3 /* Bingo.app */;
@@ -313,6 +314,10 @@
 				683869D92615BF37000F080E /* PBXTargetDependency */,
 			);
 			name = BingoUnitTests;
+			packageProductDependencies = (
+				689C40192629723100A9B78E /* RxBlocking */,
+				689C401B2629723500A9B78E /* RxTest */,
+			);
 			productName = BingoUnitTests;
 			productReference = 683869D32615BF37000F080E /* BingoUnitTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -644,6 +649,7 @@
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CODE_SIGN_STYLE = Automatic;
+				DISABLE_DIAMOND_PROBLEM_DIAGNOSTIC = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = BingoUnitTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
@@ -672,6 +678,7 @@
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CODE_SIGN_STYLE = Automatic;
+				DISABLE_DIAMOND_PROBLEM_DIAGNOSTIC = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = BingoUnitTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
@@ -756,7 +763,12 @@
 			package = 688049E82508CE310095BD72 /* XCRemoteSwiftPackageReference "RxSwift" */;
 			productName = RxCocoa;
 		};
-		68A394A5261C240200B93E3F /* RxTest */ = {
+		689C40192629723100A9B78E /* RxBlocking */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 688049E82508CE310095BD72 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxBlocking;
+		};
+		689C401B2629723500A9B78E /* RxTest */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 688049E82508CE310095BD72 /* XCRemoteSwiftPackageReference "RxSwift" */;
 			productName = RxTest;
