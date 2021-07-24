@@ -92,14 +92,11 @@ class UIAnimatedCountView: UIView, CountView
                     for line in layers
                     {
                         //line.removeFromSuperlayer()
-                        line.animateStrokeEnd(0, to: 0)
+                        line.animateStrokeEnd(0, to: 0, animated: false)
                        // self.layer.addSublayer(line)
                     }
                     
-                    self?.delay(0.5) {
-                        (mySelf: UIAnimatedCountView?) in
-                        mySelf?.alpha = 1
-                    }
+                    self?.alpha = 1
                 }
             })
     }
@@ -175,9 +172,14 @@ class UIAnimatedCountView: UIView, CountView
 // MARK:- CAShapeLayer Stroke animation
 internal extension CAShapeLayer
 {
-    func animateStrokeEnd(_ from: CGFloat, to: CGFloat)
+    func animateStrokeEnd(_ from: CGFloat, to: CGFloat, animated: Bool = true)
     {
+        CATransaction.begin()
+        CATransaction.setDisableActions(!animated)
+        
         self.strokeEnd = from
         self.strokeEnd = to
+        
+        CATransaction.commit()
     }
 }
