@@ -28,17 +28,8 @@ class UIAnimatedCountView: UIView, CountView
             }
             else
             {
-                for (i, line) in self.lineLayers.enumerated()
-                {
-                    if i < self.count
-                    {
-                        line.animateStrokeEnd(0, to: 1)
-                    }
-                    else
-                    {
-                        line.animateStrokeEnd(1, to: 0)
-                    }
-                }
+                let line = self.lineLayers[self.count - 1]
+                line.animateStrokeEnd(0, to: 1)
             }
         }
     }
@@ -47,10 +38,7 @@ class UIAnimatedCountView: UIView, CountView
     {
         didSet
         {
-            for line in self.lineLayers
-            {
-                line.strokeColor = self.countColor.cgColor
-            }
+            self.lineLayers.forEach { $0.strokeColor = self.countColor.cgColor }
         }
     }
     
@@ -79,7 +67,6 @@ class UIAnimatedCountView: UIView, CountView
             animations:
             {
                 [weak self] in
-
                 self?.alpha = 0
             },
             completion:
@@ -91,9 +78,7 @@ class UIAnimatedCountView: UIView, CountView
                 {
                     for line in layers
                     {
-                        //line.removeFromSuperlayer()
                         line.animateStrokeEnd(0, to: 0, animated: false)
-                       // self.layer.addSublayer(line)
                     }
                     
                     self?.alpha = 1
