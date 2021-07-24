@@ -73,16 +73,8 @@ class UIAnimatedCountView: UIView, CountView
             {
                 [weak self]
                 (finished: Bool) in
-
-                if let layers = self?.lineLayers
-                {
-                    for line in layers
-                    {
-                        line.animateStrokeEnd(0, to: 0, animated: false)
-                    }
-                    
-                    self?.alpha = 1
-                }
+                self?.lineLayers.forEach { $0.animateStrokeEnd(0, to: 0, animated: false) }
+                self?.alpha = 1
             })
     }
     
