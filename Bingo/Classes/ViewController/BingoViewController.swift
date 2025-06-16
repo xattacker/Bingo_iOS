@@ -108,10 +108,10 @@ extension BingoViewController
                           }
                       }).disposed(by: self.disposeBag)
         
-        self.viewModel?.lineConnected.drive(onNext: {
+        self.viewModel?.lineConnected.drive(onNext:{
             [weak self]
-            (connected: (trun: PlayerType, count: Int)) in
-            if connected.trun == .computer
+            (connected: (turn: PlayerType, count: Int)) in
+            if connected.turn == .computer
             {
                 self?.comCountView?.count = connected.count
             }

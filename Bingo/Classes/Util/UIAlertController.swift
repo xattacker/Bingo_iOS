@@ -68,7 +68,7 @@ public enum AlertButtonType
 }
 
 
-public protocol UIAlertControllerAppearance: class
+public protocol UIAlertControllerAppearance: AnyObject
 {
     func onAlertControllerCreated(alertCtrl: UIAlertController)
 }

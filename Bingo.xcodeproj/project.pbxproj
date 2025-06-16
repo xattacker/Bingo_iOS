@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 52;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -32,7 +32,6 @@
 		680DCD4524BD94A600525E17 /* GradeRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 680DCD4424BD94A600525E17 /* GradeRecorder.swift */; };
 		680DCD4724BD95A500525E17 /* UIGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 680DCD4624BD95A500525E17 /* UIGridView.swift */; };
 		680DCD4924BD95C300525E17 /* UICountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 680DCD4824BD95C300525E17 /* UICountView.swift */; };
-		681E029B2586F52500BDEF0F /* Gedatsu in Frameworks */ = {isa = PBXBuildFile; productRef = 681E029A2586F52500BDEF0F /* Gedatsu */; };
 		683869D62615BF37000F080E /* BingoViewModelUnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 683869D52615BF37000F080E /* BingoViewModelUnitTests.swift */; };
 		6839330F2581E76400A53C0C /* UIFlippableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6839330E2581E76400A53C0C /* UIFlippableView.swift */; };
 		683933132581E7CE00A53C0C /* UIFlippableGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 683933122581E7CE00A53C0C /* UIFlippableGridView.swift */; };
@@ -116,7 +115,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				681E029B2586F52500BDEF0F /* Gedatsu in Frameworks */,
 				688049EC2508CE310095BD72 /* RxCocoa in Frameworks */,
 				688049EA2508CE310095BD72 /* RxSwift in Frameworks */,
 				65A824DC1E01A61B00A94D77 /* CoreFoundation.framework in Frameworks */,
@@ -294,7 +292,6 @@
 			packageProductDependencies = (
 				688049E92508CE310095BD72 /* RxSwift */,
 				688049EB2508CE310095BD72 /* RxCocoa */,
-				681E029A2586F52500BDEF0F /* Gedatsu */,
 			);
 			productName = HeChun;
 			productReference = 65201C0E1DFEF62000921BB3 /* Bingo.app */;
@@ -355,7 +352,6 @@
 			mainGroup = 65201C051DFEF62000921BB3;
 			packageReferences = (
 				688049E82508CE310095BD72 /* XCRemoteSwiftPackageReference "RxSwift" */,
-				681E02992586F52500BDEF0F /* XCRemoteSwiftPackageReference "Gedatsu" */,
 			);
 			productRefGroup = 65201C0F1DFEF62000921BB3 /* Products */;
 			projectDirPath = "";
@@ -532,7 +528,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -586,7 +582,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
@@ -729,14 +725,6 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		681E02992586F52500BDEF0F /* XCRemoteSwiftPackageReference "Gedatsu" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/bannzai/Gedatsu";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.2.0;
-			};
-		};
 		688049E82508CE310095BD72 /* XCRemoteSwiftPackageReference "RxSwift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/ReactiveX/RxSwift";
@@ -748,11 +736,6 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		681E029A2586F52500BDEF0F /* Gedatsu */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 681E02992586F52500BDEF0F /* XCRemoteSwiftPackageReference "Gedatsu" */;
-			productName = Gedatsu;
-		};
 		688049E92508CE310095BD72 /* RxSwift */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 688049E82508CE310095BD72 /* XCRemoteSwiftPackageReference "RxSwift" */;

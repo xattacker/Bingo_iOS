@@ -18,8 +18,8 @@ protocol GradeRecord
 
 struct GradeRecorder : GradeRecord
 {
-    private (set) var winCount: Int = 0
-    private (set) var loseCount: Int = 0
+    private(set) var winCount: Int = 0
+    private(set) var loseCount: Int = 0
     
     init()
     {

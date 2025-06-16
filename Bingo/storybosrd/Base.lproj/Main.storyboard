@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23727" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23721"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -20,13 +20,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="version" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Gq-ns-4Tv">
-                                <rect key="frame" x="331" y="649.5" width="41" height="14.5"/>
+                                <rect key="frame" x="328" y="646.5" width="41" height="14.5"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="record" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CZH-je-OuZ">
-                                <rect key="frame" x="8" y="8" width="359" height="24"/>
+                                <rect key="frame" x="8" y="28" width="359" height="24"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="24" id="Rda-82-JOW"/>
                                 </constraints>
@@ -35,13 +35,13 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="ERm-LE-HAw" userLabel="Name Stack View">
-                                <rect key="frame" x="6" y="92" width="48" height="483"/>
+                                <rect key="frame" x="6" y="112" width="48" height="443"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yOM-oT-ftt">
-                                        <rect key="frame" x="0.0" y="0.0" width="48" height="241.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="48" height="221.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="OPPONENT" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wYg-0k-dXL">
-                                                <rect key="frame" x="0.0" y="97" width="48" height="48"/>
+                                                <rect key="frame" x="0.0" y="87" width="48" height="48"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" secondItem="wYg-0k-dXL" secondAttribute="width" multiplier="1:1" id="OGa-kz-pOi"/>
                                                 </constraints>
@@ -50,7 +50,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2QI-Zi-jIY" customClass="UIAnimatedCountView" customModule="Bingo" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="145" width="48" height="48"/>
+                                                <rect key="frame" x="0.0" y="135" width="48" height="48"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" secondItem="2QI-Zi-jIY" secondAttribute="width" multiplier="1:1" id="Uhe-gU-Zfc"/>
@@ -73,10 +73,10 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xDI-Ml-XjY">
-                                        <rect key="frame" x="0.0" y="241.5" width="48" height="241.5"/>
+                                        <rect key="frame" x="0.0" y="221.5" width="48" height="221.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PLAYER" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FoA-cc-dgW">
-                                                <rect key="frame" x="0.0" y="97" width="48" height="48"/>
+                                                <rect key="frame" x="0.0" y="87" width="48" height="48"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" secondItem="FoA-cc-dgW" secondAttribute="width" multiplier="1:1" id="Nhi-nf-PUA"/>
                                                 </constraints>
@@ -85,7 +85,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="i5q-7a-DFs" customClass="UIAnimatedCountView" customModule="Bingo" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="145" width="48" height="48"/>
+                                                <rect key="frame" x="0.0" y="135" width="48" height="48"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" secondItem="i5q-7a-DFs" secondAttribute="width" multiplier="1:1" id="qbq-UP-4hn"/>
@@ -110,13 +110,13 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="NLh-TH-DbW" userLabel="Grid Stack View">
-                                <rect key="frame" x="60" y="92" width="255" height="483"/>
+                                <rect key="frame" x="60" y="112" width="255" height="443"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="zV0-tW-zAi">
-                                        <rect key="frame" x="0.0" y="0.0" width="255" height="231.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="255" height="211.5"/>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="f2D-oM-I0w" customClass="UIExtendedStackView" customModule="Bingo" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="251.5" width="255" height="231.5"/>
+                                        <rect key="frame" x="0.0" y="231.5" width="255" height="211.5"/>
                                     </stackView>
                                 </subviews>
                                 <constraints>
@@ -125,7 +125,7 @@
                                 </constraints>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="p4Z-i4-5pX" userLabel="Button Stack View">
-                                <rect key="frame" x="44.5" y="591" width="286" height="33"/>
+                                <rect key="frame" x="44.5" y="571" width="286" height="33"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tgw-72-Ffe">
                                         <rect key="frame" x="0.0" y="0.0" width="135" height="33"/>
@@ -182,10 +182,10 @@
                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="p4Z-i4-5pX" secondAttribute="trailing" constant="8" id="Dlb-IY-B77"/>
                             <constraint firstItem="NLh-TH-DbW" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.68" id="G1s-ru-Cuk"/>
                             <constraint firstItem="ERm-LE-HAw" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="6" id="IQ3-6j-OoA"/>
-                            <constraint firstAttribute="trailing" secondItem="0Gq-ns-4Tv" secondAttribute="trailing" constant="3" id="MFb-oy-Bej"/>
+                            <constraint firstAttribute="trailing" secondItem="0Gq-ns-4Tv" secondAttribute="trailing" constant="6" id="MFb-oy-Bej"/>
                             <constraint firstItem="ERm-LE-HAw" firstAttribute="top" secondItem="NLh-TH-DbW" secondAttribute="top" id="Pq0-Hs-wCh"/>
                             <constraint firstItem="p4Z-i4-5pX" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="8" id="QMd-Q4-tIf"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="0Gq-ns-4Tv" secondAttribute="bottom" constant="3" id="UYQ-vu-lvZ"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="0Gq-ns-4Tv" secondAttribute="bottom" constant="6" id="UYQ-vu-lvZ"/>
                             <constraint firstItem="NLh-TH-DbW" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="WfI-hY-Zhg"/>
                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="NLh-TH-DbW" secondAttribute="trailing" constant="8" id="lrb-oA-YDq"/>
                             <constraint firstItem="CZH-je-OuZ" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="peC-kW-o5l"/>

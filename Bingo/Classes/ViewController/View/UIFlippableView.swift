@@ -10,7 +10,7 @@
 import UIKit
 
 
-public protocol UIFlippableViewDelegate: class
+public protocol UIFlippableViewDelegate: AnyObject
 {
     func onFlipStarted(flipped: UIFlippableView)
     func onFlipEnded(flipped: UIFlippableView)

@@ -9,7 +9,7 @@
 import Foundation
 
 
-protocol BingoLogicDelegate: class
+protocol BingoLogicDelegate: AnyObject
 {
     func onLineConnected(turn: PlayerType, count: Int)
     func onWon(winner: PlayerType)
