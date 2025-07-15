@@ -81,7 +81,7 @@ class UIGridView: UILabel, BingoGridView
         
         
         context.setStrokeColor(UIColor(hexString: "#400000FF").cgColor)
-        context.setLineWidth(1.5)
+        context.setLineWidth(1.6)
         
         for (index, connected) in self.directions.enumerated()
         {
