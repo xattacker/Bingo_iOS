@@ -139,7 +139,7 @@ extension UIGridView
         self.layerCornerRadius = 0
         
         self.directionLayer.strokeColor = UIColor(hexString: "#400000FF").cgColor
-        self.directionLayer.lineWidth = 1.6
+        self.directionLayer.lineWidth = 2.4
         self.directionLayer.fillColor = nil
         self.directionLayer.lineCap = .round
         self.layer.addSublayer(self.directionLayer)
@@ -177,7 +177,7 @@ extension UIGridView
         let path = UIBezierPath()
         let w = self.bounds.width
         let h = self.bounds.height
-        let offset: CGFloat = w / 15
+        let offset: CGFloat = 2.5//w / 15
         
         for (index, connected) in directions.enumerated()
         {
