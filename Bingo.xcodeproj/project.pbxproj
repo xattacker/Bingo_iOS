@@ -204,9 +204,8 @@
 			isa = PBXGroup;
 			children = (
 				6839330D2581E75300A53C0C /* View */,
+				C5FE6BAF2E28ACC100D95529 /* ViewModel */,
 				680DCD2224BD45EB00525E17 /* BingoViewController.swift */,
-				684855E924CEC3C500B630FE /* BingoViewModel.swift */,
-				680DCD4424BD94A600525E17 /* GradeRecorder.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -222,7 +221,6 @@
 				680DCD2724BD46D900525E17 /* AppUtility.swift */,
 				680DCD2824BD46DA00525E17 /* NSObject.swift */,
 				680DCD2924BD46DA00525E17 /* String.swift */,
-				689E1ABB24C1A85700694094 /* UIExtendedStackView.swift */,
 				680DCD2E24BD471D00525E17 /* UIAlertController.swift */,
 				680DCD2D24BD471D00525E17 /* UIApplication.swift */,
 			);
@@ -260,6 +258,7 @@
 				6839332325820F6F00A53C0C /* CountView.swift */,
 				680DCD4824BD95C300525E17 /* UICountView.swift */,
 				68393320258200E800A53C0C /* UIAnimatedCountView.swift */,
+				689E1ABB24C1A85700694094 /* UIExtendedStackView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -271,6 +270,15 @@
 				65201C151DFEF62100921BB3 /* Main.storyboard */,
 			);
 			path = storybosrd;
+			sourceTree = "<group>";
+		};
+		C5FE6BAF2E28ACC100D95529 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				684855E924CEC3C500B630FE /* BingoViewModel.swift */,
+				680DCD4424BD94A600525E17 /* GradeRecorder.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
