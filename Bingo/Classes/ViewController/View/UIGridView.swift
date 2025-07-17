@@ -141,7 +141,7 @@ extension UIGridView
         self.directionLayer.strokeColor = UIColor(hexString: "#400000FF").cgColor
         self.directionLayer.lineWidth = 2.4
         self.directionLayer.fillColor = nil
-        self.directionLayer.lineCap = .round
+        self.directionLayer.lineCap = .square
         self.layer.addSublayer(self.directionLayer)
     }
     
@@ -177,7 +177,8 @@ extension UIGridView
         let path = UIBezierPath()
         let w = self.bounds.width
         let h = self.bounds.height
-        let offset: CGFloat = 2.5//w / 15
+        let offset: CGFloat = 1.8
+        let angle_offset: CGFloat = 2.2
         
         for (index, connected) in directions.enumerated()
         {
@@ -190,12 +191,12 @@ extension UIGridView
             switch dir
             {
                 case .leftTop_rightBottom:
-                    path.move(to: CGPoint(x: -offset, y: -offset))
-                    path.addLine(to: CGPoint(x: w + offset, y: h + offset))
+                    path.move(to: CGPoint(x: -angle_offset, y: -angle_offset))
+                    path.addLine(to: CGPoint(x: w + angle_offset, y: h + angle_offset))
                     
                 case .rightTop_leftBottom:
-                    path.move(to: CGPoint(x: w + offset, y: -offset))
-                    path.addLine(to: CGPoint(x: -offset, y: h + offset))
+                    path.move(to: CGPoint(x: w + angle_offset, y: -angle_offset))
+                    path.addLine(to: CGPoint(x: -angle_offset, y: h + angle_offset))
                     
                 case .horizontal:
                     path.move(to: CGPoint(x: -offset, y: h / 2))
