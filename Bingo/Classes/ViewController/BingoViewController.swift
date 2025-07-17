@@ -167,6 +167,8 @@ extension BingoViewController
             sub.removeFromSuperview()
         }
         
+        gridLayout.clipsToBounds = true // aviod GridView's connection line out of frame
+        
         for i in 0 ... GRID_DIMENSION - 1
         {
             let row_layout = UIStackView()

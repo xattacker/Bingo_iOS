@@ -10,7 +10,7 @@ import UIKit
 import RxSwift
 
 
-class UIGridView: UILabel, BingoGridView
+final class UIGridView: UILabel, BingoGridView
 {
     var type: PlayerType = PlayerType.none
     
@@ -49,7 +49,9 @@ class UIGridView: UILabel, BingoGridView
     }
     
     private var clickedSubject: PublishSubject<BingoGridView> = PublishSubject()
+    
     private var directions: [Bool] = [false, false, false, false]
+    private var directionLayer = CAShapeLayer()
     
     override init(frame: CGRect)
     {
@@ -65,69 +67,14 @@ class UIGridView: UILabel, BingoGridView
         self.initView()
     }
     
-    public override func draw(_ rect: CGRect)
+    public override func layoutSubviews()
     {
-        super.draw(rect)
+        super.layoutSubviews()
         
-        if !self.isConnected
-        {
-            return
-        }
-        
-        guard let context = UIGraphicsGetCurrentContext() else
-        {
-            return
-        }
-        
-        
-        context.setStrokeColor(UIColor(hexString: "#400000FF").cgColor)
-        context.setLineWidth(1.6)
-        
-        for (index, connected) in self.directions.enumerated()
-        {
-            if connected, let dir = ConnectedDirection(rawValue: index)
-            {
-                switch dir
-                {
-                    case .leftTop_rightBottom:
-                        context.beginPath()
-                        context.move(to: CGPoint.zero)
-                        context.addLine(to: CGPoint(x: self.frame.size.width, y: self.frame.size.height))
-                        context.closePath()
-                        context.drawPath(using: CGPathDrawingMode.stroke)
-                        break
-                        
-                    case .rightTop_leftBottom:
-                        context.beginPath()
-                        context.move(to: CGPoint(x: self.frame.size.width, y: 0))
-                        context.addLine(to: CGPoint(x: 0, y: self.frame.size.height))
-                        context.closePath()
-                        context.drawPath(using: CGPathDrawingMode.stroke)
-                        break
-                    
-                    case .horizontal:
-                        context.beginPath()
-                        context.move(to: CGPoint(x: 0, y: self.frame.size.height/2))
-                        context.addLine(to: CGPoint(x: self.frame.size.width, y: self.frame.size.height/2))
-                        context.closePath()
-                        context.drawPath(using: CGPathDrawingMode.stroke)
-                        break
-                    
-                    case .vertical:
-                        context.beginPath()
-                        context.move(to: CGPoint(x: self.frame.size.width/2, y: 0))
-                        context.addLine(to: CGPoint(x: self.frame.size.width/2, y: self.frame.size.height))
-                        context.closePath()
-                        context.drawPath(using: CGPathDrawingMode.stroke)
-                        break
-                        
-                    default:
-                        break
-                }
-            }
-        }
+        self.directionLayer.frame = self.bounds
+        self.updateDirLayerPath()
     }
-    
+
     public override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?)
     {
         guard let _ = touches.first else
@@ -159,6 +106,8 @@ class UIGridView: UILabel, BingoGridView
             {
                 self.isConnected = newValue
             }
+            
+            self.updateDirLayerPath()
         }
     }
     
@@ -188,6 +137,12 @@ extension UIGridView
         self.layerBorderColor = UIColor.darkGray
         self.layerBorderWidth = 1
         self.layerCornerRadius = 0
+        
+        self.directionLayer.strokeColor = UIColor(hexString: "#400000FF").cgColor
+        self.directionLayer.lineWidth = 1.6
+        self.directionLayer.fillColor = nil
+        self.directionLayer.lineCap = .round
+        self.layer.addSublayer(self.directionLayer)
     }
     
     private func updateBackgroundColor()
@@ -215,5 +170,46 @@ extension UIGridView
 
             self.backgroundColor = .gray
         }
+    }
+    
+    private func updateDirLayerPath()
+    {
+        let path = UIBezierPath()
+        let w = self.bounds.width
+        let h = self.bounds.height
+        let offset: CGFloat = w / 15
+        
+        for (index, connected) in directions.enumerated()
+        {
+            guard connected, let dir = ConnectedDirection(rawValue: index) else
+            {
+                continue
+            }
+            
+            
+            switch dir
+            {
+                case .leftTop_rightBottom:
+                    path.move(to: CGPoint(x: -offset, y: -offset))
+                    path.addLine(to: CGPoint(x: w + offset, y: h + offset))
+                    
+                case .rightTop_leftBottom:
+                    path.move(to: CGPoint(x: w + offset, y: -offset))
+                    path.addLine(to: CGPoint(x: -offset, y: h + offset))
+                    
+                case .horizontal:
+                    path.move(to: CGPoint(x: -offset, y: h / 2))
+                    path.addLine(to: CGPoint(x: w + offset, y: h / 2))
+                    
+                case .vertical:
+                    path.move(to: CGPoint(x: w / 2, y: -offset))
+                    path.addLine(to: CGPoint(x: w / 2, y: h + offset))
+                    
+                default:
+                    break
+            }
+        }
+        
+        self.directionLayer.path = path.cgPath
     }
 }
